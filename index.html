@@ -1,120 +1,205 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Privacy Policy — Lingua Sacra</title>
-  <style>
-    :root {
-      --ink: #1a1a2e;
-      --gold: #c9a84c;
-      --parchment: #f5f0e8;
-      --text: #2c2c2c;
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: Georgia, 'Times New Roman', serif;
-      background: var(--parchment);
-      color: var(--text);
-      line-height: 1.7;
-    }
-    .container {
-      max-width: 680px;
-      margin: 0 auto;
-      padding: 48px 24px;
-    }
-    .header {
-      text-align: center;
-      margin-bottom: 40px;
-      padding-bottom: 24px;
-      border-bottom: 2px solid var(--gold);
-    }
-    .header h1 {
-      font-size: 28px;
-      color: var(--ink);
-      letter-spacing: 2px;
-      margin-bottom: 8px;
-    }
-    .header .app-name {
-      font-size: 14px;
-      color: var(--gold);
-      text-transform: uppercase;
-      letter-spacing: 4px;
-    }
-    .header .effective {
-      font-size: 13px;
-      color: #888;
-      margin-top: 12px;
-    }
-    .badge {
-      display: inline-block;
-      background: var(--ink);
-      color: var(--gold);
-      padding: 6px 16px;
-      border-radius: 20px;
-      font-size: 13px;
-      margin-top: 16px;
-      letter-spacing: 1px;
-    }
-    h2 {
-      font-size: 20px;
-      color: var(--ink);
-      margin-top: 32px;
-      margin-bottom: 12px;
-    }
-    p {
-      margin-bottom: 16px;
-      font-size: 16px;
-    }
-    strong { color: var(--ink); }
-    a { color: var(--gold); }
-    .footer {
-      text-align: center;
-      margin-top: 48px;
-      padding-top: 24px;
-      border-top: 2px solid var(--gold);
-      font-size: 13px;
-      color: #888;
-      letter-spacing: 2px;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lingua Sacra — Learn Ecclesiastical Latin</title>
+<meta name="description" content="Lingua Sacra is a beautiful app for learning Ecclesiastical Latin — the sacred language of the Catholic Church. Flashcards, prayers, quizzes, and spaced repetition.">
+<meta name="theme-color" content="#080D1C">
+<meta property="og:title" content="Lingua Sacra — Learn Ecclesiastical Latin">
+<meta property="og:description" content="A beautiful app for learning Church Latin through flashcards, prayers, quizzes and spaced repetition.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'EB Garamond','Baskerville',Georgia,serif;background:#080D1C;color:#F0DDB8;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
+:root{--navy:#080D1C;--navy-mid:#0E1E3E;--navy-light:#1A3260;--gold:#D4A843;--gold-light:#ECC060;--gold-dim:rgba(212,168,67,0.4);--gold-glow:rgba(212,168,67,0.12);--parchment:#F0DDB8;--parchment-mid:#D4BF98;--stone:#8A7E6A;--crimson:#8B2030}
+body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:9999}
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .9s cubic-bezier(.23,1,.32,1),transform .9s cubic-bezier(.23,1,.32,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.15s}.reveal-delay-2{transition-delay:.3s}.reveal-delay-3{transition-delay:.45s}.reveal-delay-4{transition-delay:.6s}
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1.2rem 2rem;display:flex;justify-content:space-between;align-items:center;transition:background .4s,box-shadow .4s,padding .4s}
+nav.scrolled{background:rgba(8,13,28,0.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:0 1px 0 var(--gold-dim);padding:.8rem 2rem}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:1.4rem;color:var(--gold);letter-spacing:.08em}
+.nav-links{display:flex;gap:2rem;align-items:center}
+.nav-links a{font-size:.95rem;color:var(--stone);letter-spacing:.06em;transition:color .3s;font-weight:500}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{background:var(--gold)!important;color:var(--navy)!important;padding:.5rem 1.4rem;border-radius:6px;font-weight:700!important;font-size:.9rem!important;transition:transform .2s,box-shadow .3s!important}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 4px 20px var(--gold-dim)}
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:6rem 2rem 4rem;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(ellipse at 50% 40%,rgba(26,50,96,0.35) 0%,transparent 60%),radial-gradient(ellipse at 30% 70%,rgba(139,32,48,0.08) 0%,transparent 50%);animation:heroGlow 12s ease-in-out infinite alternate}
+@keyframes heroGlow{0%{transform:translate(0,0) scale(1)}100%{transform:translate(2%,-3%) scale(1.05)}}
+.hero-cross{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);opacity:.04;pointer-events:none;font-size:320px;color:var(--gold)}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;padding:.4rem 1.2rem;border:1px solid var(--gold-dim);border-radius:100px;font-size:.85rem;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;margin-bottom:2rem;position:relative;z-index:2}
+.hero-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.8)}}
+.hero h1{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(3.2rem,8vw,7rem);line-height:1.05;color:var(--parchment);margin-bottom:.3em;position:relative;z-index:2}
+.hero h1 em{font-style:italic;color:var(--gold);font-weight:400}
+.hero-sub{font-size:clamp(1.1rem,2.5vw,1.4rem);color:var(--stone);max-width:540px;line-height:1.65;margin-bottom:2.5rem;position:relative;z-index:2}
+.hero-buttons{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;position:relative;z-index:2}
+.btn-primary{display:inline-flex;align-items:center;gap:.6rem;background:var(--gold);color:var(--navy);padding:.9rem 2rem;border-radius:8px;font-weight:700;font-size:1.05rem;transition:transform .2s,box-shadow .3s;letter-spacing:.02em}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px var(--gold-dim)}
+.btn-primary svg{width:20px;height:20px}
+.btn-secondary{display:inline-flex;align-items:center;gap:.6rem;border:1.5px solid var(--gold-dim);color:var(--parchment);padding:.9rem 2rem;border-radius:8px;font-weight:600;font-size:1.05rem;transition:border-color .3s,background .3s}
+.btn-secondary:hover{border-color:var(--gold);background:var(--gold-glow)}
+.btn-secondary svg{width:20px;height:20px}
+.hero-latin{margin-top:4rem;font-style:italic;color:var(--stone);font-size:1.05rem;letter-spacing:.08em;position:relative;z-index:2;opacity:.7}
+.divider{width:100%;height:1px;background:linear-gradient(90deg,transparent,var(--gold-dim),transparent)}
+.features{padding:8rem 2rem;max-width:1200px;margin:0 auto}
+.section-label{text-transform:uppercase;letter-spacing:.2em;font-size:.8rem;color:var(--gold);font-weight:600;margin-bottom:1rem}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:400;line-height:1.2;color:var(--parchment);margin-bottom:1rem;max-width:700px}
+.section-desc{font-size:1.1rem;color:var(--stone);line-height:1.7;max-width:600px;margin-bottom:4rem}
+.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.5rem}
+.feature-card{background:linear-gradient(135deg,rgba(14,30,62,0.5) 0%,rgba(8,13,28,0.8) 100%);border:1px solid rgba(212,168,67,0.1);border-radius:16px;padding:2.2rem;transition:border-color .4s,transform .3s,box-shadow .4s;position:relative;overflow:hidden}
+.feature-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0;transition:opacity .4s}
+.feature-card:hover{border-color:rgba(212,168,67,0.25);transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,0.3)}
+.feature-card:hover::before{opacity:1}
+.feature-icon{font-size:2rem;margin-bottom:1.2rem;display:block}
+.feature-card h3{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;color:var(--parchment);margin-bottom:.7rem}
+.feature-card p{color:var(--stone);line-height:1.65;font-size:1rem}
+.stats{padding:4rem 2rem;background:linear-gradient(180deg,rgba(14,30,62,0.3) 0%,transparent 100%)}
+.stats-inner{max-width:1000px;margin:0 auto;display:flex;justify-content:space-around;flex-wrap:wrap;gap:2rem}
+.stat{text-align:center}
+.stat-number{font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,5vw,3.5rem);font-weight:700;color:var(--gold);line-height:1}
+.stat-label{font-size:.9rem;color:var(--stone);margin-top:.4rem;letter-spacing:.06em}
+.prayer-section{padding:8rem 2rem;text-align:center;position:relative;overflow:hidden}
+.prayer-section::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at center,rgba(139,32,48,0.06) 0%,transparent 70%)}
+.prayer-card{max-width:680px;margin:3rem auto 0;background:linear-gradient(135deg,rgba(14,30,62,0.4),rgba(8,13,28,0.6));border:1px solid rgba(212,168,67,0.15);border-radius:20px;padding:3rem;position:relative}
+.prayer-card::before,.prayer-card::after{content:'';position:absolute;width:40px;height:40px;border-color:var(--gold-dim);border-style:solid}
+.prayer-card::before{top:12px;left:12px;border-width:1px 0 0 1px}
+.prayer-card::after{bottom:12px;right:12px;border-width:0 1px 1px 0}
+.prayer-latin{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-style:italic;color:var(--gold-light);line-height:1.8;margin-bottom:1.5rem}
+.prayer-english{font-size:1.05rem;color:var(--stone);line-height:1.7}
+.quote-section{padding:6rem 2rem;text-align:center}
+.big-quote{font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,4vw,2.8rem);font-style:italic;font-weight:300;color:var(--parchment);max-width:800px;margin:0 auto;line-height:1.5;position:relative}
+.big-quote::before{content:'\201C';font-size:6rem;color:var(--gold-dim);position:absolute;top:-2.5rem;left:-1rem;line-height:1;font-style:normal}
+.quote-attr{margin-top:1.5rem;color:var(--gold);font-size:1rem;letter-spacing:.1em}
+.cta-section{padding:8rem 2rem;text-align:center;position:relative}
+.cta-section::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 50% 50%,rgba(26,50,96,0.25) 0%,transparent 60%)}
+.cta-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,5vw,3.8rem);font-weight:400;color:var(--parchment);margin-bottom:1rem;position:relative}
+.cta-sub{font-size:1.15rem;color:var(--stone);margin-bottom:2.5rem;position:relative}
+.store-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;position:relative}
+.store-btn{display:inline-flex;align-items:center;gap:.7rem;background:rgba(240,221,184,0.08);border:1.5px solid rgba(212,168,67,0.2);color:var(--parchment);padding:.85rem 1.8rem;border-radius:12px;font-size:1rem;font-weight:600;transition:background .3s,border-color .3s,transform .2s}
+.store-btn:hover{background:rgba(212,168,67,0.12);border-color:var(--gold);transform:translateY(-2px)}
+.store-btn svg{width:22px;height:22px}
+.store-btn small{font-size:.7rem;font-weight:400;color:var(--stone);display:block;text-align:left}
+.store-btn span{text-align:left}
+.offline-badge{margin-top:2rem;position:relative;display:inline-flex;align-items:center;gap:.5rem;color:var(--stone);font-size:.95rem;letter-spacing:.04em}
+.offline-badge::before{content:'';width:8px;height:8px;border-radius:50%;background:#3DAF78;box-shadow:0 0 8px rgba(61,175,120,0.4)}
+footer{padding:3rem 2rem;text-align:center;border-top:1px solid rgba(212,168,67,0.08)}
+footer p{color:var(--stone);font-size:.9rem;line-height:1.8}
+footer a{color:var(--gold);transition:opacity .3s}
+footer a:hover{opacity:.7}
+@media(max-width:768px){nav{padding:1rem 1.2rem}.nav-links a:not(.nav-cta){display:none}.features-grid{grid-template-columns:1fr}.stats-inner{flex-direction:column;gap:1.5rem}.prayer-card{padding:2rem 1.5rem}.hero{padding:5rem 1.5rem 3rem}}
+</style>
 </head>
 <body>
-<div class="container">
-  <div class="header">
-    <div class="app-name">Lingua Sacra</div>
-    <h1>Privacy Policy</h1>
-    <div class="effective">Effective Date: March 9, 2026</div>
-    <div class="badge">Zero Data Collection</div>
+
+<nav id="nav">
+  <div class="nav-logo">Lingua Sacra</div>
+  <div class="nav-links">
+    <a href="#features">Features</a>
+    <a href="#prayer">Prayers</a>
+    <a href="#download" class="nav-cta">Download</a>
   </div>
+</nav>
 
-  <h2>Overview</h2>
-  <p>Lingua Sacra is an educational app for learning Ecclesiastical Latin in the context of the Catholic tradition. Your privacy is important to us, and this app was designed from the ground up to respect it completely.</p>
-
-  <h2>Data Collection</h2>
-  <p>Lingua Sacra collects <strong>no personal data whatsoever</strong>. Specifically, the app does not collect your name, email address, location, device identifiers, usage analytics, crash reports, or any other information about you or your device.</p>
-
-  <h2>Data Storage</h2>
-  <p>All app data — including your lesson progress, quiz scores, vocabulary review schedule, and settings — is stored locally on your device using on-device storage. This data never leaves your device and is not accessible to us or any third party.</p>
-
-  <h2>Network Activity</h2>
-  <p>Lingua Sacra operates entirely offline. The app makes no network requests and does not communicate with any servers. No internet connection is required to use any feature of the app.</p>
-
-  <h2>Third-Party Services</h2>
-  <p>Lingua Sacra does not integrate any third-party analytics, advertising, social media, or tracking services.</p>
-
-  <h2>Children's Privacy</h2>
-  <p>Lingua Sacra is suitable for users of all ages. Because the app collects no data of any kind, it complies with the Children's Online Privacy Protection Act (COPPA) and similar regulations worldwide.</p>
-
-  <h2>Changes to This Policy</h2>
-  <p>If we ever update this privacy policy, the revised version will be posted at this URL with an updated effective date. Since the app collects no data, we do not anticipate any changes.</p>
-
-  <h2>Contact</h2>
-  <p>If you have questions about this privacy policy, you may contact us at: <a href="mailto:juan.macias.marquez@opeast.org">juan.macias.marquez@opeast.org</a></p>
-
-  <div class="footer">
-    <p>Lingua Sacra — Learn the Language of the Church</p>
+<section class="hero">
+  <div class="hero-cross">&#10013;</div>
+  <div class="hero-badge reveal"><span class="dot"></span>Now on iOS &amp; Android</div>
+  <h1 class="reveal reveal-delay-1">Learn the<br><em>Sacred Language</em></h1>
+  <p class="hero-sub reveal reveal-delay-2">Lingua Sacra teaches Ecclesiastical Latin through beautiful flashcards, classic prayers, adaptive quizzes, and spaced repetition &mdash; all completely offline.</p>
+  <div class="hero-buttons reveal reveal-delay-3">
+    <a href="#download" class="btn-primary">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Download Free
+    </a>
+    <a href="#features" class="btn-secondary">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+      Explore
+    </a>
   </div>
-</div>
+  <p class="hero-latin reveal reveal-delay-4">Disce Latinam &middot; Ad maiorem Dei gloriam</p>
+</section>
+
+<div class="divider"></div>
+
+<section class="stats">
+  <div class="stats-inner">
+    <div class="stat reveal"><div class="stat-number" data-count="700">0</div><div class="stat-label">Vocabulary Words</div></div>
+    <div class="stat reveal reveal-delay-1"><div class="stat-number" data-count="57">0</div><div class="stat-label">Structured Lessons</div></div>
+    <div class="stat reveal reveal-delay-2"><div class="stat-number" data-count="17">0</div><div class="stat-label">Classic Prayers</div></div>
+    <div class="stat reveal reveal-delay-3"><div class="stat-number" data-count="354">0</div><div class="stat-label">Daily Phrases</div></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="features" id="features">
+  <div class="section-label reveal">What's Inside</div>
+  <h2 class="section-title reveal reveal-delay-1">Everything you need to read, pray, and speak in Latin</h2>
+  <p class="section-desc reveal reveal-delay-2">From your first <em>Ave Maria</em> to reading the Vulgate &mdash; Lingua Sacra guides you step by step.</p>
+  <div class="features-grid">
+    <div class="feature-card reveal"><span class="feature-icon">&#128214;</span><h3>Structured Lessons</h3><p>57 lessons across 8 tiers, from greetings and prayers to advanced Vulgate readings and grammar constructions.</p></div>
+    <div class="feature-card reveal reveal-delay-1"><span class="feature-icon">&#127911;</span><h3>Ecclesiastical Audio</h3><p>Every word pronounced in authentic Church Latin &mdash; the way it's spoken in Rome, not the classical style of Caesar.</p></div>
+    <div class="feature-card reveal reveal-delay-2"><span class="feature-icon">&#128591;</span><h3>Prayer Library</h3><p>17 classic prayers with full Latin text, English translation, and interactive word-by-word grammar analysis.</p></div>
+    <div class="feature-card reveal reveal-delay-3"><span class="feature-icon">&#129504;</span><h3>Spaced Repetition</h3><p>An intelligent review system that strengthens your memory by surfacing words right when you're about to forget.</p></div>
+    <div class="feature-card reveal"><span class="feature-icon">&#9997;&#65039;</span><h3>Adaptive Quizzes</h3><p>Listening, translation, and recall challenges that adapt to your level and keep you sharp.</p></div>
+    <div class="feature-card reveal reveal-delay-1"><span class="feature-icon">&#10013;&#65039;</span><h3>Personalized Paths</h3><p>Choose your goal &mdash; understanding the Mass, reading the Vulgate, seminary prep, sacred music, or personal enrichment.</p></div>
+  </div>
+</section>
+
+<section class="prayer-section" id="prayer">
+  <div class="section-label reveal">From the Prayer Library</div>
+  <h2 class="section-title reveal reveal-delay-1" style="margin:0 auto .5rem;text-align:center">Pray as the Church has prayed for centuries</h2>
+  <div class="prayer-card reveal reveal-delay-2">
+    <div class="prayer-latin">Ave Maria, gratia plena,<br>Dominus tecum.<br>Benedicta tu in mulieribus,<br>et benedictus fructus ventris tui, Iesus.</div>
+    <div class="prayer-english">Hail Mary, full of grace, the Lord is with thee. Blessed art thou among women, and blessed is the fruit of thy womb, Jesus.</div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="quote-section">
+  <div class="big-quote reveal">The Latin language, which served for so many centuries as the vehicle for the teaching of the Church, must be held in high esteem.</div>
+  <div class="quote-attr reveal reveal-delay-1">&mdash; Veterum Sapientia, St. John XXIII</div>
+</section>
+
+<div class="divider"></div>
+
+<section class="cta-section" id="download">
+  <h2 class="cta-title reveal">Begin your journey</h2>
+  <p class="cta-sub reveal reveal-delay-1">Free. No ads. No accounts. Works completely offline.</p>
+  <div class="store-buttons reveal reveal-delay-2">
+    <a href="#" class="store-btn" aria-label="Download on the App Store">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11"/></svg>
+      <span><small>Download on the</small>App Store</span>
+    </a>
+    <a href="#" class="store-btn" aria-label="Get it on Google Play">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 20.5v-17c0-.83.52-1.28 1-1.5l9 9-9 9c-.48-.22-1-.67-1-1.5m14.5-8.5L5.7 3.3l8.8 8.7zm0 1L5.7 21.7l8.8-8.7zM21 12l-3.5-2h-.01L14 12l3.5 2h.01z"/></svg>
+      <span><small>Get it on</small>Google Play</span>
+    </a>
+  </div>
+  <div class="offline-badge reveal reveal-delay-3">100% Offline &mdash; No internet required</div>
+</section>
+
+<footer>
+  <p>Lingua Sacra &copy; 2025 &middot; <a href="privacy.html">Privacy Policy</a> &middot; <a href="mailto:linguasacra.app@gmail.com">Contact</a></p>
+  <p style="margin-top:.5rem;font-style:italic;opacity:.5;font-size:.85rem">Disce Latinam. Ad maiorem Dei gloriam.</p>
+</footer>
+
+<script>
+const observer=new IntersectionObserver(e=>{e.forEach(e=>{e.isIntersecting&&e.target.classList.add('visible')})},{threshold:.15,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(e=>observer.observe(e));
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>60)});
+const co=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting){const t=e.target,n=parseInt(t.dataset.count);let c=0;const s=Math.max(1,Math.floor(n/50)),i=setInterval(()=>{c+=s;c>=n?(t.textContent=n+'+',clearInterval(i)):t.textContent=c},30);co.unobserve(t)}})},{threshold:.5});
+document.querySelectorAll('[data-count]').forEach(e=>co.observe(e));
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));t&&t.scrollIntoView({behavior:'smooth',block:'start'})})});
+</script>
 </body>
 </html>
