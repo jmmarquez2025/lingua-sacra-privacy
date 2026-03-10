@@ -438,7 +438,6 @@ footer a:hover{opacity:.7}
     <a href="#features">Features</a>
     <a href="#journey">Journey</a>
     <a href="#try-it">Try It</a>
-    <a href="#reviews">Reviews</a>
     <a href="#download" class="nav-cta">Download</a>
   </div>
 </nav>
@@ -446,7 +445,7 @@ footer a:hover{opacity:.7}
 <!-- HERO -->
 <section class="hero">
   <div class="hero-cross">&#10013;</div>
-  <div class="hero-badge reveal"><span class="dot"></span>Now on iOS &amp; Android</div>
+  <div class="hero-badge reveal"><span class="dot"></span>Now on iOS &middot; Android coming soon</div>
   <h1 class="reveal reveal-delay-1">Learn the<br><em>Sacred Language</em></h1>
   <p class="hero-sub reveal reveal-delay-2">Lingua Sacra teaches Ecclesiastical Latin through beautiful flashcards, classic prayers, adaptive quizzes, and spaced repetition &mdash; all completely offline.</p>
   <div class="hero-buttons reveal reveal-delay-3">
@@ -462,8 +461,7 @@ footer a:hover{opacity:.7}
   <p class="hero-latin reveal reveal-delay-4">Disce Latinam &middot; Ad maiorem Dei gloriam</p>
 
   <div class="rating-badge reveal reveal-delay-4">
-    <span class="rating-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-    <span class="rating-text">4.9 &middot; App Store &amp; Google Play</span>
+    <span class="rating-text">Available on iOS &middot; Android coming soon</span>
   </div>
 </section>
 
@@ -501,7 +499,6 @@ footer a:hover{opacity:.7}
   </div>
 </section>
 
-<div class="divider"></div>
 <div class="divider"></div>
 
 <!-- HOW IT WORKS -->
@@ -598,7 +595,6 @@ footer a:hover{opacity:.7}
 </section>
 
 <div class="divider"></div>
-<div class="divider"></div>
 
 <!-- BEFORE/AFTER COMPARISON -->
 <section class="compare-section" id="compare">
@@ -664,7 +660,6 @@ footer a:hover{opacity:.7}
 </section>
 
 <div class="divider"></div>
-<div class="divider"></div>
 
 <!-- COMPARISON TABLE -->
 <section class="compare-table-section">
@@ -706,42 +701,32 @@ footer a:hover{opacity:.7}
 
 <div class="divider"></div>
 
-<!-- TESTIMONIALS -->
-<section class="testimonials" id="reviews">
-  <div class="testimonials-header">
-    <div class="section-label reveal">What People Are Saying</div>
-    <h2 class="section-title reveal reveal-delay-1" style="margin:0 auto;text-align:center">Loved by seminarians, students, and the faithful</h2>
-  </div>
-  <div class="testimonials-grid">
-    <div class="testimonial-card reveal">
-      <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-      <div class="testimonial-text">"Finally an app that teaches Church Latin, not the classical variety. The prayer library with word-by-word grammar is exactly what I needed to understand the Mass more deeply."</div>
-      <div class="testimonial-author">
-        <div class="testimonial-avatar">M</div>
-        <div><div class="testimonial-name">Maria T.</div><div class="testimonial-role">Catholic School Teacher</div></div>
+<!-- DAILY LATIN PHRASE -->
+<section class="daily-phrase-section" id="daily">
+  <div class="daily-phrase-layout">
+    <div class="section-label reveal">Phrase of the Day</div>
+    <h2 class="section-title reveal reveal-delay-1" style="margin:0 auto .5rem;text-align:center">A new Latin phrase every day</h2>
+    <p class="section-desc reveal reveal-delay-2" style="margin:0 auto 0;text-align:center">Lingua Sacra includes 354 daily phrases to deepen your practice</p>
+    <div class="daily-phrase-card reveal reveal-delay-3">
+      <div class="dp-ornament">&mdash; &#10013; &mdash;</div>
+      <div class="dp-day-label" id="dpDayLabel">Today&#8217;s Phrase</div>
+      <div class="dp-latin-text" id="dpLatin">Deus caritas est</div>
+      <div class="dp-pronunciation" id="dpPronunciation">DEH-oos KAH-ree-tahs est</div>
+      <div class="dp-divider-line"></div>
+      <div class="dp-english-text" id="dpEnglish">God is love</div>
+      <div class="dp-source" id="dpSource">1 John 4:8</div>
+      <div class="dp-controls">
+        <button class="dp-btn" onclick="prevPhrase()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg> Previous</button>
+        <button class="dp-btn" onclick="nextPhrase()">Next <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></button>
       </div>
-    </div>
-    <div class="testimonial-card reveal reveal-delay-1">
-      <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-      <div class="testimonial-text">"I'm in my first year of seminary and this has been invaluable. The spaced repetition actually works &mdash; I'm retaining vocabulary in a way that textbooks never achieved."</div>
-      <div class="testimonial-author">
-        <div class="testimonial-avatar">J</div>
-        <div><div class="testimonial-name">James R.</div><div class="testimonial-role">Seminarian</div></div>
-      </div>
-    </div>
-    <div class="testimonial-card reveal reveal-delay-2">
-      <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-      <div class="testimonial-text">"Beautiful design, and it works completely offline. I use it during my daily commute. The pronunciation audio is the authentic ecclesiastical style &mdash; just like you'd hear in Rome."</div>
-      <div class="testimonial-author">
-        <div class="testimonial-avatar">D</div>
-        <div><div class="testimonial-name">David K.</div><div class="testimonial-role">Sacred Music Director</div></div>
-      </div>
+      <div class="dp-counter" id="dpCounter"></div>
     </div>
   </div>
 </section>
 
 <div class="divider"></div>
-<div class="divider"></div>
+
+
 
 <!-- DEVELOPER STORY -->
 <section class="dev-section">
@@ -763,7 +748,6 @@ footer a:hover{opacity:.7}
 </section>
 
 <div class="divider"></div>
-<div class="divider"></div>
 
 <!-- FAQ -->
 <section class="faq-section" id="faq">
@@ -777,7 +761,7 @@ footer a:hover{opacity:.7}
     <div class="faq-item reveal reveal-delay-2"><div class="faq-question" onclick="toggleFaq(this)"><h3>Do I need any prior Latin knowledge?</h3><svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="faq-answer"><div class="faq-answer-inner">Not at all. Lingua Sacra starts from absolute zero. If you do have some background, the built-in placement test lets you skip ahead to the right level so you&rsquo;re not bored with basics you already know.</div></div></div>
     <div class="faq-item reveal"><div class="faq-question" onclick="toggleFaq(this)"><h3>How is the pronunciation audio generated?</h3><svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="faq-answer"><div class="faq-answer-inner">We use advanced AI text-to-speech specifically tuned for Ecclesiastical Latin pronunciation. Every word has been individually generated and reviewed to ensure it sounds authentic &mdash; the way you would hear it spoken in a Roman church.</div></div></div>
     <div class="faq-item reveal reveal-delay-1"><div class="faq-question" onclick="toggleFaq(this)"><h3>How much does the app cost?</h3><svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="faq-answer"><div class="faq-answer-inner">Lingua Sacra is a one-time purchase of $4.99 &mdash; no subscriptions, no in-app purchases, and no ads. You pay once and get the full app with all lessons, prayers, audio, and future updates. It was created as a labor of love to help Catholics engage with the Latin tradition of the Church.</div></div></div>
-    <div class="faq-item reveal reveal-delay-2"><div class="faq-question" onclick="toggleFaq(this)"><h3>What devices are supported?</h3><svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="faq-answer"><div class="faq-answer-inner">Lingua Sacra is available on iPhone (iOS 15+) and Android devices. It works on phones and tablets.</div></div></div>
+    <div class="faq-item reveal reveal-delay-2"><div class="faq-question" onclick="toggleFaq(this)"><h3>What devices are supported?</h3><svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="faq-answer"><div class="faq-answer-inner">Lingua Sacra is currently available on iPhone (iOS 15+). An Android version is coming soon. The app works on phones and tablets.</div></div></div>
     <div class="faq-item reveal"><div class="faq-question" onclick="toggleFaq(this)"><h3>How does spaced repetition work?</h3><svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="faq-answer"><div class="faq-answer-inner">Spaced repetition (SRS) is a proven learning technique. When you get a word right, the app waits longer before showing it again. When you struggle, it shows the word sooner. This optimizes your review time so you remember more with less effort.</div></div></div>
   </div>
 </section>
@@ -791,10 +775,10 @@ footer a:hover{opacity:.7}
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11"/></svg>
       <span><small>Download on the</small>App Store &middot; $4.99</span>
     </a>
-    <a href="#" class="store-btn" aria-label="Get it on Google Play">
+    <span class="store-btn" style="opacity:.5;cursor:default">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 20.5v-17c0-.83.52-1.28 1-1.5l9 9-9 9c-.48-.22-1-.67-1-1.5m14.5-8.5L5.7 3.3l8.8 8.7zm0 1L5.7 21.7l8.8-8.7zM21 12l-3.5-2h-.01L14 12l3.5 2h.01z"/></svg>
-      <span><small>Get it on</small>Google Play &middot; $4.99</span>
-    </a>
+      <span><small>Coming soon on</small>Google Play</span>
+    </span>
   </div>
   <div class="offline-badge reveal reveal-delay-3">100% Offline &mdash; No internet required</div>
 </section>
