@@ -524,15 +524,6 @@ footer a:hover{opacity:.7}
 .testimonial-role{color:var(--stone);font-size:.78rem;margin-top:.1rem}
 .testimonial-source{margin-left:auto;font-size:.72rem;color:var(--stone);opacity:.45;white-space:nowrap}
 
-/* ── HERO AMBIENT AUDIO BUTTON ──────────────────────────────────────── */
-.hero-audio-btn{position:absolute;bottom:2.5rem;right:2rem;z-index:10;background:rgba(212,168,67,0.08);border:1px solid rgba(212,168,67,0.22);color:var(--gold);width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .3s;backdrop-filter:blur(8px);font-size:1.1rem}
-.hero-audio-btn:hover{background:rgba(212,168,67,0.18);border-color:var(--gold);transform:scale(1.08)}
-.hero-audio-btn.playing{background:rgba(212,168,67,0.18);border-color:var(--gold);box-shadow:0 0 18px rgba(212,168,67,0.2)}
-.hero-audio-btn .audio-icon{transition:opacity .2s}
-.audio-rings{position:absolute;inset:0;border-radius:50%;display:none}
-.hero-audio-btn.playing .audio-rings{display:block;animation:audioRing 1.8s ease-out infinite}
-@keyframes audioRing{0%{box-shadow:0 0 0 0 rgba(212,168,67,0.45)}100%{box-shadow:0 0 0 18px rgba(212,168,67,0)}}
-
 /* ── WORD OF THE DAY HERO INSERT ───────────────────────────────────── */
 .hero-word-ticker{display:inline-flex;align-items:center;gap:.8rem;margin-top:1.2rem;padding:.55rem 1.3rem;background:rgba(212,168,67,0.05);border:1px solid rgba(212,168,67,0.16);border-radius:50px;font-size:.9rem;color:var(--stone);position:relative;z-index:2;cursor:default;transition:border-color .3s}
 .hero-word-ticker:hover{border-color:rgba(212,168,67,0.35)}
@@ -553,6 +544,9 @@ footer a:hover{opacity:.7}
 .cinematic-word{display:inline-block;opacity:0;transform:translateY(32px) skewY(2deg);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1);transition-delay:var(--cw-d,0s)}
 .cinematic-word.in-view{opacity:1;transform:translateY(0) skewY(0deg)}
 
+/* AUDIO INDICATORS */
+.fc-latin::after,.dp-latin-text::after{content:'\1F50A';font-size:.5em;opacity:.3;margin-left:.5rem;vertical-align:middle;transition:opacity .2s}
+.fc-latin:hover::after,.dp-latin-text:hover::after{opacity:.7}
 </style>
 </head>
 <body>
@@ -604,11 +598,7 @@ footer a:hover{opacity:.7}
     <span class="hwt-en" id="hwtEn">Grace</span>
   </div>
 
-  <!-- AMBIENT AUDIO BUTTON -->
-  <button class="hero-audio-btn" id="heroAudioBtn" onclick="toggleAmbientAudio()" title="Ambient chant" aria-label="Toggle ambient audio">
-    <div class="audio-rings"></div>
-    <span class="audio-icon" id="audioIcon">&#9835;</span>
-  </button>
+  
 </section>
 
 <div class="divider"></div>
@@ -850,7 +840,7 @@ footer a:hover{opacity:.7}
       <div class="flashcard" id="flashcard" onclick="flipCard()">
         <div class="flashcard-inner" id="flashcardInner">
           <div class="flashcard-face flashcard-front">
-            <div class="fc-latin" id="fcLatin">Dominus</div>
+            <div class="fc-latin" id="fcLatin" onclick="if(cards[cardIdx].slug)playLatin(cards[cardIdx].slug)" style="cursor:pointer" title="Hear pronunciation">Dominus</div>
             <div class="fc-pronunciation" id="fcPronunciation">DOH-mee-noos</div>
             <div class="fc-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/></svg> Tap to reveal</div>
           </div>
@@ -923,7 +913,7 @@ footer a:hover{opacity:.7}
     <div class="daily-phrase-card reveal reveal-delay-3">
       <div class="dp-ornament">&mdash; &#10013; &mdash;</div>
       <div class="dp-day-label" id="dpDayLabel">Today&#8217;s Phrase</div>
-      <div class="dp-latin-text" id="dpLatin">Deus caritas est</div>
+      <div class="dp-latin-text" id="dpLatin" onclick="var dp=dailyPhrases[dpIdx];if(dp&&dp.slug)playLatin(dp.slug)" style="cursor:pointer" title="Hear pronunciation">Deus caritas est</div>
       <div class="dp-pronunciation" id="dpPronunciation">DEH-oos KAH-ree-tahs est</div>
       <div class="dp-divider-line"></div>
       <div class="dp-english-text" id="dpEnglish">God is love</div>
@@ -1115,12 +1105,12 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click'
 /* carousel removed */
 /* ═══ FLASHCARD DEMO ═══ */
 const cards=[
-  {latin:'Dominus',pron:'DOH-mee-noos',english:'Lord, Master',example:'"Dominus vobiscum" — The Lord be with you',grammar:'2nd Declension, Masculine'},
-  {latin:'Gratia',pron:'GRAH-tsee-ah',english:'Grace, Favor',example:'"Gratia plena" — Full of grace',grammar:'1st Declension, Feminine'},
-  {latin:'Pax',pron:'PAHKS',english:'Peace',example:'"Pax Domini sit semper vobiscum" — The peace of the Lord be with you always',grammar:'3rd Declension, Feminine'},
-  {latin:'Lux',pron:'LOOKS',english:'Light',example:'"Lux aeterna luceat eis" — May eternal light shine upon them',grammar:'3rd Declension, Feminine'},
-  {latin:'Sanctus',pron:'SAHNK-toos',english:'Holy, Saint',example:'"Sanctus, Sanctus, Sanctus" — Holy, Holy, Holy',grammar:'2nd Declension, Adjective'},
-  {latin:'Credo',pron:'KREH-doh',english:'I believe',example:'"Credo in unum Deum" — I believe in one God',grammar:'3rd Conjugation, Verb'},
+  {latin:'Dominus',slug:'dominus',pron:'DOH-mee-noos',english:'Lord, Master',example:'"Dominus vobiscum" — The Lord be with you',grammar:'2nd Declension, Masculine'},
+  {latin:'Gratia',slug:'gratia',pron:'GRAH-tsee-ah',english:'Grace, Favor',example:'"Gratia plena" — Full of grace',grammar:'1st Declension, Feminine'},
+  {latin:'Pax',slug:'pax',pron:'PAHKS',english:'Peace',example:'"Pax Domini sit semper vobiscum" — The peace of the Lord be with you always',grammar:'3rd Declension, Feminine'},
+  {latin:'Lux',slug:'lux',pron:'LOOKS',english:'Light',example:'"Lux aeterna luceat eis" — May eternal light shine upon them',grammar:'3rd Declension, Feminine'},
+  {latin:'Sanctus',slug:'sanctus',pron:'SAHNK-toos',english:'Holy, Saint',example:'"Sanctus, Sanctus, Sanctus" — Holy, Holy, Holy',grammar:'2nd Declension, Adjective'},
+  {latin:'Credo',slug:'credo',pron:'KREH-doh',english:'I believe',example:'"Credo in unum Deum" — I believe in one God',grammar:'3rd Conjugation, Verb'},
 ];
 let cardIdx=0,isFlipped=false;
 
@@ -1132,7 +1122,7 @@ function updateCard(){
   document.getElementById('fcExample').innerHTML=`"${c.example}"`;
   document.getElementById('fcGrammar').textContent=c.grammar;
   document.getElementById('fcCounter').textContent=`Card ${cardIdx+1} of ${cards.length}`;
-  document.getElementById('fcProgress').style.width=((cardIdx+1)/cards.length*100)+'%';
+  document.getElementById('fcProgress').style.width=((cardIdx+1)/cards.length*100)+'%';  if(cards[cardIdx].slug) playLatin(cards[cardIdx].slug);
   if(isFlipped){isFlipped=false;document.getElementById('flashcard').classList.remove('flipped')}
 }
 
@@ -1162,9 +1152,9 @@ function nextCard(correct){
 
 /* === DAILY LATIN PHRASE === */
 const dailyPhrases=[
-{latin:'Deus caritas est',pron:'DEH-oos KAH-ree-tahs est',english:'God is love',source:'1 John 4:8'},
-{latin:'Pax vobiscum',pron:'PAHKS voh-BEES-koom',english:'Peace be with you',source:'Liturgical greeting'},
-{latin:'Dominus illuminatio mea',pron:'DOH-mee-noos eel-loo-mee-NAH-tsee-oh MEH-ah',english:'The Lord is my light',source:'Psalm 27:1'},
+{latin:'Deus caritas est',slug:'deus-caritas-est',pron:'DEH-oos KAH-ree-tahs est',english:'God is love',source:'1 John 4:8'},
+{latin:'Pax vobiscum',slug:'pax',pron:'PAHKS voh-BEES-koom',english:'Peace be with you',source:'Liturgical greeting'},
+{latin:'Dominus illuminatio mea',slug:'dominus-illuminatio-mea',pron:'DOH-mee-noos eel-loo-mee-NAH-tsee-oh MEH-ah',english:'The Lord is my light',source:'Psalm 27:1'},
 {latin:'Fiat voluntas tua',pron:'FEE-aht voh-LOON-tahs TOO-ah',english:'Thy will be done',source:'Matthew 6:10'},
 {latin:'Ecce Agnus Dei',pron:'EH-cheh AHN-nyoos DEH-ee',english:'Behold the Lamb of God',source:'John 1:29'},
 {latin:'Miserere mei, Deus',pron:'mee-zeh-REH-reh MEH-ee DEH-oos',english:'Have mercy on me, O God',source:'Psalm 51:1'},
@@ -1172,7 +1162,7 @@ const dailyPhrases=[
 {latin:'Veni, Sancte Spiritus',pron:'VEH-nee SAHNK-teh SPEE-ree-toos',english:'Come, Holy Spirit',source:'Pentecost Sequence'},
 {latin:'In nomine Patris',pron:'een NOH-mee-neh PAH-trees',english:'In the name of the Father',source:'Sign of the Cross'},
 {latin:'Gloria in excelsis Deo',pron:'GLOH-ree-ah een ek-SHEL-sees DEH-oh',english:'Glory to God in the highest',source:'Luke 2:14'},
-{latin:'Credo in unum Deum',pron:'KREH-doh een OO-noom DEH-oom',english:'I believe in one God',source:'Nicene Creed'},
+{latin:'Credo in unum Deum',slug:'credo',pron:'KREH-doh een OO-noom DEH-oom',english:'I believe in one God',source:'Nicene Creed'},
 {latin:'Agnus Dei, qui tollis peccata mundi',pron:'AHN-nyoos DEH-ee kwee TOL-lees peh-KAH-tah MOON-dee',english:'Lamb of God, who takes away the sins of the world',source:'Agnus Dei'},
 {latin:'Requiem aeternam dona eis',pron:'REH-kwee-em eh-TEHR-nahm DOH-nah EH-ees',english:'Grant them eternal rest',source:'Requiem Mass'},
 {latin:'Ubi caritas et amor',pron:'OO-bee KAH-ree-tahs et AH-mor',english:'Where charity and love are',source:'Holy Thursday hymn'},
@@ -1185,7 +1175,7 @@ const dailyPhrases=[
 {latin:'Ora et labora',pron:'OH-rah et lah-BOH-rah',english:'Pray and work',source:'Benedictine motto'},
 {latin:'Christus vincit, Christus regnat',pron:'KREES-toos VEEN-cheet KREES-toos REHG-naht',english:'Christ conquers, Christ reigns',source:'Laudes Regiae'},
 {latin:'Sancta Maria, ora pro nobis',pron:'SAHNK-tah mah-REE-ah OH-rah proh NOH-bees',english:'Holy Mary, pray for us',source:'Litany of the Saints'},
-{latin:'Lux in tenebris lucet',pron:'LOOKS een TEH-neh-brees LOO-chet',english:'The light shines in the darkness',source:'John 1:5'},
+{latin:'Lux in tenebris lucet',slug:'lux',pron:'LOOKS een TEH-neh-brees LOO-chet',english:'The light shines in the darkness',source:'John 1:5'},
 {latin:'Ite, missa est',pron:'EE-teh MEES-sah est',english:'Go, the Mass is ended',source:'Dismissal of the Mass'},
 {latin:'Verbum caro factum est',pron:'VEHR-boom KAH-roh FAHK-toom est',english:'The Word was made flesh',source:'John 1:14'},
 {latin:'Ego sum via, veritas et vita',pron:'EH-goh soom VEE-ah VEH-ree-tahs et VEE-tah',english:'I am the way, the truth, and the life',source:'John 14:6'},
@@ -1343,14 +1333,14 @@ function toggleFaq(q){
 
 /* === FLOATING TRY A WORD === */
 const floatWords=[
-  {latin:'Sanctus',pron:'SAHNK-toos',english:'Holy, Saint',grammar:'2nd Declension, Adjective'},
-  {latin:'Misericordia',pron:'mee-zeh-ree-KOR-dee-ah',english:'Mercy',grammar:'1st Declension, Feminine'},
-  {latin:'Verbum',pron:'VEHR-boom',english:'Word',grammar:'2nd Declension, Neuter'},
-  {latin:'Caelum',pron:'CHEH-loom',english:'Heaven, Sky',grammar:'2nd Declension, Neuter'},
-  {latin:'Agnus',pron:'AHN-nyoos',english:'Lamb',grammar:'2nd Declension, Masculine'},
-  {latin:'Resurrectio',pron:'reh-zoor-REHK-tsee-oh',english:'Resurrection',grammar:'3rd Declension, Feminine'},
-  {latin:'Spiritus',pron:'SPEE-ree-toos',english:'Spirit, Breath',grammar:'4th Declension, Masculine'},
-  {latin:'Benedictus',pron:'beh-neh-DEEK-toos',english:'Blessed',grammar:'2nd Declension, Adjective'},
+  {latin:'Sanctus',slug:'sanctus',pron:'SAHNK-toos',english:'Holy, Saint',grammar:'2nd Declension, Adjective'},
+  {latin:'Misericordia',slug:'misericordia',pron:'mee-zeh-ree-KOR-dee-ah',english:'Mercy',grammar:'1st Declension, Feminine'},
+  {latin:'Verbum',slug:'verbum',pron:'VEHR-boom',english:'Word',grammar:'2nd Declension, Neuter'},
+  {latin:'Caelum',slug:'caelum',pron:'CHEH-loom',english:'Heaven, Sky',grammar:'2nd Declension, Neuter'},
+  {latin:'Agnus',slug:'agnus',pron:'AHN-nyoos',english:'Lamb',grammar:'2nd Declension, Masculine'},
+  {latin:'Resurrectio',slug:'resurrectio',pron:'reh-zoor-REHK-tsee-oh',english:'Resurrection',grammar:'3rd Declension, Feminine'},
+  {latin:'Spiritus',slug:'spiritus',pron:'SPEE-ree-toos',english:'Spirit, Breath',grammar:'4th Declension, Masculine'},
+  {latin:'Benedictus',slug:'benedictus',pron:'beh-neh-DEEK-toos',english:'Blessed',grammar:'2nd Declension, Adjective'},
 ];
 let fpIdx=Math.floor(Math.random()*floatWords.length),fpRevealed=false;
 function toggleFloatPopup(){
@@ -1375,7 +1365,7 @@ function revealFloat(){
   document.getElementById('fpEnglish').style.display='block';
   document.getElementById('fpGrammar').style.display='block';
   document.getElementById('fpActions').style.display='flex';
-  fpRevealed=true;
+  fpRevealed=true; var fw=floatWords[fpIdx]; if(fw.slug) playLatin(fw.slug);
 }
 function nextFloatWord(){
   fpIdx=(fpIdx+1)%floatWords.length;
@@ -1447,57 +1437,17 @@ function nextFloatWord(){
   });
 })();
 
-/* ── AMBIENT AUDIO (Gregorian-style oscillator) ── */
-var audioCtx = null, audioPlaying = false, audioNodes = [];
-function toggleAmbientAudio(){
-  var btn = document.getElementById('heroAudioBtn');
-  var icon = document.getElementById('audioIcon');
-  if(audioPlaying){
-    audioNodes.forEach(function(n){ try{ n.stop(); }catch(e){} });
-    audioNodes = [];
-    audioPlaying = false;
-    btn.classList.remove('playing');
-    icon.textContent = '\u266b';
-    return;
-  }
-  if(!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-  // Simple 3-voice Gregorian-inspired drone
-  var master = audioCtx.createGain();
-  master.gain.setValueAtTime(0, audioCtx.currentTime);
-  master.gain.linearRampToValueAtTime(0.07, audioCtx.currentTime + 2);
-  master.connect(audioCtx.destination);
-  var freqs = [220, 329.6, 440, 550]; // A3, E4, A4, C#5 — medieval-ish
-  freqs.forEach(function(f, i){
-    var osc = audioCtx.createOscillator();
-    var gain = audioCtx.createGain();
-    var vib = audioCtx.createOscillator();
-    var vibGain = audioCtx.createGain();
-    osc.type = 'sine';
-    osc.frequency.value = f;
-    vib.type = 'sine'; vib.frequency.value = 5 + i*0.3;
-    vibGain.gain.value = 1.5;
-    vib.connect(vibGain); vibGain.connect(osc.frequency);
-    gain.gain.value = i===0 ? 0.9 : i===1 ? 0.5 : i===2 ? 0.4 : 0.15;
-    osc.connect(gain); gain.connect(master);
-    osc.start(); vib.start();
-    audioNodes.push(osc, vib);
-  });
-  audioPlaying = true;
-  btn.classList.add('playing');
-  icon.textContent = '\u266a';
-}
-
 /* ── HERO WORD TICKER ── */
 (function(){
   var words = [
-    {l:'Gratia', e:'Grace'},
-    {l:'Pax', e:'Peace'},
-    {l:'Lux', e:'Light'},
-    {l:'Fides', e:'Faith'},
-    {l:'Spes', e:'Hope'},
-    {l:'Caritas', e:'Love'},
-    {l:'Veritas', e:'Truth'},
-    {l:'Gloria', e:'Glory'},
+    {l:'Gratia', s:'gratia', e:'Grace'},
+    {l:'Pax', s:'pax', e:'Peace'},
+    {l:'Lux', s:'lux', e:'Light'},
+    {l:'Fides', s:'fides', e:'Faith'},
+    {l:'Spes', s:'spes', e:'Hope'},
+    {l:'Caritas', s:'caritas', e:'Love'},
+    {l:'Veritas', s:'veritas', e:'Truth'},
+    {l:'Gloria', s:'gloria', e:'Glory'},
     {l:'Sanctus', e:'Holy'},
     {l:'Misericordia', e:'Mercy'},
     {l:'Sapientia', e:'Wisdom'},
@@ -1691,5 +1641,16 @@ function toggleAmbientAudio(){
 
 <!-- TALLY EMBED SCRIPT -->
 <script src="https://tally.so/widgets/embed.js"></script>
+
+<!-- LATIN AUDIO PLAYER -->
+<script>
+var latinAudio = null;
+function playLatin(slug) {
+  if (latinAudio) { latinAudio.pause(); latinAudio.currentTime = 0; }
+  latinAudio = new Audio('audio/' + slug + '.mp3');
+  latinAudio.volume = 0.85;
+  latinAudio.play().catch(function(){});
+}
+</script>
 </body>
 </html>
