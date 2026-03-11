@@ -288,23 +288,23 @@ footer a:hover{opacity:.7}
 .compare-section{padding:8rem 2rem;position:relative;overflow:hidden}
 .compare-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 60% 40%,rgba(139,32,48,0.06) 0%,transparent 60%)}
 .compare-layout{max-width:900px;margin:3rem auto 0;position:relative;z-index:2}
-.compare-container{position:relative;border-radius:20px;overflow:hidden;border:1px solid rgba(212,168,67,0.15);background:linear-gradient(135deg,rgba(14,30,62,0.5),rgba(8,13,28,0.7));min-height:340px;user-select:none;-webkit-user-select:none}
-.compare-side{padding:2.5rem 3rem;position:absolute;inset:0;overflow:hidden}
+.compare-container{position:relative;border-radius:20px;overflow:hidden;border:1px solid rgba(212,168,67,0.22);background:linear-gradient(135deg,rgba(8,13,28,0.98),rgba(14,30,62,0.98));min-height:240px;user-select:none;-webkit-user-select:none;cursor:ew-resize;box-shadow:0 8px 40px rgba(0,0,0,0.45)}
+.compare-side{padding:2rem 2.8rem;position:absolute;inset:0;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
 .compare-before{z-index:1}
-.compare-after{z-index:2;clip-path:inset(0 0 0 50%);background:linear-gradient(135deg,rgba(14,30,62,1),rgba(8,13,28,1))}
+.compare-after{z-index:2;clip-path:inset(0 0 0 85%);background:linear-gradient(135deg,rgba(8,13,28,1),rgba(14,30,62,1))}
 .compare-label{font-size:.7rem;text-transform:uppercase;letter-spacing:.2em;padding:.3rem .8rem;border-radius:20px;display:inline-block;margin-bottom:1.5rem;font-weight:600}
 .compare-before .compare-label{background:rgba(194,75,75,0.15);color:var(--red);border:1px solid rgba(194,75,75,0.2)}
 .compare-after .compare-label{background:rgba(61,175,120,0.15);color:var(--green);border:1px solid rgba(61,175,120,0.2)}
 .compare-latin{font-family:'Cormorant Garamond',serif;font-size:1.35rem;line-height:2;color:var(--parchment-mid)}
-.compare-before .compare-latin{opacity:.7}
+.compare-before .compare-latin{opacity:.5;font-style:italic}
 .compare-after .compare-latin .word{display:inline;position:relative;cursor:default}
 .compare-after .compare-latin .noun{color:#6CB4EE;border-bottom:1px dashed rgba(108,180,238,0.3)}
 .compare-after .compare-latin .verb{color:var(--gold-light);border-bottom:1px dashed rgba(236,192,96,0.3)}
 .compare-after .compare-latin .adj{color:#C490D1;border-bottom:1px dashed rgba(196,144,209,0.3)}
 .compare-after .compare-latin .prep{color:var(--green);border-bottom:1px dashed rgba(61,175,120,0.3)}
 .compare-after .compare-latin .gloss{font-size:.8rem;color:var(--stone);font-style:italic;font-family:'EB Garamond',serif}
-.compare-handle{position:absolute;top:0;bottom:0;width:3px;background:var(--gold);z-index:10;left:50%;cursor:ew-resize;transition:left 0s}
-.compare-handle::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:40px;height:40px;border-radius:50%;background:var(--gold);box-shadow:0 0 20px rgba(212,168,67,0.4);display:flex;align-items:center;justify-content:center}
+@keyframes hPulse{0%,100%{box-shadow:0 0 0 0 rgba(212,168,67,0.55),0 0 14px rgba(212,168,67,0.25)}55%{box-shadow:0 0 0 14px rgba(212,168,67,0),0 0 26px rgba(212,168,67,0.55)}}.compare-handle{position:absolute;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,transparent 0%,var(--gold) 12%,var(--gold) 88%,transparent 100%);z-index:10;left:85%;cursor:ew-resize;transition:left 0s}
+.compare-handle::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:46px;height:46px;border-radius:50%;background:radial-gradient(circle at 38% 38%,#f2d862,var(--gold));box-shadow:0 0 20px rgba(212,168,67,0.45);animation:hPulse 2s ease-in-out 1.8s 4}
 .compare-handle::after{content:'\2194';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:var(--navy);font-size:1.1rem;font-weight:700;z-index:11}
 .compare-legend{display:flex;justify-content:center;gap:1.5rem;margin-top:1.5rem;flex-wrap:wrap}
 .compare-legend-item{display:flex;align-items:center;gap:.4rem;font-size:.8rem;color:var(--stone)}
@@ -620,7 +620,7 @@ footer a:hover{opacity:.7}
     <div class="compare-container" id="compareContainer">
       <div class="compare-side compare-before">
         <div class="compare-label">Before</div>
-        <div class="compare-latin">Introibo ad altare Dei. Ad Deum qui laetificat juventutem meam. Judica me, Deus, et discerne causam meam de gente non sancta: ab homine iniquo et doloso erue me. Quia tu es, Deus, fortitudo mea: quare me repulisti, et quare tristis incedo, dum affligit me inimicus?</div>
+        <div class="compare-latin">Introibo ad altare Dei. Ad Deum qui laetificat juventutem meam. Judica me, Deus, et discerne causam meam.</div>
       </div>
       <div class="compare-side compare-after" id="compareAfter">
         <div class="compare-label">After Lingua Sacra</div>
@@ -634,7 +634,7 @@ footer a:hover{opacity:.7}
       <div class="compare-legend-item"><div class="compare-legend-dot" style="background:#C490D1"></div>Adjectives</div>
       <div class="compare-legend-item"><div class="compare-legend-dot" style="background:var(--green)"></div>Prepositions</div>
     </div>
-  </div>
+  <p style="text-align:center;margin-top:.9rem;font-size:.75rem;color:var(--stone);opacity:.5;letter-spacing:.07em;text-transform:uppercase">&#8592; drag to reveal &#8594;</p></div>
 </section>
 
 <!-- INTERACTIVE FLASHCARD -->
