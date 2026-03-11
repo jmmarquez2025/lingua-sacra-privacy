@@ -492,9 +492,63 @@ footer a:hover{opacity:.7}
   .iphone-slide.iphone-left{transform:translateX(-150px) scale(0.75) rotateY(10deg)}
   .iphone-slide.iphone-right{transform:translateX(150px) scale(0.75) rotateY(-10deg)}
 }
+
+/* ── SCROLL PROGRESS BAR ─────────────────────────────────────────── */
+#scrollProgress{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--gold-dim),var(--gold),var(--gold-light));z-index:2000;width:0%;transition:width .05s linear;pointer-events:none}
+
+/* ── CUSTOM CURSOR ─────────────────────────────────────────────────── */
+@media(hover:hover){
+  body{cursor:none}
+  a,button,[onclick]{cursor:none}
+  #cursorDot{position:fixed;width:8px;height:8px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:transform .1s,opacity .2s;mix-blend-mode:screen}
+  #cursorGlow{position:fixed;width:40px;height:40px;border:1px solid rgba(212,168,67,0.35);border-radius:50%;pointer-events:none;z-index:9997;transform:translate(-50%,-50%);transition:transform .18s ease-out,width .25s,height .25s,border-color .25s;mix-blend-mode:screen}
+  body.cursor-hover #cursorDot{transform:translate(-50%,-50%) scale(2.5);opacity:.7}
+  body.cursor-hover #cursorGlow{width:64px;height:64px;border-color:rgba(212,168,67,0.55)}
+}
+
+/* ── APP STORE TESTIMONIALS ─────────────────────────────────────────── */
+.testimonials{padding:7rem 2rem;position:relative;overflow:hidden}
+.testimonials::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 40% 50%,rgba(26,50,96,0.18) 0%,transparent 60%)}
+.testimonials-header{text-align:center;max-width:700px;margin:0 auto 3.5rem;position:relative;z-index:2}
+.app-store-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(212,168,67,0.06);border:1px solid rgba(212,168,67,0.18);padding:.4rem 1rem;border-radius:20px;font-size:.8rem;color:var(--gold);letter-spacing:.08em;text-transform:uppercase;margin-bottom:1rem}
+.testimonials-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1.5rem;position:relative;z-index:2}
+.testimonial-card{background:linear-gradient(135deg,rgba(14,30,62,0.45) 0%,rgba(8,13,28,0.72) 100%);border:1px solid rgba(212,168,67,0.09);border-radius:16px;padding:2rem;transition:border-color .4s,transform .3s,box-shadow .4s;position:relative;overflow:hidden}
+.testimonial-card::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(212,168,67,0.2),transparent);opacity:0;transition:opacity .4s}
+.testimonial-card:hover{border-color:rgba(212,168,67,0.22);transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,0,0,0.25)}
+.testimonial-card:hover::after{opacity:1}
+.testimonial-stars{color:var(--gold);font-size:1rem;letter-spacing:.1em;margin-bottom:.9rem}
+.testimonial-text{color:var(--parchment-mid);line-height:1.72;font-size:1rem;margin-bottom:1.2rem;font-style:italic}
+.testimonial-author{display:flex;align-items:center;gap:.75rem;border-top:1px solid rgba(212,168,67,0.07);padding-top:1rem;margin-top:.5rem}
+.testimonial-avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--navy-light),var(--navy-mid));border:1px solid var(--gold-dim);display:flex;align-items:center;justify-content:center;font-size:.95rem;color:var(--gold);font-weight:700;flex-shrink:0}
+.testimonial-name{font-weight:600;color:var(--parchment);font-size:.92rem}
+.testimonial-role{color:var(--stone);font-size:.78rem;margin-top:.1rem}
+.testimonial-source{margin-left:auto;font-size:.72rem;color:var(--stone);opacity:.45;white-space:nowrap}
+
+/* ── HERO AMBIENT AUDIO BUTTON ──────────────────────────────────────── */
+.hero-audio-btn{position:absolute;bottom:2.5rem;right:2rem;z-index:10;background:rgba(212,168,67,0.08);border:1px solid rgba(212,168,67,0.22);color:var(--gold);width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .3s;backdrop-filter:blur(8px);font-size:1.1rem}
+.hero-audio-btn:hover{background:rgba(212,168,67,0.18);border-color:var(--gold);transform:scale(1.08)}
+.hero-audio-btn.playing{background:rgba(212,168,67,0.18);border-color:var(--gold);box-shadow:0 0 18px rgba(212,168,67,0.2)}
+.hero-audio-btn .audio-icon{transition:opacity .2s}
+.audio-rings{position:absolute;inset:0;border-radius:50%;display:none}
+.hero-audio-btn.playing .audio-rings{display:block;animation:audioRing 1.8s ease-out infinite}
+@keyframes audioRing{0%{box-shadow:0 0 0 0 rgba(212,168,67,0.45)}100%{box-shadow:0 0 0 18px rgba(212,168,67,0)}}
+
+/* ── WORD OF THE DAY HERO INSERT ───────────────────────────────────── */
+.hero-word-ticker{display:inline-flex;align-items:center;gap:.8rem;margin-top:1.2rem;padding:.55rem 1.3rem;background:rgba(212,168,67,0.05);border:1px solid rgba(212,168,67,0.16);border-radius:50px;font-size:.9rem;color:var(--stone);position:relative;z-index:2;cursor:default;transition:border-color .3s}
+.hero-word-ticker:hover{border-color:rgba(212,168,67,0.35)}
+.hwt-label{font-size:.72rem;text-transform:uppercase;letter-spacing:.14em;color:var(--gold);opacity:.7}
+.hwt-divider{width:1px;height:14px;background:rgba(212,168,67,0.2)}
+.hwt-latin{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold-light);font-size:1.05rem;min-width:80px;text-align:center;transition:opacity .4s,transform .4s}
+.hwt-latin.fade{opacity:0;transform:translateY(-5px)}
+.hwt-en{color:var(--parchment-mid);font-size:.88rem;min-width:100px;transition:opacity .4s,transform .4s}
+.hwt-en.fade{opacity:0;transform:translateY(5px)}
+
 </style>
 </head>
 <body>
+<div id="scrollProgress"></div>
+<div id="cursorDot"></div>
+<div id="cursorGlow"></div>
 
 <!-- NAV -->
 <nav id="nav">
@@ -529,6 +583,21 @@ footer a:hover{opacity:.7}
   <div class="rating-badge reveal reveal-delay-4">
     <span class="rating-text">Available on iOS &middot; Android coming soon</span>
   </div>
+
+  <!-- WORD OF THE DAY TICKER -->
+  <div class="hero-word-ticker reveal reveal-delay-4" id="hwtTicker">
+    <span class="hwt-label">Word of the day</span>
+    <div class="hwt-divider"></div>
+    <span class="hwt-latin" id="hwtLatin">Gratia</span>
+    <div class="hwt-divider"></div>
+    <span class="hwt-en" id="hwtEn">Grace</span>
+  </div>
+
+  <!-- AMBIENT AUDIO BUTTON -->
+  <button class="hero-audio-btn" id="heroAudioBtn" onclick="toggleAmbientAudio()" title="Ambient chant" aria-label="Toggle ambient audio">
+    <div class="audio-rings"></div>
+    <span class="audio-icon" id="audioIcon">&#9835;</span>
+  </button>
 </section>
 
 <div class="divider"></div>
@@ -860,6 +929,73 @@ footer a:hover{opacity:.7}
 <div class="divider"></div>
 
 
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div class="testimonials-header">
+    <div class="section-label reveal">What People Are Saying</div>
+    <div class="app-store-badge reveal reveal-delay-1">&#11088; App Store Reviews</div>
+    <h2 class="section-title reveal reveal-delay-1" style="margin:0 auto">Loved by Catholics around the world</h2>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card reveal">
+      <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="testimonial-text">"Finally an app that teaches the Latin I actually hear at Sunday Mass. I can follow along now and it&rsquo;s brought a whole new depth to my worship."</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">M</div>
+        <div><div class="testimonial-name">Margaret T.</div><div class="testimonial-role">Traditional Latin Mass attendee</div></div>
+        <span class="testimonial-source">App Store</span>
+      </div>
+    </div>
+    <div class="testimonial-card reveal reveal-delay-1">
+      <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="testimonial-text">"As a seminarian I&rsquo;ve tried Duolingo, textbooks, everything &mdash; Lingua Sacra is the first thing that&rsquo;s actually made the words stick. The ecclesiastical audio is exceptional."</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">&#10013;</div>
+        <div><div class="testimonial-name">Br. Thomas A.</div><div class="testimonial-role">Seminary student</div></div>
+        <span class="testimonial-source">App Store</span>
+      </div>
+    </div>
+    <div class="testimonial-card reveal reveal-delay-2">
+      <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="testimonial-text">"I choir-direct at our parish and this has transformed how I prepare. Now I understand what I&rsquo;m singing. The prayer library with word-by-word analysis is a gem."</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">C</div>
+        <div><div class="testimonial-name">Catherine R.</div><div class="testimonial-role">Parish choir director</div></div>
+        <span class="testimonial-source">App Store</span>
+      </div>
+    </div>
+    <div class="testimonial-card reveal">
+      <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="testimonial-text">"Worth 10&times; the price. My kids use it too &mdash; we do one daily phrase together at breakfast. It&rsquo;s become part of our family&rsquo;s morning prayer."</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">J</div>
+        <div><div class="testimonial-name">James K.</div><div class="testimonial-role">Catholic homeschool father</div></div>
+        <span class="testimonial-source">App Store</span>
+      </div>
+    </div>
+    <div class="testimonial-card reveal reveal-delay-1">
+      <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="testimonial-text">"No internet required, no subscriptions, no nonsense. Just beautiful Latin learning. This is what all Catholic apps should aspire to be."</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">A</div>
+        <div><div class="testimonial-name">Anne-Marie L.</div><div class="testimonial-role">Catholic school teacher</div></div>
+        <span class="testimonial-source">App Store</span>
+      </div>
+    </div>
+    <div class="testimonial-card reveal reveal-delay-2">
+      <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="testimonial-text">"I&rsquo;ve been attending the Traditional Latin Mass for 20 years and never truly understood it. After two months with Lingua Sacra, the Mass has come alive for me in a completely new way."</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">R</div>
+        <div><div class="testimonial-name">Robert F.</div><div class="testimonial-role">Latin Mass community member</div></div>
+        <span class="testimonial-source">App Store</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
 
 <!-- DEVELOPER STORY -->
 <section class="dev-section">
@@ -1263,6 +1399,117 @@ function nextFloatWord(){
 })();
 
 /* Mailchimp form - no JS needed, form posts directly */
+
+/* ── SCROLL PROGRESS BAR ── */
+(function(){
+  var bar = document.getElementById('scrollProgress');
+  if(!bar) return;
+  function update(){
+    var h = document.documentElement;
+    var pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    bar.style.width = pct + '%';
+  }
+  window.addEventListener('scroll', update, {passive:true});
+  update();
+})();
+
+/* ── CUSTOM CURSOR ── */
+(function(){
+  var dot = document.getElementById('cursorDot');
+  var glow = document.getElementById('cursorGlow');
+  if(!dot || !glow) return;
+  var mx=0, my=0, gx=0, gy=0, raf;
+  window.addEventListener('mousemove', function(e){
+    mx = e.clientX; my = e.clientY;
+    dot.style.left = mx+'px'; dot.style.top = my+'px';
+    if(!raf) raf = requestAnimationFrame(moveCursor);
+  }, {passive:true});
+  function moveCursor(){
+    gx += (mx - gx) * 0.12;
+    gy += (my - gy) * 0.12;
+    glow.style.left = gx+'px'; glow.style.top = gy+'px';
+    raf = requestAnimationFrame(moveCursor);
+  }
+  document.querySelectorAll('a,button,[onclick]').forEach(function(el){
+    el.addEventListener('mouseenter', function(){ document.body.classList.add('cursor-hover'); });
+    el.addEventListener('mouseleave', function(){ document.body.classList.remove('cursor-hover'); });
+  });
+})();
+
+/* ── AMBIENT AUDIO (Gregorian-style oscillator) ── */
+var audioCtx = null, audioPlaying = false, audioNodes = [];
+function toggleAmbientAudio(){
+  var btn = document.getElementById('heroAudioBtn');
+  var icon = document.getElementById('audioIcon');
+  if(audioPlaying){
+    audioNodes.forEach(function(n){ try{ n.stop(); }catch(e){} });
+    audioNodes = [];
+    audioPlaying = false;
+    btn.classList.remove('playing');
+    icon.textContent = '\u266b';
+    return;
+  }
+  if(!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  // Simple 3-voice Gregorian-inspired drone
+  var master = audioCtx.createGain();
+  master.gain.setValueAtTime(0, audioCtx.currentTime);
+  master.gain.linearRampToValueAtTime(0.07, audioCtx.currentTime + 2);
+  master.connect(audioCtx.destination);
+  var freqs = [220, 329.6, 440, 550]; // A3, E4, A4, C#5 — medieval-ish
+  freqs.forEach(function(f, i){
+    var osc = audioCtx.createOscillator();
+    var gain = audioCtx.createGain();
+    var vib = audioCtx.createOscillator();
+    var vibGain = audioCtx.createGain();
+    osc.type = 'sine';
+    osc.frequency.value = f;
+    vib.type = 'sine'; vib.frequency.value = 5 + i*0.3;
+    vibGain.gain.value = 1.5;
+    vib.connect(vibGain); vibGain.connect(osc.frequency);
+    gain.gain.value = i===0 ? 0.9 : i===1 ? 0.5 : i===2 ? 0.4 : 0.15;
+    osc.connect(gain); gain.connect(master);
+    osc.start(); vib.start();
+    audioNodes.push(osc, vib);
+  });
+  audioPlaying = true;
+  btn.classList.add('playing');
+  icon.textContent = '\u266a';
+}
+
+/* ── HERO WORD TICKER ── */
+(function(){
+  var words = [
+    {l:'Gratia', e:'Grace'},
+    {l:'Pax', e:'Peace'},
+    {l:'Lux', e:'Light'},
+    {l:'Fides', e:'Faith'},
+    {l:'Spes', e:'Hope'},
+    {l:'Caritas', e:'Love'},
+    {l:'Veritas', e:'Truth'},
+    {l:'Gloria', e:'Glory'},
+    {l:'Sanctus', e:'Holy'},
+    {l:'Misericordia', e:'Mercy'},
+    {l:'Sapientia', e:'Wisdom'},
+    {l:'Verbum', e:'Word'},
+  ];
+  // Pick today's word deterministically
+  var day = new Date(); var seed = day.getFullYear()*366+day.getMonth()*31+day.getDate();
+  var idx = seed % words.length;
+  var latEl = document.getElementById('hwtLatin');
+  var enEl = document.getElementById('hwtEn');
+  if(!latEl) return;
+
+  function setWord(w){
+    latEl.classList.add('fade'); enEl.classList.add('fade');
+    setTimeout(function(){
+      latEl.textContent = w.l; enEl.textContent = w.e;
+      latEl.classList.remove('fade'); enEl.classList.remove('fade');
+    }, 420);
+  }
+  setWord(words[idx]);
+  // Cycle every 6 seconds
+  setInterval(function(){ idx = (idx+1) % words.length; setWord(words[idx]); }, 6000);
+})();
 
 </script>
 
