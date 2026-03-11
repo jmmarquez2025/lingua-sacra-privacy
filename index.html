@@ -523,6 +523,73 @@ footer a:hover{opacity:.7}
 /* AUDIO INDICATORS */
 .fc-latin::after,.dp-latin-text::after{content:'\1F50A';font-size:.5em;opacity:.3;margin-left:.5rem;vertical-align:middle;transition:opacity .2s}
 .fc-latin:hover::after,.dp-latin-text:hover::after{opacity:.7}
+
+/* ── SCROLL-SYNCED PHONE DEMO ── */
+.scroll-demo-section{padding:0;position:relative;min-height:300vh}
+.scroll-demo-inner{max-width:1100px;margin:0 auto;display:flex;position:relative}
+.scroll-demo-header{text-align:center;padding:6rem 2rem 2rem;position:relative;z-index:2}
+.scroll-phone-col{flex:0 0 45%;position:sticky;top:10vh;height:80vh;display:flex;align-items:center;justify-content:center;z-index:2}
+.scroll-phone-frame{width:220px;height:476px;background:linear-gradient(145deg,#2a2a2a,#1a1a1a);border-radius:40px;padding:10px;box-shadow:0 0 0 2px #3a3a3a,0 0 0 4px #111,0 30px 80px rgba(0,0,0,.7),0 0 60px rgba(212,175,55,0.1) inset;overflow:hidden;position:relative}
+.scroll-phone-notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:90px;height:22px;background:#111;border-radius:0 0 16px 16px;z-index:3}
+.scroll-phone-screen{width:100%;height:100%;border-radius:30px;overflow:hidden;background:#000;position:relative}
+.scroll-phone-screen img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:top;opacity:0;transition:opacity .6s ease;will-change:opacity}
+.scroll-phone-screen img.sps-active{opacity:1}
+.scroll-phone-bar{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);width:80px;height:4px;background:rgba(255,255,255,.35);border-radius:2px;z-index:3}
+.scroll-features-col{flex:0 0 55%;padding:4rem 2rem 4rem 3rem}
+.scroll-feat-item{min-height:60vh;display:flex;flex-direction:column;justify-content:center;padding:3rem 0;opacity:.25;transform:translateY(20px);transition:opacity .5s,transform .5s}
+.scroll-feat-item.sf-active{opacity:1;transform:translateY(0)}
+.scroll-feat-icon{font-size:2.5rem;margin-bottom:1rem}
+.scroll-feat-item h3{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:600;color:var(--parchment);margin-bottom:.8rem}
+.scroll-feat-item p{color:var(--stone);font-size:1.05rem;line-height:1.7;max-width:420px}
+.scroll-feat-dots{position:sticky;top:50%;left:0;transform:translateY(-50%);display:flex;flex-direction:column;gap:12px;z-index:5;padding-left:2rem}
+.scroll-feat-dot{width:8px;height:8px;border-radius:50%;background:var(--stone);opacity:.3;transition:all .3s}
+.scroll-feat-dot.sfd-active{background:var(--gold);opacity:1;transform:scale(1.4)}
+@media(max-width:768px){
+  .scroll-demo-inner{flex-direction:column}
+  .scroll-phone-col{position:relative;top:0;height:auto;padding:2rem 0;flex:none}
+  .scroll-phone-frame{width:180px;height:390px;border-radius:32px}
+  .scroll-features-col{padding:0 1.5rem 4rem}
+  .scroll-feat-item{min-height:auto;padding:2rem 0}
+  .scroll-demo-section{min-height:auto}
+}
+
+/* ── TRY YOUR FIRST WORD ── */
+.try-section{padding:8rem 2rem;position:relative;overflow:hidden}
+.try-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(139,32,48,0.06) 0%,transparent 60%)}
+.try-inner{max-width:700px;margin:0 auto;position:relative;z-index:2}
+.try-cards{display:flex;justify-content:center;gap:1.5rem;margin:3rem 0 2rem;flex-wrap:wrap}
+.try-card{width:180px;height:240px;perspective:800px;cursor:pointer}
+.try-card-inner{width:100%;height:100%;position:relative;transition:transform .6s cubic-bezier(.34,1.2,.64,1);transform-style:preserve-3d}
+.try-card.tc-flipped .try-card-inner{transform:rotateY(180deg)}
+.try-card-front,.try-card-back{position:absolute;inset:0;border-radius:16px;backface-visibility:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1.5rem;border:1px solid rgba(212,168,67,0.15)}
+.try-card-front{background:linear-gradient(145deg,rgba(14,30,62,0.6),rgba(8,13,28,0.8))}
+.try-card-back{background:linear-gradient(145deg,rgba(14,30,62,0.8),rgba(8,13,28,0.95));transform:rotateY(180deg)}
+.try-card-latin{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:600;color:var(--gold-light);margin-bottom:.5rem}
+.try-card-speaker{font-size:1.2rem;opacity:.4;transition:opacity .2s;margin-top:.5rem}
+.try-card:hover .try-card-speaker{opacity:.7}
+.try-card-pron{color:var(--stone);font-size:.85rem;font-style:italic}
+.try-card-english{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--parchment);margin-bottom:.5rem}
+.try-card-grammar{color:var(--stone);font-size:.8rem;margin-top:.5rem}
+.try-card-example{color:var(--gold-dim);font-size:.78rem;font-style:italic;margin-top:.8rem;text-align:center;line-height:1.4}
+.try-card.tc-flipped .try-card-front{pointer-events:none}
+.try-card:not(.tc-flipped) .try-card-back{pointer-events:none}
+.try-hint{text-align:center;color:var(--stone);font-size:.9rem;opacity:.6}
+.try-progress{display:flex;justify-content:center;gap:8px;margin-top:1.5rem}
+.try-pip{width:8px;height:8px;border-radius:50%;background:var(--stone);opacity:.3;transition:all .3s}
+.try-pip.tp-done{background:var(--gold);opacity:1}
+@media(max-width:600px){
+  .try-card{width:150px;height:210px}
+  .try-card-latin{font-size:1.4rem}
+}
+
+/* ── SMART CTA ── */
+.smart-cta-qr{display:none;margin:1rem auto 0;padding:1rem;background:rgba(255,255,255,0.95);border-radius:12px;width:fit-content}
+.smart-cta-qr canvas{display:block}
+.smart-cta-hint{text-align:center;color:var(--stone);font-size:.8rem;margin-top:.8rem;opacity:.6}
+.smart-cta-device{display:none;font-size:.78rem;color:var(--stone);margin-top:.5rem;text-align:center;opacity:.5}
+body.is-ios .smart-cta-device-ios{display:block}
+body.is-desktop .smart-cta-device-desktop{display:block}
+
 </style>
 
 <!-- SEO & Social Sharing -->
@@ -684,51 +751,59 @@ footer a:hover{opacity:.7}
   </div>
 </section>
 
-<!-- FEATURES -->
-<section class="features" id="features">
-  <div class="section-label reveal">What's Inside</div>
-  <h2 class="section-title cinematic-headline" id="cinematicHead"><!-- words injected by JS --></h2>
-  <p class="section-desc reveal reveal-delay-2">From your first <em>Ave Maria</em> to reading the Vulgate &mdash; Lingua Sacra guides you step by step.</p>
-  <div class="features-grid">
-    <div class="feature-card reveal"><span class="feature-icon">&#128214;</span><h3>Structured Lessons</h3><p>57 lessons across 8 tiers, from greetings and prayers to advanced Vulgate readings and grammar constructions.</p></div>
-    <div class="feature-card reveal reveal-delay-1"><span class="feature-icon">&#127911;</span><h3>Ecclesiastical Audio</h3><p>Every word pronounced in authentic Church Latin &mdash; the way it's spoken in Rome, not the classical style of Caesar.</p></div>
-    <div class="feature-card reveal reveal-delay-2"><span class="feature-icon">&#128591;</span><h3>Prayer Library</h3><p>17 classic prayers with full Latin text, English translation, and interactive word-by-word grammar analysis.</p></div>
-    <div class="feature-card reveal reveal-delay-3"><span class="feature-icon">&#129504;</span><h3>Spaced Repetition</h3><p>An intelligent review system that strengthens your memory by surfacing words right when you're about to forget.</p></div>
-    <div class="feature-card reveal"><span class="feature-icon">&#9997;&#65039;</span><h3>Adaptive Quizzes</h3><p>Listening, translation, and recall challenges that adapt to your level and keep you sharp.</p></div>
-    <div class="feature-card reveal reveal-delay-1"><span class="feature-icon">&#10013;&#65039;</span><h3>Personalized Paths</h3><p>Choose your goal &mdash; understanding the Mass, reading the Vulgate, seminary prep, sacred music, or personal enrichment.</p></div>
-  </div>
-</section>
-<div class="divider"></div>
 
-<!-- TIER/LESSON MAP -->
-<section class="tier-section" id="journey">
-  <div class="tier-layout">
-    <div class="tier-text">
-      <div class="section-label reveal">Your Learning Journey</div>
-      <h2 class="section-title reveal reveal-delay-1">8 tiers from beginner to Vulgate reader</h2>
-      <p class="section-desc reveal reveal-delay-2">Each tier builds on the last. Start with basic greetings and prayers, and progress all the way to reading Scripture and understanding the full Latin Mass.</p>
-      <p class="reveal reveal-delay-3" style="color:var(--stone);font-size:.95rem;line-height:1.7">Take the placement test to skip ahead if you already have Latin experience.</p>
+<!-- SCROLL-SYNCED PHONE DEMO -->
+<section class="scroll-demo-section" id="features">
+  <div class="scroll-demo-header">
+    <div class="section-label reveal">Features</div>
+    <h2 class="section-title reveal reveal-delay-1" style="margin:0 auto;text-align:center">Everything you need to learn Latin</h2>
+  </div>
+  <div class="scroll-demo-inner">
+    <div class="scroll-phone-col">
+      <div class="scroll-phone-frame">
+        <div class="scroll-phone-notch"></div>
+        <div class="scroll-phone-screen" id="scrollPhoneScreen">
+          <img src="img/01_lessons_6.7inch.png" alt="Lessons" class="sps-active" data-idx="0">
+          <img src="img/02_flashcards_6.7inch.png" alt="Flashcards" data-idx="1">
+          <img src="img/03_quiz_6.7inch.png" alt="Quizzes" data-idx="2">
+          <img src="img/04_prayer_library_6.7inch.png" alt="Prayer Library" data-idx="3">
+          <img src="img/05_daily_phrase_6.7inch.png" alt="Daily Phrase" data-idx="4">
+          <img src="img/06_progress_6.7inch.png" alt="Progress" data-idx="5">
+        </div>
+        <div class="scroll-phone-bar"></div>
+      </div>
     </div>
-    <div class="tier-map reveal reveal-delay-2">
-      <div class="tier-line"></div>
-      <div class="tier-node unlocked" onclick="toggleTier(this)">
-        <div class="tier-dot"></div>
-        <div class="tier-info"><div class="tier-name">I &mdash; Initium</div><div class="tier-meta">8 lessons &middot; Greetings, basics, first prayers</div></div>
-        <span class="tier-badge">Unlocked</span>
+    <div class="scroll-features-col">
+      <div class="scroll-feat-item sf-active" data-screen="0">
+        <div class="scroll-feat-icon">&#128218;</div>
+        <h3>Structured Lessons</h3>
+        <p>58 lessons introduce 367 essential Latin words drawn from Scripture, the Mass, and the great prayers. Each lesson uses a 3-round mastery system &mdash; Learn, Practice, Master &mdash; so every word moves from recognition to true fluency.</p>
       </div>
-      <div class="tier-lessons"><div class="tier-lessons-inner"><span class="tier-lesson-tag">Salvete!</span><span class="tier-lesson-tag">Numbers</span><span class="tier-lesson-tag">Colors</span><span class="tier-lesson-tag">Family</span><span class="tier-lesson-tag">Pater Noster</span><span class="tier-lesson-tag">Ave Maria</span><span class="tier-lesson-tag">Gloria Patri</span><span class="tier-lesson-tag">Review</span></div></div>
-      <div class="tier-node unlocked" onclick="toggleTier(this)">
-        <div class="tier-dot"></div>
-        <div class="tier-info"><div class="tier-name">II &mdash; Fundamenta</div><div class="tier-meta">8 lessons &middot; Cases, verb basics, daily life</div></div>
-        <span class="tier-badge">Unlocked</span>
+      <div class="scroll-feat-item" data-screen="1">
+        <div class="scroll-feat-icon">&#127911;</div>
+        <h3>Ecclesiastical Audio</h3>
+        <p>Every word and phrase features authentic Ecclesiastical pronunciation &mdash; the living pronunciation used in the Vatican and in Catholic worship worldwide. Listen, repeat, and build confidence hearing the language as it&rsquo;s meant to sound.</p>
       </div>
-      <div class="tier-lessons"><div class="tier-lessons-inner"><span class="tier-lesson-tag">Nominative</span><span class="tier-lesson-tag">Accusative</span><span class="tier-lesson-tag">Present Tense</span><span class="tier-lesson-tag">Food &amp; Drink</span><span class="tier-lesson-tag">Church Words</span><span class="tier-lesson-tag">Body &amp; Health</span><span class="tier-lesson-tag">Adjectives</span><span class="tier-lesson-tag">Review</span></div></div>
-      <div class="tier-node locked"><div class="tier-dot"></div><div class="tier-info"><div class="tier-name">III &mdash; Progressio</div><div class="tier-meta">7 lessons &middot; More cases, Mass responses</div></div><span class="tier-badge">Locked</span></div>
-      <div class="tier-node locked"><div class="tier-dot"></div><div class="tier-info"><div class="tier-name">IV &mdash; Liturgia</div><div class="tier-meta">7 lessons &middot; Full Mass ordinary, hymns</div></div><span class="tier-badge">Locked</span></div>
-      <div class="tier-node locked"><div class="tier-dot"></div><div class="tier-info"><div class="tier-name">V &mdash; Scriptura</div><div class="tier-meta">7 lessons &middot; Vulgate readings, psalms</div></div><span class="tier-badge">Locked</span></div>
-      <div class="tier-node locked"><div class="tier-dot"></div><div class="tier-info"><div class="tier-name">VI &mdash; Eloquentia</div><div class="tier-meta">7 lessons &middot; Subjunctive, complex grammar</div></div><span class="tier-badge">Locked</span></div>
-      <div class="tier-node locked"><div class="tier-dot"></div><div class="tier-info"><div class="tier-name">VII &mdash; Sapientia</div><div class="tier-meta">7 lessons &middot; Church documents, encyclicals</div></div><span class="tier-badge">Locked</span></div>
-      <div class="tier-node locked"><div class="tier-dot"></div><div class="tier-info"><div class="tier-name">VIII &mdash; Magisterium</div><div class="tier-meta">6 lessons &middot; Advanced Vulgate, composition</div></div><span class="tier-badge">Locked</span></div>
+      <div class="scroll-feat-item" data-screen="2">
+        <div class="scroll-feat-icon">&#129504;</div>
+        <h3>Adaptive Quizzes</h3>
+        <p>15 different question types keep practice fresh. Multiple choice, listening comprehension, fill-in-the-blank, sentence parsing, and more. Words you struggle with appear more often until they stick.</p>
+      </div>
+      <div class="scroll-feat-item" data-screen="3">
+        <div class="scroll-feat-icon">&#128591;</div>
+        <h3>Prayer Library</h3>
+        <p>17 complete prayers with word-by-word annotations. Tap any word to see its meaning, grammatical role, and etymology. From the Pater Noster and Ave Maria to the Anima Christi and Salve Regina.</p>
+      </div>
+      <div class="scroll-feat-item" data-screen="4">
+        <div class="scroll-feat-icon">&#9728;&#65039;</div>
+        <h3>Daily Phrases</h3>
+        <p>354 daily Latin phrases drawn from Scripture, the liturgy, and the saints. A new phrase every day to deepen your practice and keep the sacred language alive in your daily routine.</p>
+      </div>
+      <div class="scroll-feat-item" data-screen="5">
+        <div class="scroll-feat-icon">&#128200;</div>
+        <h3>Track Your Progress</h3>
+        <p>Watch your vocabulary grow with detailed progress tracking. See your streak, review accuracy, mastery levels, and a study heatmap that shows your dedication over time.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -909,6 +984,67 @@ footer a:hover{opacity:.7}
   </div>
 </section>
 
+
+<!-- TRY YOUR FIRST WORD -->
+<section class="try-section" id="try">
+  <div class="try-inner">
+    <div class="section-label reveal" style="text-align:center">Try It Now</div>
+    <h2 class="section-title reveal reveal-delay-1" style="margin:0 auto;text-align:center">Tap a card to learn your first words</h2>
+    <p class="section-desc reveal reveal-delay-2" style="text-align:center;margin:0 auto 0">Each card has audio, pronunciation, grammar, and an example from Scripture or the liturgy.</p>
+    <div class="try-cards" id="tryCards">
+      <div class="try-card reveal" data-slug="dominus" data-latin="Dominus" data-pron="DOH-mee-noos" data-english="Lord, Master" data-grammar="2nd Declension, Masculine" data-example="&ldquo;Dominus vobiscum&rdquo; &mdash; The Lord be with you" onclick="flipTryCard(this)">
+        <div class="try-card-inner">
+          <div class="try-card-front">
+            <div class="try-card-latin">Dominus</div>
+            <div class="try-card-pron">DOH-mee-noos</div>
+            <div class="try-card-speaker">&#128266;</div>
+          </div>
+          <div class="try-card-back">
+            <div class="try-card-english">Lord, Master</div>
+            <div class="try-card-grammar">2nd Declension, Masculine</div>
+            <div class="try-card-example">&ldquo;Dominus vobiscum&rdquo;<br>The Lord be with you</div>
+          </div>
+        </div>
+      </div>
+      <div class="try-card reveal reveal-delay-1" data-slug="gratia" data-latin="Gratia" data-pron="GRAH-tsee-ah" data-english="Grace, Favor" data-grammar="1st Declension, Feminine" data-example="&ldquo;Gratia plena&rdquo; &mdash; Full of grace" onclick="flipTryCard(this)">
+        <div class="try-card-inner">
+          <div class="try-card-front">
+            <div class="try-card-latin">Gratia</div>
+            <div class="try-card-pron">GRAH-tsee-ah</div>
+            <div class="try-card-speaker">&#128266;</div>
+          </div>
+          <div class="try-card-back">
+            <div class="try-card-english">Grace, Favor</div>
+            <div class="try-card-grammar">1st Declension, Feminine</div>
+            <div class="try-card-example">&ldquo;Gratia plena&rdquo;<br>Full of grace</div>
+          </div>
+        </div>
+      </div>
+      <div class="try-card reveal reveal-delay-2" data-slug="pax" data-latin="Pax" data-pron="PAHKS" data-english="Peace" data-grammar="3rd Declension, Feminine" data-example="&ldquo;Pax Domini sit semper vobiscum&rdquo;<br>The peace of the Lord be with you always" onclick="flipTryCard(this)">
+        <div class="try-card-inner">
+          <div class="try-card-front">
+            <div class="try-card-latin">Pax</div>
+            <div class="try-card-pron">PAHKS</div>
+            <div class="try-card-speaker">&#128266;</div>
+          </div>
+          <div class="try-card-back">
+            <div class="try-card-english">Peace</div>
+            <div class="try-card-grammar">3rd Declension, Feminine</div>
+            <div class="try-card-example">&ldquo;Pax Domini sit semper vobiscum&rdquo;<br>Peace of the Lord be with you always</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="try-hint reveal">Tap any card to reveal its meaning</div>
+    <div class="try-progress" id="tryProgress">
+      <div class="try-pip" id="tp0"></div>
+      <div class="try-pip" id="tp1"></div>
+      <div class="try-pip" id="tp2"></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
 <!-- PRAYER -->
 <section class="prayer-section" id="prayer"><div class="ambient-latin" aria-hidden="true" data-parallax="0.2"><span>Pater noster</span><span>qui es in caelis</span><span>sanctificetur nomen tuum</span><span>Ave Maria</span><span>gratia plena</span><span>Dominus tecum</span><span>Kyrie eleison</span><span>Christe eleison</span></div>
   <div class="section-label reveal">From the Prayer Library</div>
@@ -1601,6 +1737,80 @@ function playLatin(slug) {
   latinAudio.volume = 0.85;
   latinAudio.play().catch(function(){});
 }
+</script>
+<script>
+
+/* ── SCROLL-SYNCED PHONE ── */
+(function(){
+  var items = document.querySelectorAll('.scroll-feat-item');
+  var imgs = document.querySelectorAll('#scrollPhoneScreen img');
+  if(!items.length || !imgs.length) return;
+  
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting && e.intersectionRatio > 0.4){
+        var idx = +e.target.getAttribute('data-screen');
+        items.forEach(function(it){ it.classList.remove('sf-active'); });
+        e.target.classList.add('sf-active');
+        imgs.forEach(function(im){ im.classList.remove('sps-active'); });
+        if(imgs[idx]) imgs[idx].classList.add('sps-active');
+      }
+    });
+  }, {threshold:[0.4], rootMargin:'-20% 0px -20% 0px'});
+  
+  items.forEach(function(it){ io.observe(it); });
+})();
+
+
+/* ── TRY YOUR FIRST WORD ── */
+var tryFlipped = 0;
+function flipTryCard(card) {
+  if(card.classList.contains('tc-flipped')) return;
+  card.classList.add('tc-flipped');
+  var slug = card.getAttribute('data-slug');
+  if(slug && typeof playLatin === 'function') playLatin(slug);
+  var cards = document.querySelectorAll('.try-card');
+  var idx = Array.prototype.indexOf.call(cards, card);
+  var pip = document.getElementById('tp' + idx);
+  if(pip) pip.classList.add('tp-done');
+  tryFlipped++;
+  if(tryFlipped >= cards.length) {
+    setTimeout(function(){
+      document.querySelector('.try-hint').textContent = 'You just learned 3 Latin words! Imagine what 58 lessons can do.';
+      document.querySelector('.try-hint').style.opacity = '1';
+      document.querySelector('.try-hint').style.color = 'var(--gold)';
+    }, 800);
+  }
+}
+
+
+/* ── SMART DEVICE CTA ── */
+(function(){
+  var ua = navigator.userAgent || '';
+  var isIOS = /iPhone|iPad|iPod/.test(ua);
+  var isAndroid = /Android/.test(ua);
+  var isMobile = isIOS || isAndroid;
+  
+  if(isIOS) document.body.classList.add('is-ios');
+  else if(!isMobile) document.body.classList.add('is-desktop');
+  
+  // Update CTA button text based on device
+  var ctaBtns = document.querySelectorAll('.sticky-cta-btn, .cta-btn, [class*="cta-btn"]');
+  ctaBtns.forEach(function(btn){
+    var text = btn.textContent.trim().toLowerCase();
+    if(text.includes('download') || text.includes('get') || text.includes('begin') || text.includes('journey')){
+      if(isIOS){
+        btn.textContent = 'Download on the App Store';
+        btn.setAttribute('data-store','ios');
+      } else if(isAndroid){
+        btn.textContent = 'Get it on Google Play';
+        btn.setAttribute('data-store','android');
+      }
+      // Desktop: leave as-is until App Store URL is available
+    }
+  });
+})();
+
 </script>
 </body>
 </html>
