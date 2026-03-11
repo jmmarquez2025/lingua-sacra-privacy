@@ -366,7 +366,7 @@ footer a:hover{opacity:.7}
 .how-step p{color:var(--stone);font-size:.95rem;line-height:1.6}
 .how-connector{display:none}
 @media(min-width:769px){
-.how-connector{display:block;position:absolute;top:3.5rem;width:calc(33.33% - 40px);height:1px;background:linear-gradient(90deg,var(--gold-dim),var(--gold),var(--gold-dim));z-index:1}
+.how-connector{display:block;position:absolute;top:5.5rem;width:calc(33.33% - 40px);height:1px;background:linear-gradient(90deg,var(--gold-dim),var(--gold),var(--gold-dim));z-index:1}
 .how-connector:first-of-type{left:calc(16.66% + 20px)}
 .how-connector:last-of-type{left:calc(50% + 20px)}
 }
@@ -500,8 +500,8 @@ footer a:hover{opacity:.7}
 @media(hover:hover){
   body{cursor:none}
   a,button,[onclick]{cursor:none}
-  #cursorDot{position:fixed;width:8px;height:8px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:transform .1s,opacity .2s;mix-blend-mode:screen}
-  #cursorGlow{position:fixed;width:40px;height:40px;border:1px solid rgba(212,168,67,0.35);border-radius:50%;pointer-events:none;z-index:9997;transform:translate(-50%,-50%);transition:transform .18s ease-out,width .25s,height .25s,border-color .25s;mix-blend-mode:screen}
+  #cursorDot{position:fixed;width:8px;height:8px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:transform .1s,opacity .2s}
+  #cursorGlow{position:fixed;width:40px;height:40px;border:1px solid rgba(212,168,67,0.5);border-radius:50%;pointer-events:none;z-index:9997;transform:translate(-50%,-50%);transition:transform .18s ease-out,width .25s,height .25s,border-color .25s}
   body.cursor-hover #cursorDot{transform:translate(-50%,-50%) scale(2.5);opacity:.7}
   body.cursor-hover #cursorGlow{width:64px;height:64px;border-color:rgba(212,168,67,0.55)}
 }
