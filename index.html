@@ -898,8 +898,8 @@ footer a:hover{opacity:.7}
   <div class="section-label reveal">From the Prayer Library</div>
   <h2 class="section-title reveal reveal-delay-1" style="margin:0 auto .5rem;text-align:center">Pray as the Church has prayed for centuries</h2>
   <div class="prayer-card reveal reveal-delay-2">
-    <button onclick="playLatin('prayer-ave-maria')" class="prayer-play-btn" title="Hear the Ave Maria">&#9654;</button><div class="prayer-latin" onclick="playLatin('prayer-ave-maria')" style="cursor:pointer" title="Hear the Ave Maria">Ave Maria, gratia plena,<br>Dominus tecum.<br>Benedicta tu in mulieribus,<br>et benedictus fructus ventris tui, Iesus.</div>
-    <div class="prayer-english">Hail Mary, full of grace, the Lord is with thee. Blessed art thou among women, and blessed is the fruit of thy womb, Jesus.</div>
+    <button onclick="playLatin('prayer-ave-maria')" class="prayer-play-btn" title="Hear the Ave Maria">&#9654;</button><div class="prayer-latin" onclick="playLatin('prayer-ave-maria')" style="cursor:pointer" title="Hear the Ave Maria">Ave Maria, gratia plena,<br>Dominus tecum.<br>Benedicta tu in mulieribus,<br>et benedictus fructus ventris tui, Iesus.<br><br>Sancta Maria, Mater Dei,<br>ora pro nobis peccatoribus,<br>nunc, et in hora mortis nostrae.<br>Amen.</div>
+    <div class="prayer-english">Hail Mary, full of grace, the Lord is with thee. Blessed art thou among women, and blessed is the fruit of thy womb, Jesus.<br><br>Holy Mary, Mother of God, pray for us sinners, now and at the hour of our death. Amen.</div>
   </div>
 </section>
 
@@ -1195,7 +1195,7 @@ function updateDailyPhrase(animate){
 function setDailyContent(){
   const p=dailyPhrases[dpIdx];
   document.getElementById('dpLatin').textContent=p.latin;
-  document.getElementById('dpPronunciation').textContent=p.pron;
+  document.getElementById('dpPronunciation').textContent=p.pron;  if(p.slug) playLatin(p.slug);
   document.getElementById('dpEnglish').textContent=p.english;
   document.getElementById('dpSource').textContent=p.source;
   document.getElementById('dpCounter').textContent='Phrase '+(dpIdx+1)+' of '+dailyPhrases.length;
