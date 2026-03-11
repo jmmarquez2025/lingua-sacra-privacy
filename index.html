@@ -814,12 +814,13 @@ footer a:hover{opacity:.7}
   <div class="email-card reveal">
     <h3>Stay in the loop</h3>
     <p>Get Latin tips, new feature announcements, and app updates</p>
-    <form class="email-form" onsubmit="handleEmail(event)">
-      <input type="email" class="email-input" placeholder="your@email.com" required id="emailInput">
+    <form class="email-form" action="https://applinguasacra.us6.list-manage.com/subscribe/post?u=9a06dc6e3ffbd1efebebb115b&amp;id=ae83265683&amp;f_id=0076c2e1f0" method="post" target="_blank">
+      <input type="email" name="EMAIL" class="email-input" placeholder="your@email.com" required>
+      <div aria-hidden="true" style="position:absolute;left:-5000px"><input type="text" name="b_9a06dc6e3ffbd1efebebb115b_ae83265683" tabindex="-1" value=""></div>
       <button type="submit" class="email-submit">Subscribe</button>
     </form>
     <div class="email-note">No spam. Unsubscribe anytime.</div>
-    <div id="emailSuccess" style="display:none;color:var(--green);margin-top:1rem;font-size:.95rem">&#10003; You&rsquo;re subscribed! Check your inbox.</div>
+    <div style="margin-top:.8rem;font-size:.82rem;color:var(--stone);opacity:.5">You&rsquo;ll be redirected to confirm your subscription.</div>
   </div>
 </section>
 
@@ -1101,17 +1102,7 @@ function nextFloatWord(){
   ob.observe(hero);
 })();
 
-/* === EMAIL CAPTURE (placeholder - replace with real endpoint) === */
-function handleEmail(e){
-  e.preventDefault();
-  const email=document.getElementById('emailInput').value;
-  // TODO: Replace with Mailchimp/Buttondown/etc endpoint
-  console.log('Email captured:',email);
-  document.getElementById('emailSuccess').style.display='block';
-  document.getElementById('emailInput').value='';
-  e.target.querySelector('button').textContent='Subscribed!';
-  e.target.querySelector('button').disabled=true;
-}
+/* Mailchimp form - no JS needed, form posts directly */
 
 </script>
 
