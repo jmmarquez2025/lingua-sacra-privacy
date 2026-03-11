@@ -65,9 +65,7 @@ nav.scrolled{background:rgba(8,13,28,0.94);backdrop-filter:blur(20px);-webkit-ba
 .hero-latin{margin-top:4rem;font-style:italic;color:var(--stone);font-size:1.05rem;letter-spacing:.08em;position:relative;z-index:2;opacity:.7}
 
 /* DIVIDER */
-.divider{width:100%;text-align:center;padding:1.5rem 0;overflow:hidden;position:relative}
-.divider svg{display:block;margin:0 auto;max-width:280px;height:auto;opacity:.35}
-.divider svg path,.divider svg circle{fill:none;stroke:var(--gold);stroke-width:.7}
+.divider{width:100%;height:1px;background:linear-gradient(90deg,transparent,var(--gold-dim),transparent)}
 
 /* STATS */
 .stats{padding:4rem 2rem;background:linear-gradient(180deg,rgba(14,30,62,0.3) 0%,transparent 100%)}
@@ -624,12 +622,6 @@ body.is-desktop .smart-cta-device-desktop{display:block}
 .fb-success p{color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:1.3rem}
 
 
-/* GOTHIC CORNER ORNAMENTS */
-.gothic-corners{position:relative}
-.gothic-corners::before,.gothic-corners::after{content:'';position:absolute;width:30px;height:30px;opacity:.2;pointer-events:none}
-.gothic-corners::before{top:12px;left:12px;border-top:1.5px solid var(--gold);border-left:1.5px solid var(--gold);border-top-left-radius:2px}
-.gothic-corners::after{top:12px;right:12px;border-top:1.5px solid var(--gold);border-right:1.5px solid var(--gold);border-top-right-radius:2px}
-
 </style>
 
 <!-- SEO & Social Sharing -->
@@ -727,24 +719,7 @@ body.is-desktop .smart-cta-device-desktop{display:block}
   
 </section>
 
-<div class="divider"><svg viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-  <!-- Left decorative line -->
-  <line x1="10" y1="50" x2="70" y2="50" stroke="var(--gold)" stroke-width=".5" opacity=".3"/>
-  <!-- Pointed arch -->
-  <path d="M75,50 Q75,18 100,5 Q125,18 125,50" />
-  <!-- Trefoil at apex -->
-  <circle cx="100" cy="12" r="5" />
-  <circle cx="94" cy="18" r="4" />
-  <circle cx="106" cy="18" r="4" />
-  <!-- Small cross at very top -->
-  <line x1="100" y1="2" x2="100" y2="7" stroke="var(--gold)" stroke-width=".7"/>
-  <line x1="98" y1="4.5" x2="102" y2="4.5" stroke="var(--gold)" stroke-width=".7"/>
-  <!-- Right decorative line -->
-  <line x1="130" y1="50" x2="190" y2="50" stroke="var(--gold)" stroke-width=".5" opacity=".3"/>
-  <!-- Small diamond accents -->
-  <polygon points="68,50 65,48 68,46 71,48" fill="var(--gold)" opacity=".25"/>
-  <polygon points="132,50 129,48 132,46 135,48" fill="var(--gold)" opacity=".25"/>
-</svg></div>
+<div class="divider"></div>
 
 
 <!-- BUILT FOR -->
@@ -778,15 +753,7 @@ body.is-desktop .smart-cta-device-desktop{display:block}
   </div>
 </section>
 
-<div class="divider"><svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-  <line x1="20" y1="20" x2="80" y2="20" stroke="var(--gold)" stroke-width=".5" opacity=".25"/>
-  <!-- Quatrefoil center -->
-  <circle cx="100" cy="14" r="5" fill="none" stroke="var(--gold)" stroke-width=".6" opacity=".35"/>
-  <circle cx="100" cy="26" r="5" fill="none" stroke="var(--gold)" stroke-width=".6" opacity=".35"/>
-  <circle cx="94" cy="20" r="5" fill="none" stroke="var(--gold)" stroke-width=".6" opacity=".35"/>
-  <circle cx="106" cy="20" r="5" fill="none" stroke="var(--gold)" stroke-width=".6" opacity=".35"/>
-  <line x1="120" y1="20" x2="180" y2="20" stroke="var(--gold)" stroke-width=".5" opacity=".25"/>
-</svg></div>
+<div class="divider"></div>
 
 <!-- HOW IT WORKS -->
 <section class="how-section" id="journey">
@@ -956,24 +923,7 @@ body.is-desktop .smart-cta-device-desktop{display:block}
   <div class="iphone-dots"><button class="iphone-dot active" onclick="iphoneGoTo(0)" aria-label="Structured Lessons"></button><button class="iphone-dot" onclick="iphoneGoTo(1)" aria-label="Beautiful Flashcards"></button><button class="iphone-dot" onclick="iphoneGoTo(2)" aria-label="Adaptive Quizzes"></button><button class="iphone-dot" onclick="iphoneGoTo(3)" aria-label="Prayer Library"></button><button class="iphone-dot" onclick="iphoneGoTo(4)" aria-label="Daily Latin Phrases"></button><button class="iphone-dot" onclick="iphoneGoTo(5)" aria-label="Track Your Progress"></button><button class="iphone-dot" onclick="iphoneGoTo(6)" aria-label="Practice & Review"></button></div>
 </section>
 
-<div class="divider"><svg viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-  <!-- Left decorative line -->
-  <line x1="10" y1="50" x2="70" y2="50" stroke="var(--gold)" stroke-width=".5" opacity=".3"/>
-  <!-- Pointed arch -->
-  <path d="M75,50 Q75,18 100,5 Q125,18 125,50" />
-  <!-- Trefoil at apex -->
-  <circle cx="100" cy="12" r="5" />
-  <circle cx="94" cy="18" r="4" />
-  <circle cx="106" cy="18" r="4" />
-  <!-- Small cross at very top -->
-  <line x1="100" y1="2" x2="100" y2="7" stroke="var(--gold)" stroke-width=".7"/>
-  <line x1="98" y1="4.5" x2="102" y2="4.5" stroke="var(--gold)" stroke-width=".7"/>
-  <!-- Right decorative line -->
-  <line x1="130" y1="50" x2="190" y2="50" stroke="var(--gold)" stroke-width=".5" opacity=".3"/>
-  <!-- Small diamond accents -->
-  <polygon points="68,50 65,48 68,46 71,48" fill="var(--gold)" opacity=".25"/>
-  <polygon points="132,50 129,48 132,46 135,48" fill="var(--gold)" opacity=".25"/>
-</svg></div>
+<div class="divider"></div>
 
 <!-- BEFORE/AFTER COMPARISON -->
 <section class="compare-section" id="compare">
@@ -1038,15 +988,7 @@ body.is-desktop .smart-cta-device-desktop{display:block}
   </div>
 </section>
 
-<div class="divider"><svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-  <line x1="20" y1="20" x2="80" y2="20" stroke="var(--gold)" stroke-width=".5" opacity=".25"/>
-  <!-- Quatrefoil center -->
-  <circle cx="100" cy="14" r="5" fill="none" stroke="var(--gold)" stroke-width=".6" opacity=".35"/>
-  <circle cx="100" cy="26" r="5" fill="none" stroke="var(--gold)" stroke-width=".6" opacity=".35"/>
-  <circle cx="94" cy="20" r="5" fill="none" stroke="var(--gold)" stroke-width=".6" opacity=".35"/>
-  <circle cx="106" cy="20" r="5" fill="none" stroke="var(--gold)" stroke-width=".6" opacity=".35"/>
-  <line x1="120" y1="20" x2="180" y2="20" stroke="var(--gold)" stroke-width=".5" opacity=".25"/>
-</svg></div>
+<div class="divider"></div>
 
 <!-- COMPARISON TABLE -->
 <section class="compare-table-section">
@@ -1086,7 +1028,7 @@ body.is-desktop .smart-cta-device-desktop{display:block}
     <div class="try-cards" id="tryCards">
       <div class="try-card reveal" data-slug="dominus" data-latin="Dominus" data-pron="DOH-mee-noos" data-english="Lord, Master" data-grammar="2nd Declension, Masculine" data-example="&ldquo;Dominus vobiscum&rdquo; &mdash; The Lord be with you" onclick="flipTryCard(this)" onkeydown="if(event.key==='Enter')flipTryCard(this)" tabindex="0" role="button">
         <div class="try-card-inner">
-          <div class="try-card-front gothic-corners">
+          <div class="try-card-front">
             <div class="try-card-latin">Dominus</div>
             <div class="try-card-pron">DOH-mee-noos</div>
             <div class="try-card-speaker">&#128266;</div>
@@ -1100,7 +1042,7 @@ body.is-desktop .smart-cta-device-desktop{display:block}
       </div>
       <div class="try-card reveal reveal-delay-1" data-slug="gratia" data-latin="Gratia" data-pron="GRAH-tsee-ah" data-english="Grace, Favor" data-grammar="1st Declension, Feminine" data-example="&ldquo;Gratia plena&rdquo; &mdash; Full of grace" onclick="flipTryCard(this)" onkeydown="if(event.key==='Enter')flipTryCard(this)" tabindex="0" role="button">
         <div class="try-card-inner">
-          <div class="try-card-front gothic-corners">
+          <div class="try-card-front">
             <div class="try-card-latin">Gratia</div>
             <div class="try-card-pron">GRAH-tsee-ah</div>
             <div class="try-card-speaker">&#128266;</div>
@@ -1114,7 +1056,7 @@ body.is-desktop .smart-cta-device-desktop{display:block}
       </div>
       <div class="try-card reveal reveal-delay-2" data-slug="pax" data-latin="Pax" data-pron="PAHKS" data-english="Peace" data-grammar="3rd Declension, Feminine" data-example="&ldquo;Pax Domini sit semper vobiscum&rdquo;<br>The peace of the Lord be with you always" onclick="flipTryCard(this)" onkeydown="if(event.key==='Enter')flipTryCard(this)" tabindex="0" role="button">
         <div class="try-card-inner">
-          <div class="try-card-front gothic-corners">
+          <div class="try-card-front">
             <div class="try-card-latin">Pax</div>
             <div class="try-card-pron">PAHKS</div>
             <div class="try-card-speaker">&#128266;</div>
@@ -1136,24 +1078,7 @@ body.is-desktop .smart-cta-device-desktop{display:block}
   </div>
 </section>
 
-<div class="divider"><svg viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-  <!-- Left decorative line -->
-  <line x1="10" y1="50" x2="70" y2="50" stroke="var(--gold)" stroke-width=".5" opacity=".3"/>
-  <!-- Pointed arch -->
-  <path d="M75,50 Q75,18 100,5 Q125,18 125,50" />
-  <!-- Trefoil at apex -->
-  <circle cx="100" cy="12" r="5" />
-  <circle cx="94" cy="18" r="4" />
-  <circle cx="106" cy="18" r="4" />
-  <!-- Small cross at very top -->
-  <line x1="100" y1="2" x2="100" y2="7" stroke="var(--gold)" stroke-width=".7"/>
-  <line x1="98" y1="4.5" x2="102" y2="4.5" stroke="var(--gold)" stroke-width=".7"/>
-  <!-- Right decorative line -->
-  <line x1="130" y1="50" x2="190" y2="50" stroke="var(--gold)" stroke-width=".5" opacity=".3"/>
-  <!-- Small diamond accents -->
-  <polygon points="68,50 65,48 68,46 71,48" fill="var(--gold)" opacity=".25"/>
-  <polygon points="132,50 129,48 132,46 135,48" fill="var(--gold)" opacity=".25"/>
-</svg></div>
+<div class="divider"></div>
 <!-- PRAYER -->
 <section class="prayer-section" id="prayer"><div class="ambient-latin" aria-hidden="true" data-parallax="0.2"><span>Pater noster</span><span>qui es in caelis</span><span>sanctificetur nomen tuum</span><span>Ave Maria</span><span>gratia plena</span><span>Dominus tecum</span><span>Kyrie eleison</span><span>Christe eleison</span></div>
   <div class="section-label reveal">From the Prayer Library</div>
@@ -1164,15 +1089,7 @@ body.is-desktop .smart-cta-device-desktop{display:block}
   </div>
 </section>
 
-<div class="divider"><svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-  <line x1="20" y1="20" x2="80" y2="20" stroke="var(--gold)" stroke-width=".5" opacity=".25"/>
-  <!-- Quatrefoil center -->
-  <circle cx="100" cy="14" r="5" fill="none" stroke="var(--gold)" stroke-width=".6" opacity=".35"/>
-  <circle cx="100" cy="26" r="5" fill="none" stroke="var(--gold)" stroke-width=".6" opacity=".35"/>
-  <circle cx="94" cy="20" r="5" fill="none" stroke="var(--gold)" stroke-width=".6" opacity=".35"/>
-  <circle cx="106" cy="20" r="5" fill="none" stroke="var(--gold)" stroke-width=".6" opacity=".35"/>
-  <line x1="120" y1="20" x2="180" y2="20" stroke="var(--gold)" stroke-width=".5" opacity=".25"/>
-</svg></div>
+<div class="divider"></div>
 
 <!-- DAILY LATIN PHRASE -->
 <section class="daily-phrase-section" id="daily">
@@ -1197,24 +1114,7 @@ body.is-desktop .smart-cta-device-desktop{display:block}
   </div>
 </section>
 
-<div class="divider"><svg viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-  <!-- Left decorative line -->
-  <line x1="10" y1="50" x2="70" y2="50" stroke="var(--gold)" stroke-width=".5" opacity=".3"/>
-  <!-- Pointed arch -->
-  <path d="M75,50 Q75,18 100,5 Q125,18 125,50" />
-  <!-- Trefoil at apex -->
-  <circle cx="100" cy="12" r="5" />
-  <circle cx="94" cy="18" r="4" />
-  <circle cx="106" cy="18" r="4" />
-  <!-- Small cross at very top -->
-  <line x1="100" y1="2" x2="100" y2="7" stroke="var(--gold)" stroke-width=".7"/>
-  <line x1="98" y1="4.5" x2="102" y2="4.5" stroke="var(--gold)" stroke-width=".7"/>
-  <!-- Right decorative line -->
-  <line x1="130" y1="50" x2="190" y2="50" stroke="var(--gold)" stroke-width=".5" opacity=".3"/>
-  <!-- Small diamond accents -->
-  <polygon points="68,50 65,48 68,46 71,48" fill="var(--gold)" opacity=".25"/>
-  <polygon points="132,50 129,48 132,46 135,48" fill="var(--gold)" opacity=".25"/>
-</svg></div>
+<div class="divider"></div>
 
 
 
@@ -1237,15 +1137,7 @@ body.is-desktop .smart-cta-device-desktop{display:block}
   <div class="quote-attr reveal reveal-delay-1">&mdash; Veterum Sapientia, St. John XXIII</div>
 </section>
 
-<div class="divider"><svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-  <line x1="20" y1="20" x2="80" y2="20" stroke="var(--gold)" stroke-width=".5" opacity=".25"/>
-  <!-- Quatrefoil center -->
-  <circle cx="100" cy="14" r="5" fill="none" stroke="var(--gold)" stroke-width=".6" opacity=".35"/>
-  <circle cx="100" cy="26" r="5" fill="none" stroke="var(--gold)" stroke-width=".6" opacity=".35"/>
-  <circle cx="94" cy="20" r="5" fill="none" stroke="var(--gold)" stroke-width=".6" opacity=".35"/>
-  <circle cx="106" cy="20" r="5" fill="none" stroke="var(--gold)" stroke-width=".6" opacity=".35"/>
-  <line x1="120" y1="20" x2="180" y2="20" stroke="var(--gold)" stroke-width=".5" opacity=".25"/>
-</svg></div>
+<div class="divider"></div>
 
 <!-- FAQ -->
 <section class="faq-section" id="faq">
@@ -1263,31 +1155,14 @@ body.is-desktop .smart-cta-device-desktop{display:block}
     <div class="faq-item reveal"><div class="faq-question" onclick="toggleFaq(this)"><h3>How does spaced repetition work?</h3><svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div><div class="faq-answer"><div class="faq-answer-inner">Spaced repetition (SRS) is a proven learning technique. When you get a word right, the app waits longer before showing it again. When you struggle, it shows the word sooner. This optimizes your review time so you remember more with less effort.</div></div></div>
   </div>
 </section>
-<div class="divider"><svg viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-  <!-- Left decorative line -->
-  <line x1="10" y1="50" x2="70" y2="50" stroke="var(--gold)" stroke-width=".5" opacity=".3"/>
-  <!-- Pointed arch -->
-  <path d="M75,50 Q75,18 100,5 Q125,18 125,50" />
-  <!-- Trefoil at apex -->
-  <circle cx="100" cy="12" r="5" />
-  <circle cx="94" cy="18" r="4" />
-  <circle cx="106" cy="18" r="4" />
-  <!-- Small cross at very top -->
-  <line x1="100" y1="2" x2="100" y2="7" stroke="var(--gold)" stroke-width=".7"/>
-  <line x1="98" y1="4.5" x2="102" y2="4.5" stroke="var(--gold)" stroke-width=".7"/>
-  <!-- Right decorative line -->
-  <line x1="130" y1="50" x2="190" y2="50" stroke="var(--gold)" stroke-width=".5" opacity=".3"/>
-  <!-- Small diamond accents -->
-  <polygon points="68,50 65,48 68,46 71,48" fill="var(--gold)" opacity=".25"/>
-  <polygon points="132,50 129,48 132,46 135,48" fill="var(--gold)" opacity=".25"/>
-</svg></div>
+<div class="divider"></div>
 
 <!-- FEEDBACK -->
 <section class="feedback-section" id="feedback">
   <div class="section-label reveal">We Want to Hear From You</div>
   <h2 class="section-title reveal reveal-delay-1" style="margin:0 auto;text-align:center">Help us improve Lingua Sacra</h2>
   <div class="feedback-layout">
-    <div class="feedback-card gothic-corners reveal reveal-delay-2">
+    <div class="feedback-card reveal reveal-delay-2">
       <p>Your feedback shapes the future of the app. Whether it&rsquo;s a feature request, a bug report, or just telling us what you love &mdash; we read every response.</p>
       <div id="fbFormWrap">
       <form class="fb-form" id="fbForm" onsubmit="submitFeedback(event)">
