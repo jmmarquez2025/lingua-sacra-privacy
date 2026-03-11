@@ -655,6 +655,7 @@ body.is-desktop .smart-cta-device-desktop{display:block}
     <a href="#download" class="nav-cta">Download</a>
   </div>
 </nav>
+<main role="main">
 
 <!-- HERO -->
 <section class="hero">
@@ -759,7 +760,7 @@ body.is-desktop .smart-cta-device-desktop{display:block}
 
 
 <!-- SCROLL-SYNCED PHONE DEMO -->
-<section class="scroll-demo-section" id="features">
+<section class="scroll-demo-section" id="features" aria-label="App features">
   <div class="scroll-demo-header">
     <div class="section-label reveal">Features</div>
     <h2 class="section-title reveal reveal-delay-1" style="margin:0 auto;text-align:center">Everything you need to learn Latin</h2>
@@ -992,13 +993,13 @@ body.is-desktop .smart-cta-device-desktop{display:block}
 
 
 <!-- TRY YOUR FIRST WORD -->
-<section class="try-section" id="try">
+<section class="try-section" id="try" aria-label="Try your first Latin words">
   <div class="try-inner">
     <div class="section-label reveal" style="text-align:center">Try It Now</div>
     <h2 class="section-title reveal reveal-delay-1" style="margin:0 auto;text-align:center">Tap a card to learn your first words</h2>
     <p class="section-desc reveal reveal-delay-2" style="text-align:center;margin:0 auto 0">Each card has audio, pronunciation, grammar, and an example from Scripture or the liturgy.</p>
     <div class="try-cards" id="tryCards">
-      <div class="try-card reveal" data-slug="dominus" data-latin="Dominus" data-pron="DOH-mee-noos" data-english="Lord, Master" data-grammar="2nd Declension, Masculine" data-example="&ldquo;Dominus vobiscum&rdquo; &mdash; The Lord be with you" onclick="flipTryCard(this)">
+      <div class="try-card reveal" data-slug="dominus" data-latin="Dominus" data-pron="DOH-mee-noos" data-english="Lord, Master" data-grammar="2nd Declension, Masculine" data-example="&ldquo;Dominus vobiscum&rdquo; &mdash; The Lord be with you" onclick="flipTryCard(this)" onkeydown="if(event.key==='Enter')flipTryCard(this)" tabindex="0" role="button">
         <div class="try-card-inner">
           <div class="try-card-front">
             <div class="try-card-latin">Dominus</div>
@@ -1012,7 +1013,7 @@ body.is-desktop .smart-cta-device-desktop{display:block}
           </div>
         </div>
       </div>
-      <div class="try-card reveal reveal-delay-1" data-slug="gratia" data-latin="Gratia" data-pron="GRAH-tsee-ah" data-english="Grace, Favor" data-grammar="1st Declension, Feminine" data-example="&ldquo;Gratia plena&rdquo; &mdash; Full of grace" onclick="flipTryCard(this)">
+      <div class="try-card reveal reveal-delay-1" data-slug="gratia" data-latin="Gratia" data-pron="GRAH-tsee-ah" data-english="Grace, Favor" data-grammar="1st Declension, Feminine" data-example="&ldquo;Gratia plena&rdquo; &mdash; Full of grace" onclick="flipTryCard(this)" onkeydown="if(event.key==='Enter')flipTryCard(this)" tabindex="0" role="button">
         <div class="try-card-inner">
           <div class="try-card-front">
             <div class="try-card-latin">Gratia</div>
@@ -1026,7 +1027,7 @@ body.is-desktop .smart-cta-device-desktop{display:block}
           </div>
         </div>
       </div>
-      <div class="try-card reveal reveal-delay-2" data-slug="pax" data-latin="Pax" data-pron="PAHKS" data-english="Peace" data-grammar="3rd Declension, Feminine" data-example="&ldquo;Pax Domini sit semper vobiscum&rdquo;<br>The peace of the Lord be with you always" onclick="flipTryCard(this)">
+      <div class="try-card reveal reveal-delay-2" data-slug="pax" data-latin="Pax" data-pron="PAHKS" data-english="Peace" data-grammar="3rd Declension, Feminine" data-example="&ldquo;Pax Domini sit semper vobiscum&rdquo;<br>The peace of the Lord be with you always" onclick="flipTryCard(this)" onkeydown="if(event.key==='Enter')flipTryCard(this)" tabindex="0" role="button">
         <div class="try-card-inner">
           <div class="try-card-front">
             <div class="try-card-latin">Pax</div>
@@ -1175,6 +1176,7 @@ body.is-desktop .smart-cta-device-desktop{display:block}
 </section>
 
 <!-- FOOTER -->
+</main>
 <footer>
   <p>Lingua Sacra &copy; 2025 &middot; <a href="privacy.html">Privacy Policy</a> &middot; <a href="mailto:linguasacra.app@gmail.com">Contact</a></p>
   <p style="margin-top:.5rem;font-style:italic;opacity:.5;font-size:.85rem">Disce Latinam. Ad maiorem Dei gloriam.</p>
