@@ -1280,7 +1280,7 @@ function updateDailyPhrase(animate){
 function setDailyContent(shouldPlay){
   const p=dailyPhrases[dpIdx];
   document.getElementById('dpLatin').textContent=p.latin;
-  document.getElementById('dpPronunciation').textContent=p.pron;  if(shouldPlay && p.slug) playLatin(p.slug);
+  document.getElementById('dpPronunciation').textContent=p.pron;  if(shouldPlay && p.slug && p.slug.indexOf(''-'')!==-1) playLatin(p.slug);
   document.getElementById('dpEnglish').textContent=p.english;
   document.getElementById('dpSource').textContent=p.source;
   document.getElementById('dpCounter').textContent='Phrase '+(dpIdx+1)+' of '+dailyPhrases.length;
