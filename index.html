@@ -544,6 +544,7 @@ footer a:hover{opacity:.7}
 .cinematic-word{display:inline-block;opacity:0;transform:translateY(32px) skewY(2deg);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1);transition-delay:var(--cw-d,0s)}
 .cinematic-word.in-view{opacity:1;transform:translateY(0) skewY(0deg)}
 
+.prayer-play-btn{background:rgba(212,168,67,0.1);border:1px solid rgba(212,168,67,0.25);color:var(--gold);width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;margin:0 auto 1.2rem;font-size:1.3rem;transition:all .3s}.prayer-play-btn:hover{background:rgba(212,168,67,0.2);border-color:var(--gold);transform:scale(1.08)}
 /* AUDIO INDICATORS */
 .fc-latin::after,.dp-latin-text::after{content:'\1F50A';font-size:.5em;opacity:.3;margin-left:.5rem;vertical-align:middle;transition:opacity .2s}
 .fc-latin:hover::after,.dp-latin-text:hover::after{opacity:.7}
@@ -897,7 +898,7 @@ footer a:hover{opacity:.7}
   <div class="section-label reveal">From the Prayer Library</div>
   <h2 class="section-title reveal reveal-delay-1" style="margin:0 auto .5rem;text-align:center">Pray as the Church has prayed for centuries</h2>
   <div class="prayer-card reveal reveal-delay-2">
-    <div class="prayer-latin">Ave Maria, gratia plena,<br>Dominus tecum.<br>Benedicta tu in mulieribus,<br>et benedictus fructus ventris tui, Iesus.</div>
+    <button onclick="playLatin('prayer-ave-maria')" class="prayer-play-btn" title="Hear the Ave Maria">&#9654;</button><div class="prayer-latin" onclick="playLatin('prayer-ave-maria')" style="cursor:pointer" title="Hear the Ave Maria">Ave Maria, gratia plena,<br>Dominus tecum.<br>Benedicta tu in mulieribus,<br>et benedictus fructus ventris tui, Iesus.</div>
     <div class="prayer-english">Hail Mary, full of grace, the Lord is with thee. Blessed art thou among women, and blessed is the fruit of thy womb, Jesus.</div>
   </div>
 </section>
