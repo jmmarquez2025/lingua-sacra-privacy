@@ -1112,21 +1112,7 @@ document.querySelectorAll('[data-count]').forEach(e=>co.observe(e));
 /* ── SMOOTH SCROLL ── */
 document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));t&&t.scrollIntoView({behavior:'smooth',block:'start'})})});
 
-/* ═══ SCREENSHOT CAROUSEL ═══ */
-/* carousel replaced by iphone showcase */
-function carouselPrev(){currentSlide=(currentSlide-1+slides.length)%slides.length;updateCarousel()}
-updateCarousel();
-
-// Auto-advance every 4s
-let autoPlay=setInterval(carouselNext,4000);
-track.addEventListener('mouseenter',()=>clearInterval(autoPlay));
-track.addEventListener('mouseleave',()=>{autoPlay=setInterval(carouselNext,4000)});
-
-// Swipe support
-let touchX=0;
-track.addEventListener('touchstart',e=>{touchX=e.touches[0].clientX;clearInterval(autoPlay)},{passive:true});
-track.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-touchX;if(Math.abs(dx)>50){dx<0?carouselNext():carouselPrev()}autoPlay=setInterval(carouselNext,4000)},{passive:true});
-
+/* carousel removed */
 /* ═══ FLASHCARD DEMO ═══ */
 const cards=[
   {latin:'Dominus',pron:'DOH-mee-noos',english:'Lord, Master',example:'"Dominus vobiscum" — The Lord be with you',grammar:'2nd Declension, Masculine'},
