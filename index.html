@@ -596,6 +596,31 @@ body.is-desktop .smart-cta-device-desktop{display:block}
 .email-success.es-show{display:block}
 .email-success p{color:var(--gold);font-size:1.1rem;font-family:'Cormorant Garamond',serif}
 .email-form.ef-hidden{display:none}
+
+/* NATIVE FEEDBACK FORM */
+.fb-form{text-align:left}
+.fb-group{margin-bottom:1.5rem}
+.fb-label{display:block;color:var(--gold);font-size:.95rem;font-weight:600;margin-bottom:.5rem;font-family:'Cormorant Garamond',serif;letter-spacing:.03em}
+.fb-label .optional{color:var(--stone);font-weight:400;font-size:.8rem;font-style:italic}
+.fb-textarea,.fb-input{width:100%;background:rgba(240,221,184,0.06);border:1px solid rgba(212,168,67,0.15);color:var(--parchment);padding:.8rem 1rem;border-radius:10px;font-family:'EB Garamond',serif;font-size:1rem;outline:none;transition:border-color .3s,box-shadow .3s;resize:vertical}
+.fb-textarea{min-height:90px}
+.fb-textarea:focus,.fb-input:focus{border-color:var(--gold);box-shadow:0 0 0 2px rgba(212,168,67,0.1)}
+.fb-textarea::placeholder,.fb-input::placeholder{color:var(--stone);opacity:.5}
+.fb-stars{display:flex;gap:.4rem;margin-bottom:.3rem}
+.fb-star{font-size:1.8rem;cursor:pointer;color:rgba(212,168,67,0.25);transition:color .2s,transform .15s;background:none;border:none;padding:0;line-height:1}
+.fb-star:hover,.fb-star.active{color:var(--gold);transform:scale(1.15)}
+.fb-checks{display:flex;flex-wrap:wrap;gap:.6rem}
+.fb-check{display:flex;align-items:center;gap:.5rem;cursor:pointer;color:var(--stone);font-size:.95rem;transition:color .2s}
+.fb-check input{appearance:none;-webkit-appearance:none;width:18px;height:18px;border:1.5px solid rgba(212,168,67,0.3);border-radius:5px;background:rgba(240,221,184,0.04);cursor:pointer;position:relative;transition:all .2s;flex-shrink:0}
+.fb-check input:checked{background:var(--gold);border-color:var(--gold)}
+.fb-check input:checked::after{content:'\2713';position:absolute;top:-1px;left:3px;font-size:13px;color:var(--ink);font-weight:700}
+.fb-check:hover{color:var(--parchment)}
+.fb-submit{display:inline-flex;align-items:center;gap:.5rem;background:var(--gold);color:var(--ink);font-family:'EB Garamond',serif;font-size:1.05rem;font-weight:700;padding:.8rem 2rem;border-radius:10px;border:none;cursor:pointer;transition:all .3s;letter-spacing:.03em}
+.fb-submit:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(212,168,67,0.25)}
+.fb-success{display:none;text-align:center;padding:2rem 0}
+.fb-success.show{display:block}
+.fb-success p{color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:1.3rem}
+
 </style>
 
 <!-- SEO & Social Sharing -->
@@ -1138,7 +1163,44 @@ body.is-desktop .smart-cta-device-desktop{display:block}
   <div class="feedback-layout">
     <div class="feedback-card reveal reveal-delay-2">
       <p>Your feedback shapes the future of the app. Whether it&rsquo;s a feature request, a bug report, or just telling us what you love &mdash; we read every response.</p>
-      <iframe data-tally-src="https://tally.so/embed/68kVPe?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="400" title="Lingua Sacra Feedback"></iframe>
+      <div id="fbFormWrap">
+      <form class="fb-form" id="fbForm" onsubmit="submitFeedback(event)">
+        <div class="fb-group">
+          <label class="fb-label">How would you rate Lingua Sacra?</label>
+          <div class="fb-stars" id="fbStars">
+            <button type="button" class="fb-star" data-val="1" onclick="setStars(1)">&#9733;</button>
+            <button type="button" class="fb-star" data-val="2" onclick="setStars(2)">&#9733;</button>
+            <button type="button" class="fb-star" data-val="3" onclick="setStars(3)">&#9733;</button>
+            <button type="button" class="fb-star" data-val="4" onclick="setStars(4)">&#9733;</button>
+            <button type="button" class="fb-star" data-val="5" onclick="setStars(5)">&#9733;</button>
+          </div>
+        </div>
+        <div class="fb-group">
+          <label class="fb-label" for="fbLike">What do you like most about the app?</label>
+          <textarea class="fb-textarea" id="fbLike" name="likes" placeholder="The prayers, the audio, the design..."></textarea>
+        </div>
+        <div class="fb-group">
+          <label class="fb-label" for="fbImprove">What could be improved?</label>
+          <textarea class="fb-textarea" id="fbImprove" name="improve" placeholder="Any features you'd like to see..."></textarea>
+        </div>
+        <div class="fb-group">
+          <label class="fb-label">Which features do you use most?</label>
+          <div class="fb-checks">
+            <label class="fb-check"><input type="checkbox" name="features" value="flashcards"> Flashcards</label>
+            <label class="fb-check"><input type="checkbox" name="features" value="prayers"> Prayer Library</label>
+            <label class="fb-check"><input type="checkbox" name="features" value="quizzes"> Quizzes</label>
+            <label class="fb-check"><input type="checkbox" name="features" value="daily"> Daily Phrases</label>
+            <label class="fb-check"><input type="checkbox" name="features" value="srs"> Spaced Repetition</label>
+          </div>
+        </div>
+        <div class="fb-group">
+          <label class="fb-label" for="fbEmail">Email <span class="optional">(optional, if you'd like a response)</span></label>
+          <input type="email" class="fb-input" id="fbEmail" name="email" placeholder="your@email.com">
+        </div>
+        <button type="submit" class="fb-submit">Send Feedback &#10132;</button>
+      </form>
+      </div>
+      <div class="fb-success" id="fbSuccess"><p>&#10003; Deo gratias! Your feedback has been received.</p></div>
     </div>
   </div>
 </section>
@@ -1736,7 +1798,7 @@ function nextFloatWord(){
 
 
 <!-- TALLY EMBED SCRIPT -->
-<script src="https://tally.so/widgets/embed.js"></script>
+
 
 <!-- LATIN AUDIO PLAYER -->
 <script>
@@ -1847,5 +1909,28 @@ function flipTryCard(card) {
     }, 3000);
   });
 })();
-</script></body>
+</script><script>
+var fbRating=0;
+function setStars(n){
+  fbRating=n;
+  document.querySelectorAll('.fb-star').forEach(function(s,i){s.classList.toggle('active',i<n)});
+}
+function submitFeedback(e){
+  e.preventDefault();
+  var f=document.getElementById('fbForm');
+  var d={rating:fbRating,likes:document.getElementById('fbLike').value,improve:document.getElementById('fbImprove').value,
+    features:Array.from(f.querySelectorAll('input[name="features"]:checked')).map(function(c){return c.value}).join(', '),
+    email:document.getElementById('fbEmail').value};
+  // Send via mailto as reliable fallback
+  var body='Rating: '+fbRating+'/5%0ALikes: '+encodeURIComponent(d.likes)+'%0AImprove: '+encodeURIComponent(d.improve)+'%0AFeatures: '+encodeURIComponent(d.features)+'%0AEmail: '+encodeURIComponent(d.email);
+  var a=document.createElement('iframe');
+  a.style.display='none';
+  a.src='mailto:linguasacra.app@gmail.com?subject='+encodeURIComponent('Lingua Sacra Feedback ('+fbRating+'/5)')+'&body='+body;
+  document.body.appendChild(a);
+  setTimeout(function(){document.body.removeChild(a)},1000);
+  document.getElementById('fbFormWrap').style.display='none';
+  document.getElementById('fbSuccess').classList.add('show');
+}
+</script>
+</body>
 </html>
