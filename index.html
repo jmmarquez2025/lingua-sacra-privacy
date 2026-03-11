@@ -364,11 +364,11 @@ footer a:hover{opacity:.7}
 .how-step-icon{font-size:2.2rem;margin-bottom:1rem}
 .how-step h3{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;color:var(--parchment);margin-bottom:.5rem}
 .how-step p{color:var(--stone);font-size:.95rem;line-height:1.6}
-.how-connector{display:none}
+/* connectors removed */
 @media(min-width:769px){
-.how-connector{display:block;position:absolute;top:7.5rem;width:calc(33.33% - 40px);height:1px;background:linear-gradient(90deg,var(--gold-dim),var(--gold),var(--gold-dim));z-index:1}
-.how-connector:first-of-type{left:calc(16.66% + 20px)}
-.how-connector:last-of-type{left:calc(50% + 20px)}
+
+
+
 }
 
 /* COMPARISON TABLE */
@@ -459,16 +459,16 @@ footer a:hover{opacity:.7}
 .ambient-latin span:nth-child(8){top:15%;left:40%}
 
 /* ── iPhone showcase ─────────────────────────────────────────────────────── */
-.iphone-showcase{position:relative;display:flex;align-items:center;justify-content:center;height:600px;margin:3rem auto 1rem;max-width:1100px}
+.iphone-showcase{position:relative;display:flex;align-items:center;justify-content:center;height:680px;margin:3rem auto 1rem;max-width:1100px}
 .iphone-stage{position:relative;display:flex;align-items:center;justify-content:center;width:100%;height:100%}
 .iphone-slide{position:absolute;transition:transform .5s cubic-bezier(.34,1.2,.64,1),opacity .5s ease,filter .5s ease;cursor:pointer;transform-origin:center bottom}
 .iphone-slide.iphone-hidden{opacity:0;transform:scale(0.6) translateX(0);pointer-events:none}
 .iphone-slide.iphone-left{opacity:.55;transform:translateX(-260px) scale(0.78) rotateY(12deg);filter:brightness(.7)}
 .iphone-slide.iphone-right{opacity:.55;transform:translateX(260px) scale(0.78) rotateY(-12deg);filter:brightness(.7)}
-.iphone-slide.iphone-active{opacity:1;transform:translateX(0) scale(1) rotateY(0deg);filter:brightness(1);z-index:10}
+.iphone-slide.iphone-active{opacity:1;transform:translateX(0) scale(1) rotateY(0deg);filter:brightness(1);z-index:10;transition:transform .4s cubic-bezier(.34,1.2,.64,1),opacity .5s ease,filter .5s ease}.iphone-slide.iphone-active:hover{transform:translateX(0) scale(1.35) rotateY(0deg)}
 .iphone-slide.iphone-left:hover,.iphone-slide.iphone-right:hover{filter:brightness(.85)}
 /* iPhone frame */
-.iphone-frame{position:relative;width:220px;height:476px;background:linear-gradient(145deg,#2a2a2a,#1a1a1a);border-radius:40px;padding:12px;box-shadow:0 0 0 2px #3a3a3a,0 0 0 4px #111,0 30px 80px rgba(0,0,0,.7),0 0 40px rgba(212,175,55,0.08) inset;overflow:hidden}
+.iphone-frame{position:relative;width:260px;height:563px;background:linear-gradient(145deg,#2a2a2a,#1a1a1a);border-radius:40px;padding:12px;box-shadow:0 0 0 2px #3a3a3a,0 0 0 4px #111,0 30px 80px rgba(0,0,0,.7),0 0 40px rgba(212,175,55,0.08) inset;overflow:hidden}
 .iphone-active .iphone-frame{box-shadow:0 0 0 2px #4a4a4a,0 0 0 4px #222,0 40px 100px rgba(0,0,0,.8),0 0 60px rgba(212,175,55,0.15) inset,0 0 80px rgba(212,175,55,0.06)}
 .iphone-notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:90px;height:22px;background:#111;border-radius:0 0 16px 16px;z-index:3}
 .iphone-screen{position:relative;width:100%;height:100%;border-radius:30px;overflow:hidden;background:#000}
@@ -487,8 +487,8 @@ footer a:hover{opacity:.7}
 .iphone-dot{width:7px;height:7px;border-radius:50%;background:rgba(212,175,55,.25);border:none;cursor:pointer;transition:all .3s;padding:0}
 .iphone-dot.active{background:var(--gold);transform:scale(1.3)}
 @media(max-width:768px){
-  .iphone-showcase{height:420px}
-  .iphone-frame{width:160px;height:346px;border-radius:30px}
+  .iphone-showcase{height:480px}
+  .iphone-frame{width:190px;height:411px;border-radius:32px}
   .iphone-slide.iphone-left{transform:translateX(-150px) scale(0.75) rotateY(10deg)}
   .iphone-slide.iphone-right{transform:translateX(150px) scale(0.75) rotateY(-10deg)}
 }
@@ -654,8 +654,8 @@ footer a:hover{opacity:.7}
     <h2 class="section-title reveal reveal-delay-1" style="margin:0 auto;text-align:center">Three steps to reading Latin</h2>
   </div>
   <div class="how-steps">
-    <div class="how-connector"></div>
-    <div class="how-connector"></div>
+    
+    
     <div class="how-step reveal">
       <div class="how-step-num">1</div>
       <div class="how-step-icon">&#128221;</div>
