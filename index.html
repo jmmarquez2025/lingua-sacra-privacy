@@ -450,11 +450,11 @@ footer a:hover{opacity:.7}
 /* ── iPhone showcase ─────────────────────────────────────────────────────── */
 .iphone-showcase{position:relative;display:flex;align-items:center;justify-content:center;height:680px;margin:3rem auto 1rem;max-width:1100px}
 .iphone-stage{position:relative;display:flex;align-items:center;justify-content:center;width:100%;height:100%}
-.iphone-slide{position:absolute;transition:transform .5s cubic-bezier(.34,1.2,.64,1),opacity .5s ease,filter .5s ease;cursor:pointer;transform-origin:center bottom}
-.iphone-slide.iphone-hidden{opacity:0;transform:scale(0.6) translateX(0);pointer-events:none}
+.iphone-slide{position:absolute;will-change:transform,opacity;transition:transform .65s cubic-bezier(.25,.1,.25,1),opacity .55s ease,filter .55s ease;cursor:pointer;transform-origin:center bottom}
+.iphone-slide.iphone-hidden{opacity:0;transform:scale(0.75) translateX(0);pointer-events:none}
 .iphone-slide.iphone-left{opacity:.55;transform:translateX(-260px) scale(0.78) rotateY(12deg);filter:brightness(.7)}
 .iphone-slide.iphone-right{opacity:.55;transform:translateX(260px) scale(0.78) rotateY(-12deg);filter:brightness(.7)}
-.iphone-slide.iphone-active{opacity:1;transform:translateX(0) scale(1) rotateY(0deg);filter:brightness(1);z-index:10;transition:transform .4s cubic-bezier(.34,1.2,.64,1),opacity .5s ease,filter .5s ease}.iphone-slide.iphone-active:hover{transform:translateX(0) scale(1.35) rotateY(0deg)}
+.iphone-slide.iphone-active{opacity:1;transform:translateX(0) scale(1) rotateY(0deg);filter:brightness(1);z-index:10;transition:transform .65s cubic-bezier(.25,.1,.25,1),opacity .55s ease,filter .55s ease}.iphone-slide.iphone-active:hover{transform:translateX(0) scale(1.08) rotateY(0deg)}
 .iphone-slide.iphone-left:hover,.iphone-slide.iphone-right:hover{filter:brightness(.85)}
 /* iPhone frame */
 .iphone-frame{position:relative;width:260px;height:563px;background:linear-gradient(145deg,#2a2a2a,#1a1a1a);border-radius:40px;padding:12px;box-shadow:0 0 0 2px #3a3a3a,0 0 0 4px #111,0 30px 80px rgba(0,0,0,.7),0 0 40px rgba(212,175,55,0.08) inset;overflow:hidden}
@@ -1178,7 +1178,7 @@ body.is-desktop .smart-cta-device-desktop{display:block}
 <!-- FOOTER -->
 </main>
 <footer>
-  <p>Lingua Sacra &copy; 2025 &middot; <a href="privacy.html">Privacy Policy</a> &middot; <a href="mailto:linguasacra.app@gmail.com">Contact</a></p>
+  <p>Lingua Sacra &copy; 2026 &middot; <a href="blog/">Blog</a> &middot; <a href="privacy.html">Privacy Policy</a> &middot; <a href="mailto:linguasacra.app@gmail.com">Contact</a></p>
   <p style="margin-top:.5rem;font-style:italic;opacity:.5;font-size:.85rem">Disce Latinam. Ad maiorem Dei gloriam.</p>
 </footer>
 
