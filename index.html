@@ -1464,7 +1464,7 @@ const container=document.getElementById('compareContainer');
   function setPos(x){
     const rect=container.getBoundingClientRect();
     let pct=((x-rect.left)/rect.width)*100;
-    pct=Math.max(5,Math.min(95,pct));
+    pct=Math.max(0,Math.min(100,pct));
     handle.style.left=pct+'%';
     after.style.clipPath='inset(0 0 0 '+pct+'%)';
   }
