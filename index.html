@@ -543,6 +543,16 @@ footer a:hover{opacity:.7}
 .hwt-en{color:var(--parchment-mid);font-size:.88rem;min-width:100px;transition:opacity .4s,transform .4s}
 .hwt-en.fade{opacity:0;transform:translateY(5px)}
 
+/* ── HERO PARTICLE CANVAS ─────────────────────────────────────────── */
+#heroCanvas{position:absolute;inset:0;pointer-events:none;z-index:1;opacity:.6}
+
+/* ── MAGNETIC BUTTONS ─────────────────────────────────────────────── */
+.btn-primary,.btn-secondary{will-change:transform;transition:transform .15s cubic-bezier(.23,1,.32,1),box-shadow .3s,border-color .3s,background .3s}
+
+/* ── CINEMATIC SCROLL TEXT ────────────────────────────────────────── */
+.cinematic-word{display:inline-block;opacity:0;transform:translateY(32px) skewY(2deg);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1);transition-delay:var(--cw-d,0s)}
+.cinematic-word.in-view{opacity:1;transform:translateY(0) skewY(0deg)}
+
 </style>
 </head>
 <body>
@@ -564,6 +574,7 @@ footer a:hover{opacity:.7}
 
 <!-- HERO -->
 <section class="hero">
+  <canvas id="heroCanvas" aria-hidden="true"></canvas>
   <div class="hero-cross">&#10013;</div>
   <div class="hero-badge reveal"><span class="dot"></span>Now on iOS &middot; Android coming soon</div>
   <h1 class="hero-headline"><span class="hl-word" style="--d:0.05s">Learn</span> <span class="hl-word" style="--d:0.2s">the</span><br><em><span class="hl-word" style="--d:0.4s">Sacred</span> <span class="hl-word" style="--d:0.6s">Language</span></em></h1>
@@ -669,7 +680,7 @@ footer a:hover{opacity:.7}
 <!-- FEATURES -->
 <section class="features" id="features">
   <div class="section-label reveal">What's Inside</div>
-  <h2 class="section-title reveal reveal-delay-1">Everything you need to read, pray, and speak in Latin</h2>
+  <h2 class="section-title cinematic-headline" id="cinematicHead"><!-- words injected by JS --></h2>
   <p class="section-desc reveal reveal-delay-2">From your first <em>Ave Maria</em> to reading the Vulgate &mdash; Lingua Sacra guides you step by step.</p>
   <div class="features-grid">
     <div class="feature-card reveal"><span class="feature-icon">&#128214;</span><h3>Structured Lessons</h3><p>57 lessons across 8 tiers, from greetings and prayers to advanced Vulgate readings and grammar constructions.</p></div>
@@ -1509,6 +1520,140 @@ function toggleAmbientAudio(){
   setWord(words[idx]);
   // Cycle every 6 seconds
   setInterval(function(){ idx = (idx+1) % words.length; setWord(words[idx]); }, 6000);
+})();
+
+/* ── HERO PARTICLE CANVAS ── */
+(function(){
+  var canvas = document.getElementById('heroCanvas');
+  if(!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var W, H, particles = [], mx = 0, my = 0, hasMouse = false;
+
+  function resize(){
+    W = canvas.width = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  // Create particles — mix of tiny dots and small Latin glyphs
+  var glyphs = ['✝','✠','☩','†','✦','·','∙'];
+  for(var i=0; i<55; i++){
+    particles.push({
+      x: Math.random()*1,
+      y: Math.random()*1,
+      size: Math.random()*1.6 + 0.4,
+      speedX: (Math.random()-0.5)*0.00018,
+      speedY: (Math.random()-0.5)*0.00018 - 0.00006,
+      opacity: Math.random()*0.35 + 0.05,
+      glyph: Math.random() > 0.82 ? glyphs[Math.floor(Math.random()*glyphs.length)] : null,
+      glyphSize: Math.random()*10 + 7,
+      twinkle: Math.random()*Math.PI*2,
+      twinkleSpeed: Math.random()*0.012 + 0.004
+    });
+  }
+
+  canvas.addEventListener('mousemove', function(e){
+    var r = canvas.getBoundingClientRect();
+    mx = (e.clientX - r.left) / W;
+    my = (e.clientY - r.top) / H;
+    hasMouse = true;
+  }, {passive:true});
+
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    particles.forEach(function(p){
+      p.twinkle += p.twinkleSpeed;
+      var twink = Math.sin(p.twinkle)*0.3 + 0.7;
+
+      // Gentle mouse repulsion
+      if(hasMouse){
+        var dx = p.x - mx, dy = p.y - my;
+        var dist = Math.sqrt(dx*dx + dy*dy);
+        if(dist < 0.18){
+          var force = (0.18 - dist) / 0.18 * 0.0003;
+          p.x += dx/dist * force;
+          p.y += dy/dist * force;
+        }
+      }
+
+      p.x += p.speedX;
+      p.y += p.speedY;
+      // Wrap
+      if(p.x < 0) p.x = 1; if(p.x > 1) p.x = 0;
+      if(p.y < 0) p.y = 1; if(p.y > 1) p.y = 0;
+
+      var px = p.x * W, py = p.y * H;
+      var alpha = p.opacity * twink;
+
+      if(p.glyph){
+        ctx.font = p.glyphSize + 'px serif';
+        ctx.fillStyle = 'rgba(212,168,67,' + alpha*0.5 + ')';
+        ctx.fillText(p.glyph, px, py);
+      } else {
+        ctx.beginPath();
+        ctx.arc(px, py, p.size, 0, Math.PI*2);
+        ctx.fillStyle = 'rgba(212,168,67,' + alpha + ')';
+        ctx.fill();
+      }
+    });
+
+    // Draw faint connection lines between nearby particles
+    for(var i=0; i<particles.length; i++){
+      for(var j=i+1; j<particles.length; j++){
+        var a = particles[i], b = particles[j];
+        var dx = (a.x-b.x)*W, dy = (a.y-b.y)*H;
+        var d = Math.sqrt(dx*dx+dy*dy);
+        if(d < 90){
+          ctx.beginPath();
+          ctx.moveTo(a.x*W, a.y*H);
+          ctx.lineTo(b.x*W, b.y*H);
+          ctx.strokeStyle = 'rgba(212,168,67,' + (1-d/90)*0.04 + ')';
+          ctx.lineWidth = 0.5;
+          ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+/* ── MAGNETIC BUTTONS ── */
+(function(){
+  var btns = document.querySelectorAll('.btn-primary, .btn-secondary');
+  btns.forEach(function(btn){
+    btn.addEventListener('mousemove', function(e){
+      var r = btn.getBoundingClientRect();
+      var cx = r.left + r.width/2, cy = r.top + r.height/2;
+      var dx = e.clientX - cx, dy = e.clientY - cy;
+      btn.style.transform = 'translate('+dx*0.28+'px,'+dy*0.28+'px)';
+    });
+    btn.addEventListener('mouseleave', function(){
+      btn.style.transform = '';
+    });
+  });
+})();
+
+/* ── CINEMATIC SCROLL HEADLINE ── */
+(function(){
+  var el = document.getElementById('cinematicHead');
+  if(!el) return;
+  var text = 'Everything you need to read, pray, and speak in Latin';
+  var words = text.split(' ');
+  el.innerHTML = words.map(function(w,i){
+    return '<span class="cinematic-word" style="--cw-d:'+( i * 0.07 )+'s">'+w+'</span>';
+  }).join(' ');
+
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        el.querySelectorAll('.cinematic-word').forEach(function(w){ w.classList.add('in-view'); });
+        obs.unobserve(el);
+      }
+    });
+  }, {threshold: 0.25});
+  obs.observe(el);
 })();
 
 </script>
