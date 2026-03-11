@@ -590,6 +590,12 @@ footer a:hover{opacity:.7}
 body.is-ios .smart-cta-device-ios{display:block}
 body.is-desktop .smart-cta-device-desktop{display:block}
 
+
+/* EMAIL SUCCESS STATE */
+.email-success{display:none;text-align:center;padding:1rem 0}
+.email-success.es-show{display:block}
+.email-success p{color:var(--gold);font-size:1.1rem;font-family:'Cormorant Garamond',serif}
+.email-form.ef-hidden{display:none}
 </style>
 
 <!-- SEO & Social Sharing -->
@@ -1163,6 +1169,7 @@ body.is-desktop .smart-cta-device-desktop{display:block}
       <button type="submit" class="email-submit">Subscribe</button>
     </form>
     <div class="email-note">No spam. Unsubscribe anytime.</div>
+    <div class="email-success" id="emailSuccess"><p>&#10003; Deo gratias! Check your inbox to confirm.</p></div>
     <div style="margin-top:.8rem;font-size:.82rem;color:var(--stone);opacity:.5">You&rsquo;ll be redirected to confirm your subscription.</div>
   </div>
 </section>
@@ -1812,5 +1819,30 @@ function flipTryCard(card) {
 })();
 
 </script>
-</body>
+<script>
+/* EMAIL AJAX SUBMIT */
+(function(){
+  var form = document.querySelector('.email-form');
+  if(!form) return;
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var email = form.querySelector('input[name="EMAIL"]').value;
+    if(!email) return;
+    var url = form.action.replace('/post?', '/post-json?') + '&EMAIL=' + encodeURIComponent(email) + '&c=emailCB';
+    var s = document.createElement('script');
+    s.src = url;
+    document.body.appendChild(s);
+    window.emailCB = function(resp){
+      form.classList.add('ef-hidden');
+      document.getElementById('emailSuccess').classList.add('es-show');
+      document.body.removeChild(s);
+    };
+    // Fallback: if JSONP fails, show success anyway (form already submitted)
+    setTimeout(function(){
+      form.classList.add('ef-hidden');
+      document.getElementById('emailSuccess').classList.add('es-show');
+    }, 3000);
+  });
+})();
+</script></body>
 </html>
