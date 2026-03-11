@@ -457,6 +457,41 @@ footer a:hover{opacity:.7}
 .ambient-latin span:nth-child(6){top:80%;right:6%}
 .ambient-latin span:nth-child(7){top:90%;left:15%}
 .ambient-latin span:nth-child(8){top:15%;left:40%}
+
+/* ── iPhone showcase ─────────────────────────────────────────────────────── */
+.iphone-showcase{position:relative;display:flex;align-items:center;justify-content:center;height:600px;margin:3rem auto 1rem;max-width:1100px}
+.iphone-stage{position:relative;display:flex;align-items:center;justify-content:center;width:100%;height:100%}
+.iphone-slide{position:absolute;transition:transform .5s cubic-bezier(.34,1.2,.64,1),opacity .5s ease,filter .5s ease;cursor:pointer;transform-origin:center bottom}
+.iphone-slide.iphone-hidden{opacity:0;transform:scale(0.6) translateX(0);pointer-events:none}
+.iphone-slide.iphone-left{opacity:.55;transform:translateX(-260px) scale(0.78) rotateY(12deg);filter:brightness(.7)}
+.iphone-slide.iphone-right{opacity:.55;transform:translateX(260px) scale(0.78) rotateY(-12deg);filter:brightness(.7)}
+.iphone-slide.iphone-active{opacity:1;transform:translateX(0) scale(1) rotateY(0deg);filter:brightness(1);z-index:10}
+.iphone-slide.iphone-left:hover,.iphone-slide.iphone-right:hover{filter:brightness(.85)}
+/* iPhone frame */
+.iphone-frame{position:relative;width:220px;height:476px;background:linear-gradient(145deg,#2a2a2a,#1a1a1a);border-radius:40px;padding:12px;box-shadow:0 0 0 2px #3a3a3a,0 0 0 4px #111,0 30px 80px rgba(0,0,0,.7),0 0 40px rgba(212,175,55,0.08) inset;overflow:hidden}
+.iphone-active .iphone-frame{box-shadow:0 0 0 2px #4a4a4a,0 0 0 4px #222,0 40px 100px rgba(0,0,0,.8),0 0 60px rgba(212,175,55,0.15) inset,0 0 80px rgba(212,175,55,0.06)}
+.iphone-notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:90px;height:22px;background:#111;border-radius:0 0 16px 16px;z-index:3}
+.iphone-screen{position:relative;width:100%;height:100%;border-radius:30px;overflow:hidden;background:#000}
+.iphone-screen img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.iphone-home-bar{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);width:80px;height:4px;background:rgba(255,255,255,.35);border-radius:2px;z-index:3}
+/* nav arrows */
+.iphone-nav{position:absolute;top:50%;transform:translateY(-50%);z-index:20;background:rgba(14,30,62,.7);border:1px solid rgba(212,175,55,.25);color:var(--gold);font-size:2rem;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;backdrop-filter:blur(8px)}
+.iphone-nav:hover{background:rgba(212,175,55,.15);border-color:var(--gold)}
+.iphone-prev{left:0}
+.iphone-next{right:0}
+/* caption */
+.iphone-caption{text-align:center;font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--parchment);margin:.5rem 0 .25rem;transition:opacity .3s}
+.iphone-caption-desc{text-align:center;font-size:.9rem;color:var(--stone);max-width:480px;margin:0 auto 1.5rem;transition:opacity .3s}
+/* dots */
+.iphone-dots{display:flex;justify-content:center;gap:8px;margin-top:.5rem}
+.iphone-dot{width:7px;height:7px;border-radius:50%;background:rgba(212,175,55,.25);border:none;cursor:pointer;transition:all .3s;padding:0}
+.iphone-dot.active{background:var(--gold);transform:scale(1.3)}
+@media(max-width:768px){
+  .iphone-showcase{height:420px}
+  .iphone-frame{width:160px;height:346px;border-radius:30px}
+  .iphone-slide.iphone-left{transform:translateX(-150px) scale(0.75) rotateY(10deg)}
+  .iphone-slide.iphone-right{transform:translateX(150px) scale(0.75) rotateY(-10deg)}
+}
 </style>
 </head>
 <body>
@@ -612,17 +647,84 @@ footer a:hover{opacity:.7}
 </section>
 
 <!-- SCREENSHOT CAROUSEL -->
-<section class="carousel-section" id="preview"><div class="ambient-latin" aria-hidden="true" data-parallax="0.3"><span>Gloria in excelsis Deo</span><span>et in terra pax</span><span>hominibus bonae voluntatis</span><span>Laudamus te</span><span>Benedicimus te</span><span>Adoramus te</span><span>Glorificamus te</span></div>
+<section class="carousel-section" id="preview">
+<div class="ambient-latin" aria-hidden="true" data-parallax="0.3"><span>Gloria in excelsis Deo</span><span>et in terra pax</span><span>hominibus bonae voluntatis</span><span>Laudamus te</span><span>Benedicimus te</span><span>Adoramus te</span><span>Glorificamus te</span></div>
   <div class="section-label reveal">See the App</div>
   <h2 class="section-title reveal reveal-delay-1" style="margin:0 auto .5rem;text-align:center">Beautiful, immersive design</h2>
   <p class="section-desc reveal reveal-delay-2" style="margin:0 auto 0;text-align:center">Built with love for the Catholic tradition</p>
-  <div class="carousel-wrapper reveal reveal-delay-3">
-    <button class="carousel-nav prev-btn" onclick="carouselPrev()" aria-label="Previous">&#8249;</button>
-    <div class="carousel-track" id="carouselTrack"></div>
-    <button class="carousel-nav next-btn" onclick="carouselNext()" aria-label="Next">&#8250;</button>
+  <div class="iphone-showcase reveal reveal-delay-3">
+    <button class="iphone-nav iphone-prev" onclick="iphonePrev()" aria-label="Previous">&#8249;</button>
+    <div class="iphone-stage" id="iphoneStage">
+
+    <div class="iphone-slide iphone-left" data-index="0" onclick="iphoneClick(0)">
+      <div class="iphone-frame">
+        <div class="iphone-notch"></div>
+        <div class="iphone-screen">
+          <img src="img/01_lessons_6.7inch.png" alt="Structured Lessons" loading="lazy">
+        </div>
+        <div class="iphone-home-bar"></div>
+      </div>
+    </div>
+    <div class="iphone-slide iphone-active" data-index="1" onclick="iphoneClick(1)">
+      <div class="iphone-frame">
+        <div class="iphone-notch"></div>
+        <div class="iphone-screen">
+          <img src="img/02_flashcards_6.7inch.png" alt="Beautiful Flashcards" loading="lazy">
+        </div>
+        <div class="iphone-home-bar"></div>
+      </div>
+    </div>
+    <div class="iphone-slide iphone-right" data-index="2" onclick="iphoneClick(2)">
+      <div class="iphone-frame">
+        <div class="iphone-notch"></div>
+        <div class="iphone-screen">
+          <img src="img/03_quiz_6.7inch.png" alt="Adaptive Quizzes" loading="lazy">
+        </div>
+        <div class="iphone-home-bar"></div>
+      </div>
+    </div>
+    <div class="iphone-slide iphone-hidden" data-index="3" onclick="iphoneClick(3)">
+      <div class="iphone-frame">
+        <div class="iphone-notch"></div>
+        <div class="iphone-screen">
+          <img src="img/04_prayer_library_6.7inch.png" alt="Prayer Library" loading="lazy">
+        </div>
+        <div class="iphone-home-bar"></div>
+      </div>
+    </div>
+    <div class="iphone-slide iphone-hidden" data-index="4" onclick="iphoneClick(4)">
+      <div class="iphone-frame">
+        <div class="iphone-notch"></div>
+        <div class="iphone-screen">
+          <img src="img/05_daily_phrase_6.7inch.png" alt="Daily Latin Phrases" loading="lazy">
+        </div>
+        <div class="iphone-home-bar"></div>
+      </div>
+    </div>
+    <div class="iphone-slide iphone-hidden" data-index="5" onclick="iphoneClick(5)">
+      <div class="iphone-frame">
+        <div class="iphone-notch"></div>
+        <div class="iphone-screen">
+          <img src="img/06_progress_6.7inch.png" alt="Track Your Progress" loading="lazy">
+        </div>
+        <div class="iphone-home-bar"></div>
+      </div>
+    </div>
+    <div class="iphone-slide iphone-hidden" data-index="6" onclick="iphoneClick(6)">
+      <div class="iphone-frame">
+        <div class="iphone-notch"></div>
+        <div class="iphone-screen">
+          <img src="img/07_practice_hub_6.7inch.png" alt="Practice & Review" loading="lazy">
+        </div>
+        <div class="iphone-home-bar"></div>
+      </div>
+    </div>
+    </div>
+    <button class="iphone-nav iphone-next" onclick="iphoneNext()" aria-label="Next">&#8250;</button>
   </div>
-  <div class="carousel-caption" id="carouselCaption">Structured Lessons</div>
-  <div class="carousel-dots" id="carouselDots"></div>
+  <div class="iphone-caption" id="iphoneCaption">Structured Lessons</div>
+  <div class="iphone-caption-desc" id="iphoneCaptionDesc">Flashcard-based lessons across 8 tiers, from greetings to Vulgate readings</div>
+  <div class="iphone-dots"><button class="iphone-dot active" onclick="iphoneGoTo(0)" aria-label="Structured Lessons"></button><button class="iphone-dot" onclick="iphoneGoTo(1)" aria-label="Beautiful Flashcards"></button><button class="iphone-dot" onclick="iphoneGoTo(2)" aria-label="Adaptive Quizzes"></button><button class="iphone-dot" onclick="iphoneGoTo(3)" aria-label="Prayer Library"></button><button class="iphone-dot" onclick="iphoneGoTo(4)" aria-label="Daily Latin Phrases"></button><button class="iphone-dot" onclick="iphoneGoTo(5)" aria-label="Track Your Progress"></button><button class="iphone-dot" onclick="iphoneGoTo(6)" aria-label="Practice & Review"></button></div>
 </section>
 
 <div class="divider"></div>
@@ -864,49 +966,7 @@ document.querySelectorAll('[data-count]').forEach(e=>co.observe(e));
 document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));t&&t.scrollIntoView({behavior:'smooth',block:'start'})})});
 
 /* ═══ SCREENSHOT CAROUSEL ═══ */
-const slides=[
-  {img:'img/01_lessons_6.7inch.png',caption:'Structured Lessons'},
-  {img:'img/02_flashcards_6.7inch.png',caption:'Beautiful Flashcards'},
-  {img:'img/03_quiz_6.7inch.png',caption:'Adaptive Quizzes'},
-  {img:'img/04_prayer_library_6.7inch.png',caption:'Prayer Library'},
-  {img:'img/05_daily_phrase_6.7inch.png',caption:'Daily Latin Phrases'},
-  {img:'img/06_progress_6.7inch.png',caption:'Track Your Progress'},
-  {img:'img/07_practice_hub_6.7inch.png',caption:'Practice & Review'}
-];
-let currentSlide=0;
-const track=document.getElementById('carouselTrack');
-const caption=document.getElementById('carouselCaption');
-const dotsEl=document.getElementById('carouselDots');
-
-slides.forEach((s,i)=>{
-  const div=document.createElement('div');
-  div.className='carousel-slide';
-  div.innerHTML=`<img src="${s.img}" alt="${s.caption}" loading="lazy">`;
-  div.onclick=()=>{currentSlide=i;updateCarousel()};
-  track.appendChild(div);
-  const dot=document.createElement('button');
-  dot.className='carousel-dot';
-  dot.onclick=()=>{currentSlide=i;updateCarousel()};
-  dotsEl.appendChild(dot);
-});
-
-function updateCarousel(){
-  const all=track.querySelectorAll('.carousel-slide');
-  const dots=dotsEl.querySelectorAll('.carousel-dot');
-  all.forEach((el,i)=>{
-    el.className='carousel-slide';
-    const diff=i-currentSlide;
-    if(diff===0)el.classList.add('active');
-    else if(diff===-1||(currentSlide===0&&i===slides.length-1))el.classList.add('prev');
-    else if(diff===-2||(currentSlide<=1&&i>=slides.length-2+currentSlide))el.classList.add('prev2');
-    else if(diff===1||(currentSlide===slides.length-1&&i===0))el.classList.add('next');
-    else if(diff===2||(currentSlide>=slides.length-2&&i<=1-slides.length+currentSlide+2))el.classList.add('next2');
-    else el.classList.add('hidden');
-  });
-  dots.forEach((d,i)=>d.classList.toggle('active',i===currentSlide));
-  caption.textContent=slides[currentSlide].caption;
-}
-function carouselNext(){currentSlide=(currentSlide+1)%slides.length;updateCarousel()}
+/* carousel replaced by iphone showcase */
 function carouselPrev(){currentSlide=(currentSlide-1+slides.length)%slides.length;updateCarousel()}
 updateCarousel();
 
@@ -1032,6 +1092,66 @@ function toggleTier(node){
 /* === BEFORE/AFTER SLIDER === */
 (function(){
   
+
+/* === IPHONE SHOWCASE === */
+(function(){
+var slides=[
+  {caption:'Structured Lessons',desc:'Flashcard-based lessons across 8 tiers, from greetings to Vulgate readings'},
+  {caption:'Beautiful Flashcards',desc:'Every word with audio, pronunciation guide, and grammatical analysis'},
+  {caption:'Adaptive Quizzes',desc:'Spaced repetition that learns what you need to review'},
+  {caption:'Prayer Library',desc:'17 classic prayers with full Latin text and word-by-word grammar'},
+  {caption:'Daily Latin Phrases',desc:'A new phrase each day drawn from the Mass and sacred tradition'},
+  {caption:'Track Your Progress',desc:'See your streak, mastery, and lesson history at a glance'},
+  {caption:'Practice & Review',desc:'Your SRS queue, grammar drills, and graded stories in one place'}
+];
+var current=1;
+function getClass(i){
+  var diff=(i-current+slides.length)%slides.length;
+  if(diff===0) return 'iphone-active';
+  if(diff===1) return 'iphone-right';
+  if(diff===slides.length-1) return 'iphone-left';
+  return 'iphone-hidden';
+}
+function updateShowcase(){
+  var els=document.querySelectorAll('.iphone-slide');
+  els.forEach(function(el,i){
+    el.className='iphone-slide '+getClass(i);
+  });
+  var dots=document.querySelectorAll('.iphone-dot');
+  dots.forEach(function(d,i){d.classList.toggle('active',i===current)});
+  var capEl=document.getElementById('iphoneCaption');
+  var descEl=document.getElementById('iphoneCaptionDesc');
+  if(capEl){capEl.style.opacity='0';descEl.style.opacity='0';setTimeout(function(){capEl.textContent=slides[current].caption;descEl.textContent=slides[current].desc;capEl.style.opacity='1';descEl.style.opacity='1';},200);}
+}
+window.iphoneNext=function(){current=(current+1)%slides.length;updateShowcase();};
+window.iphonePrev=function(){current=(current-1+slides.length)%slides.length;updateShowcase();};
+window.iphoneGoTo=function(i){current=i;updateShowcase();};
+window.iphoneClick=function(i){
+  var diff=(i-current+slides.length)%slides.length;
+  if(diff===1||diff===slides.length-1){current=i;updateShowcase();}
+};
+/* 3D tilt on active frame hover */
+var stage=document.getElementById('iphoneStage');
+if(stage){
+  stage.addEventListener('mousemove',function(e){
+    var active=stage.querySelector('.iphone-active');
+    if(!active) return;
+    var rect=active.getBoundingClientRect();
+    var cx=rect.left+rect.width/2, cy=rect.top+rect.height/2;
+    var dx=(e.clientX-cx)/rect.width, dy=(e.clientY-cy)/rect.height;
+    active.querySelector('.iphone-frame').style.transform='rotateY('+(dx*8)+'deg) rotateX('+(-dy*6)+'deg)';
+  });
+  stage.addEventListener('mouseleave',function(){
+    var active=stage.querySelector('.iphone-active');
+    if(active) active.querySelector('.iphone-frame').style.transform='';
+  });
+}
+/* auto-advance */
+var timer=setInterval(window.iphoneNext,4000);
+if(stage) stage.addEventListener('mouseenter',function(){clearInterval(timer);});
+updateShowcase();
+})();
+
 /* === AMBIENT LATIN PARALLAX === */
 (function(){
   var ambients = document.querySelectorAll('.ambient-latin');
