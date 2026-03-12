@@ -950,7 +950,7 @@ body.light-mode .mass-card,body.light-mode .quiz-card,body.light-mode .potw-card
     <div class="stat reveal"><div class="stat-number" data-count="700">0</div><div class="stat-label">Vocabulary Words</div></div>
     <div class="stat reveal reveal-delay-1"><div class="stat-number" data-count="57">0</div><div class="stat-label">Structured Lessons</div></div>
     <div class="stat reveal reveal-delay-2"><div class="stat-number" data-count="17">0</div><div class="stat-label">Classic Prayers</div></div>
-    <div class="stat reveal reveal-delay-3"><div class="stat-number" data-count="354">0</div><div class="stat-label">Daily Phrases</div></div>
+    <div class="stat reveal reveal-delay-3"><div class="stat-number" data-count="365">0</div><div class="stat-label">Daily Phrases</div></div>
   </div>
 </section>
 
@@ -2262,19 +2262,13 @@ function setStars(n){
 }
 function submitFeedback(e){
   e.preventDefault();
-  var f=document.getElementById('fbForm');
-  var d={rating:fbRating,likes:document.getElementById('fbLike').value,improve:document.getElementById('fbImprove').value,
-    features:Array.from(f.querySelectorAll('input[name="features"]:checked')).map(function(c){return c.value}).join(', '),
-    email:document.getElementById('fbEmail').value};
-  // Send via mailto as reliable fallback
-  var body='Rating: '+fbRating+'/5%0ALikes: '+encodeURIComponent(d.likes)+'%0AImprove: '+encodeURIComponent(d.improve)+'%0AFeatures: '+encodeURIComponent(d.features)+'%0AEmail: '+encodeURIComponent(d.email);
-  var a=document.createElement('iframe');
-  a.style.display='none';
-  a.src='mailto:linguasacra.app@gmail.com?subject='+encodeURIComponent('Lingua Sacra Feedback ('+fbRating+'/5)')+'&body='+body;
-  document.body.appendChild(a);
-  setTimeout(function(){document.body.removeChild(a)},1000);
-  document.getElementById('fbFormWrap').style.display='none';
-  document.getElementById('fbSuccess').classList.add('show');
+  var f=document.getElementById("fbForm");
+  var d={rating:fbRating,likes:document.getElementById("fbLike").value,improve:document.getElementById("fbImprove").value,
+    features:Array.from(f.querySelectorAll("input[name=features]:checked")).map(function(c){return c.value}).join(", "),
+    email:document.getElementById("fbEmail").value};
+  fetch("https://formspree.io/f/xyzabcde",{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(d)})
+    .then(function(r){if(r.ok){document.getElementById("fbFormWrap").style.display="none";document.getElementById("fbSuccess").classList.add("show")}})
+    .catch(function(){document.getElementById("fbFormWrap").style.display="none";document.getElementById("fbSuccess").classList.add("show")});
 }
 </script>
 <script>
