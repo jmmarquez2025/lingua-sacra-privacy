@@ -38,7 +38,7 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1.2rem 2rem;display:flex;justify-content:space-between;align-items:center;transition:all .4s}
 nav.scrolled{background:rgba(8,13,28,0.94);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:0 1px 0 var(--gold-dim);padding:.8rem 2rem}
-.nav-logo{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:1.4rem;color:var(--gold);letter-spacing:.08em}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:1.4rem;color:var(--gold);letter-spacing:.08em;cursor:pointer}
 .nav-links{display:flex;gap:2rem;align-items:center}
 .nav-links a{font-size:.95rem;color:var(--stone);letter-spacing:.06em;transition:color .3s;font-weight:500}
 .nav-links a:hover{color:var(--gold)}
@@ -815,7 +815,7 @@ body.light-mode .mass-card-english{color:#6B5D4A}
 <!-- NAV -->
 <div class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark mode"><svg id="themeIcon" viewBox="0 0 24 24"><path d="M12 3a9 9 0 109 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 01-4.4 2.26 5.403 5.403 0 01-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"/></svg></div>
 <nav id="nav">
-  <div class="nav-logo">Lingua Sacra</div>
+  <a href="#" class="nav-logo" onclick="window.scrollTo({top:0,behavior:'smooth'});return false">Lingua Sacra</a>
   <div class="nav-links">
     <a href="#features">Features</a>
     <a href="#curriculum">Curriculum</a>
