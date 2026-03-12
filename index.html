@@ -1140,7 +1140,7 @@ body.light-mode .mass-card-english{color:#6B5D4A}
       <div class="mass-card-context">Greeting</div>
       <div class="mass-card-latin">Dominus vobiscum</div>
       <div class="mass-card-english">The Lord be with you</div>
-      <div class="mass-card-audio" onclick="playMassAudio('audio/dominus.mp3',this)"><svg viewBox="0 0 24 24"><polygon points="6,4 20,12 6,20"/></svg> Listen</div>
+      <div class="mass-card-audio" onclick="playMassAudio('audio/dominus-vobiscum.mp3',this)"><svg viewBox="0 0 24 24"><polygon points="6,4 20,12 6,20"/></svg> Listen</div>
     </div>
     <div class="mass-card reveal">
       <div class="mass-card-context">Penitential Act</div>
@@ -1163,7 +1163,7 @@ body.light-mode .mass-card-english{color:#6B5D4A}
       <div class="mass-card-context">Sanctus</div>
       <div class="mass-card-latin">Sanctus, Sanctus, Sanctus</div>
       <div class="mass-card-english">Holy, Holy, Holy</div>
-      <div class="mass-card-audio" onclick="playMassAudio('audio/sanctus.mp3',this)"><svg viewBox="0 0 24 24"><polygon points="6,4 20,12 6,20"/></svg> Listen</div>
+      <div class="mass-card-audio" onclick="playMassAudio('audio/sanctus-sanctus-sanctus.mp3',this)"><svg viewBox="0 0 24 24"><polygon points="6,4 20,12 6,20"/></svg> Listen</div>
     </div>
     <div class="mass-card reveal">
       <div class="mass-card-context">Lamb of God</div>
@@ -2134,10 +2134,10 @@ renderQuiz();
 
 /* PRAYER OF THE WEEK */
 var prayers=[
-  {title:'Salve Regina',latin:'Salve, Regina, Mater misericordiae, vita, dulcedo, et spes nostra, salve. Ad te clamamus exsules filii Hevae. Ad te suspiramus, gementes et flentes in hac lacrimarum valle.',english:'Hail, holy Queen, Mother of mercy, our life, our sweetness, and our hope. To you we cry, poor banished children of Eve. To you we send up our sighs, mourning and weeping in this valley of tears.',audio:'audio/sancta-maria-ora-pro-nobis.mp3'},
-  {title:'Sub Tuum Praesidium',latin:'Sub tuum praesidium confugimus, Sancta Dei Genetrix. Nostras deprecationes ne despicias in necessitatibus, sed a periculis cunctis libera nos semper, Virgo gloriosa et benedicta.',english:'We fly to thy protection, O Holy Mother of God. Do not despise our petitions in our necessities, but deliver us always from all dangers, O glorious and blessed Virgin.',audio:'audio/sancta-maria-ora-pro-nobis.mp3'},
-  {title:'Anima Christi',latin:'Anima Christi, sanctifica me. Corpus Christi, salva me. Sanguis Christi, inebria me. Aqua lateris Christi, lava me. Passio Christi, conforta me.',english:'Soul of Christ, sanctify me. Body of Christ, save me. Blood of Christ, inebriate me. Water from the side of Christ, wash me. Passion of Christ, strengthen me.',audio:'audio/magnificat-anima-mea-dominum.mp3'},
-  {title:'Gloria Patri',latin:'Gloria Patri, et Filio, et Spiritui Sancto. Sicut erat in principio, et nunc, et semper, et in saecula saeculorum. Amen.',english:'Glory be to the Father, and to the Son, and to the Holy Spirit. As it was in the beginning, is now, and ever shall be, world without end. Amen.',audio:'audio/gloria-in-excelsis-deo.mp3'}
+  {title:'Salve Regina',latin:'Salve, Regina, Mater misericordiae, vita, dulcedo, et spes nostra, salve. Ad te clamamus exsules filii Hevae. Ad te suspiramus, gementes et flentes in hac lacrimarum valle.',english:'Hail, holy Queen, Mother of mercy, our life, our sweetness, and our hope. To you we cry, poor banished children of Eve. To you we send up our sighs, mourning and weeping in this valley of tears.',audio:'audio/salve-regina.mp3'},
+  {title:'Sub Tuum Praesidium',latin:'Sub tuum praesidium confugimus, Sancta Dei Genetrix. Nostras deprecationes ne despicias in necessitatibus, sed a periculis cunctis libera nos semper, Virgo gloriosa et benedicta.',english:'We fly to thy protection, O Holy Mother of God. Do not despise our petitions in our necessities, but deliver us always from all dangers, O glorious and blessed Virgin.',audio:'audio/sub-tuum-praesidium.mp3'},
+  {title:'Anima Christi',latin:'Anima Christi, sanctifica me. Corpus Christi, salva me. Sanguis Christi, inebria me. Aqua lateris Christi, lava me. Passio Christi, conforta me.',english:'Soul of Christ, sanctify me. Body of Christ, save me. Blood of Christ, inebriate me. Water from the side of Christ, wash me. Passion of Christ, strengthen me.',audio:'audio/anima-christi.mp3'},
+  {title:'Gloria Patri',latin:'Gloria Patri, et Filio, et Spiritui Sancto. Sicut erat in principio, et nunc, et semper, et in saecula saeculorum. Amen.',english:'Glory be to the Father, and to the Son, and to the Holy Spirit. As it was in the beginning, is now, and ever shall be, world without end. Amen.',audio:'audio/gloria-patri.mp3'}
 ];
 var weekNum=Math.floor((Date.now()-new Date(2026,0,1))/(7*24*60*60*1000))%prayers.length;
 var pw=prayers[weekNum];
