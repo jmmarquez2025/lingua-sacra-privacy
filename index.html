@@ -56,7 +56,7 @@ nav.scrolled{background:rgba(8,13,28,0.94);backdrop-filter:blur(20px);-webkit-ba
 .hero h1{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(3.2rem,8vw,7rem);line-height:1.05;color:var(--parchment);margin-bottom:.3em;position:relative;z-index:2}
 .hero h1 em{font-style:italic;color:var(--gold);font-weight:400}
 .hero-sub{font-size:clamp(1.1rem,2.5vw,1.4rem);color:var(--stone);max-width:540px;line-height:1.65;margin-bottom:2.5rem;position:relative;z-index:2}
-.hero-buttons{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;position:relative;z-index:2}
+.hero-buttons{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;position:relative;z-index:2;margin-top:.5rem}
 .btn-primary{display:inline-flex;align-items:center;gap:.6rem;background:var(--gold);color:var(--navy);padding:.9rem 2rem;border-radius:8px;font-weight:700;font-size:1.05rem;transition:transform .2s,box-shadow .3s;letter-spacing:.02em}
 .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px var(--gold-dim)}
 .btn-primary svg,.btn-secondary svg{width:20px;height:20px}
@@ -626,10 +626,11 @@ body.is-desktop .smart-cta-device-desktop{display:block}
 
 /* GOTHIC ROSE WINDOW BACKGROUND */
 .hero{position:relative}
+.hero::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-55%);width:1000px;height:1000px;background:url(img/rose-window.png) center/contain no-repeat;opacity:.06;pointer-events:none;z-index:0}
 
 
 /* HERO AUDIO SAMPLER */
-.hero-listen{display:inline-flex;align-items:center;gap:.6rem;background:rgba(212,168,67,0.08);border:1px solid rgba(212,168,67,0.2);color:var(--gold);padding:.6rem 1.2rem;border-radius:30px;cursor:pointer;transition:all .3s;font-family:'EB Garamond',serif;font-size:.95rem;margin-top:1rem}
+.hero-listen{display:inline-flex;align-items:center;gap:.6rem;background:rgba(212,168,67,0.08);border:1px solid rgba(212,168,67,0.2);color:var(--gold);padding:.6rem 1.2rem;border-radius:30px;cursor:pointer;transition:all .3s;font-family:'EB Garamond',serif;font-size:.95rem;margin-top:1rem;margin-bottom:1.5rem}
 .hero-listen:hover{background:rgba(212,168,67,0.15);border-color:var(--gold);transform:translateY(-1px)}
 .hero-listen svg{width:18px;height:18px;fill:var(--gold)}
 .hero-listen.playing{border-color:var(--gold);box-shadow:0 0 20px rgba(212,168,67,0.15)}
