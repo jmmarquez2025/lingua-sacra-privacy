@@ -703,113 +703,29 @@ body.is-desktop .smart-cta-device-desktop{display:block}
 .theme-toggle:hover{border-color:var(--gold)}
 .theme-toggle svg{width:16px;height:16px;fill:var(--gold);transition:transform .3s}
 body.light-mode{--ink:#F5F0E8;--navy:#E8DFD0;--navy-mid:#DDD4C5;--navy-light:#D5CCBD;--parchment:#1A1408;--stone:#6B5D4A;--gold:#A07820;--gold-light:#8B6A18;--gold-dim:rgba(160,120,32,0.15);--gold-faint:rgba(160,120,32,0.06);--green:#2A8050}
+body.light-mode{background:#F5F0E8;color:#1A1408}
 body.light-mode .nav-logo,body.light-mode .hero h1,body.light-mode .section-title{color:var(--parchment)}
 body.light-mode nav{background:rgba(245,240,232,0.95)}
 body.light-mode .nav-cta{background:var(--gold);color:#fff}
 body.light-mode .iphone-frame{background:linear-gradient(145deg,#ddd,#eee)}
-body.light-mode .fb-textarea,body.light-mode .fb-input{background:rgba(26,20,8,0.04);color:var(--parchment)}
-body.light-mode .mass-card,body.light-mode .quiz-card,body.light-mode .potw-card,body.light-mode .feedback-card{background:rgba(220,212,197,0.4);border-color:rgba(160,120,32,0.12)}
-@media(max-width:768px){.theme-toggle{top:auto;bottom:5rem;right:1rem;left:auto}}
+body.light-mode .fb-textarea,body.light-mode .fb-input{background:rgba(26,20,8,0.06);color:var(--parchment);border-color:rgba(26,20,8,0.2)}
+body.light-mode .fb-label{color:#1A1408}
+body.light-mode .fb-star{color:var(--gold)}
+body.light-mode .fb-checks label{color:#1A1408}
+body.light-mode .mass-card,body.light-mode .quiz-card,body.light-mode .potw-card,body.light-mode .feedback-card{background:rgba(245,240,232,0.85);border-color:rgba(160,120,32,0.18);color:#1A1408}
+body.light-mode .section-desc,body.light-mode .hero-sub,body.light-mode .feature-card p{color:#6B5D4A}
+body.light-mode .feature-card{background:rgba(245,240,232,0.6);border-color:rgba(160,120,32,0.12)}
+body.light-mode .feature-card h3{color:#1A1408}
+body.light-mode .quiz-opt{background:rgba(26,20,8,0.04);border-color:rgba(26,20,8,0.15);color:#1A1408}
+body.light-mode .quiz-opt:hover{background:rgba(160,120,32,0.1);border-color:rgba(160,120,32,0.3)}
+body.light-mode .faq-question h3{color:#1A1408}
+body.light-mode .faq-answer-inner{color:#6B5D4A}
+body.light-mode .potw-latin{color:#1A1408}
+body.light-mode .mass-card-latin{color:#1A1408}
+body.light-mode .mass-card-english{color:#6B5D4A}
+@media(max-width:768px){.theme-toggle{top:auto;bottom:1rem;left:1rem;right:auto}}
 
 
-/* HERO AUDIO SAMPLER */
-.hero-listen{display:inline-flex;align-items:center;gap:.6rem;background:rgba(212,168,67,0.08);border:1px solid rgba(212,168,67,0.2);color:var(--gold);padding:.6rem 1.2rem;border-radius:30px;cursor:pointer;transition:all .3s;font-family:'EB Garamond',serif;font-size:.95rem;margin-top:1rem}
-.hero-listen:hover{background:rgba(212,168,67,0.15);border-color:var(--gold);transform:translateY(-1px)}
-.hero-listen svg{width:18px;height:18px;fill:var(--gold)}
-.hero-listen.playing{border-color:var(--gold);box-shadow:0 0 20px rgba(212,168,67,0.15)}
-.hero-listen.playing svg{animation:pulse-play 1s ease-in-out infinite}
-@keyframes pulse-play{0%,100%{opacity:1}50%{opacity:.4}}
-
-/* HERO AUDIO SAMPLER */
-.hero-listen{display:inline-flex;align-items:center;gap:.6rem;background:rgba(212,168,67,0.08);border:1px solid rgba(212,168,67,0.2);color:var(--gold);padding:.6rem 1.2rem;border-radius:30px;cursor:pointer;transition:all .3s;font-family:'EB Garamond',serif;font-size:.95rem;margin-top:1rem}
-.hero-listen:hover{background:rgba(212,168,67,0.15);border-color:var(--gold);transform:translateY(-1px)}
-.hero-listen svg{width:18px;height:18px;fill:var(--gold)}
-.hero-listen.playing{border-color:var(--gold);box-shadow:0 0 20px rgba(212,168,67,0.15)}
-.hero-listen.playing svg{animation:pulse-play 1s ease-in-out infinite}
-@keyframes pulse-play{0%,100%{opacity:1}50%{opacity:.4}}
-
-/* HERO AUDIO SAMPLER */
-.hero-listen{display:inline-flex;align-items:center;gap:.6rem;background:rgba(212,168,67,0.08);border:1px solid rgba(212,168,67,0.2);color:var(--gold);padding:.6rem 1.2rem;border-radius:30px;cursor:pointer;transition:all .3s;font-family:'EB Garamond',serif;font-size:.95rem;margin-top:1rem}
-.hero-listen:hover{background:rgba(212,168,67,0.15);border-color:var(--gold);transform:translateY(-1px)}
-.hero-listen svg{width:18px;height:18px;fill:var(--gold)}
-.hero-listen.playing{border-color:var(--gold);box-shadow:0 0 20px rgba(212,168,67,0.15)}
-.hero-listen.playing svg{animation:pulse-play 1s ease-in-out infinite}
-@keyframes pulse-play{0%,100%{opacity:1}50%{opacity:.4}}
-
-
-/* LATIN QUIZ */
-.quiz-section{padding:6rem 2rem;text-align:center;position:relative}
-.quiz-card{max-width:600px;margin:2rem auto 0;background:linear-gradient(135deg,rgba(14,30,62,0.4),rgba(8,13,28,0.6));border:1px solid rgba(212,168,67,0.12);border-radius:20px;padding:2.5rem 2rem;position:relative;overflow:hidden}
-.quiz-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
-.quiz-progress{display:flex;gap:.5rem;justify-content:center;margin-bottom:1.5rem}
-.quiz-pip{width:10px;height:10px;border-radius:50%;background:rgba(212,168,67,0.15);transition:all .3s}
-.quiz-pip.done{background:var(--gold)}
-.quiz-pip.current{background:var(--gold);box-shadow:0 0 8px rgba(212,168,67,0.4)}
-.quiz-q{font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--parchment);margin-bottom:.3rem}
-.quiz-latin{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--gold-light);font-style:italic;margin-bottom:1.5rem}
-.quiz-opts{display:flex;flex-direction:column;gap:.6rem;max-width:380px;margin:0 auto}
-.quiz-opt{background:rgba(240,221,184,0.04);border:1px solid rgba(212,168,67,0.12);color:var(--parchment);padding:.7rem 1.2rem;border-radius:10px;cursor:pointer;font-family:'EB Garamond',serif;font-size:1.05rem;transition:all .3s;text-align:left}
-.quiz-opt:hover{background:rgba(212,168,67,0.08);border-color:rgba(212,168,67,0.3)}
-.quiz-opt.correct{background:rgba(61,175,120,0.15);border-color:rgba(61,175,120,0.4);color:#6feba0}
-.quiz-opt.wrong{background:rgba(139,32,48,0.15);border-color:rgba(139,32,48,0.4);color:#e88}
-.quiz-result{text-align:center}
-.quiz-result h3{font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--gold);margin-bottom:.5rem}
-.quiz-result p{color:var(--stone);font-size:1rem;margin-bottom:1rem;line-height:1.6}
-.quiz-score{font-size:3rem;font-family:'Cormorant Garamond',serif;color:var(--gold-light);font-weight:600}
-.quiz-restart{background:rgba(212,168,67,0.08);border:1px solid rgba(212,168,67,0.2);color:var(--gold);padding:.6rem 1.5rem;border-radius:10px;cursor:pointer;font-family:'EB Garamond',serif;font-size:1rem;transition:all .3s;margin-top:1rem}
-.quiz-restart:hover{background:rgba(212,168,67,0.15);border-color:var(--gold)}
-
-
-/* PRAYER OF THE WEEK */
-.potw-section{padding:5rem 2rem;text-align:center}
-.potw-card{max-width:650px;margin:2rem auto 0;background:linear-gradient(135deg,rgba(14,30,62,0.4),rgba(8,13,28,0.6));border:1px solid rgba(212,168,67,0.12);border-radius:20px;padding:2.5rem 2rem;text-align:left;position:relative;overflow:hidden}
-.potw-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
-.potw-badge{display:inline-block;background:rgba(212,168,67,0.1);border:1px solid rgba(212,168,67,0.2);color:var(--gold);font-size:.75rem;padding:.3rem .8rem;border-radius:20px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:1rem}
-.potw-title{font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--gold);margin-bottom:1rem}
-.potw-latin{font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:var(--parchment);line-height:1.8;font-style:italic;margin-bottom:1rem;border-left:2px solid rgba(212,168,67,0.2);padding-left:1.2rem}
-.potw-english{color:var(--stone);font-size:.95rem;line-height:1.7;margin-bottom:1.2rem;padding-left:1.2rem;border-left:2px solid rgba(160,152,128,0.15)}
-.potw-listen{display:inline-flex;align-items:center;gap:.5rem;background:rgba(212,168,67,0.08);border:1px solid rgba(212,168,67,0.2);color:var(--gold);padding:.5rem 1rem;border-radius:8px;cursor:pointer;font-family:'EB Garamond',serif;font-size:.9rem;transition:all .3s}
-.potw-listen:hover{background:rgba(212,168,67,0.15);border-color:var(--gold)}
-.potw-listen svg{width:14px;height:14px;fill:var(--gold)}
-
-
-/* VIDEO SECTION */
-.video-section{padding:5rem 2rem;text-align:center}
-.video-wrapper{max-width:700px;margin:2rem auto 0;border-radius:20px;overflow:hidden;border:1px solid rgba(212,168,67,0.12);position:relative;aspect-ratio:16/9;background:linear-gradient(135deg,rgba(14,30,62,0.6),rgba(8,13,28,0.8));cursor:pointer}
-.video-wrapper::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
-.video-play-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:2;transition:opacity .3s}
-.video-play-btn{width:72px;height:72px;border-radius:50%;background:rgba(212,168,67,0.15);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;transition:all .3s;margin-bottom:1rem}
-.video-play-btn svg{width:28px;height:28px;fill:var(--gold);margin-left:4px}
-.video-wrapper:hover .video-play-btn{background:rgba(212,168,67,0.25);transform:scale(1.08)}
-.video-coming{color:var(--stone);font-size:.9rem;font-family:'EB Garamond',serif}
-.video-bg-text{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:.06;font-family:'Cormorant Garamond',serif;font-size:3rem;color:var(--gold);pointer-events:none}
-
-
-/* LATIN AT MASS */
-.mass-section{padding:5rem 2rem;text-align:center}
-.mass-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem;max-width:900px;margin:2rem auto 0}
-.mass-card{background:linear-gradient(135deg,rgba(14,30,62,0.4),rgba(8,13,28,0.6));border:1px solid rgba(212,168,67,0.08);border-radius:14px;padding:1.5rem;text-align:left;transition:border-color .3s}
-.mass-card:hover{border-color:rgba(212,168,67,0.2)}
-.mass-card-context{font-size:.75rem;color:var(--stone);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.5rem}
-.mass-card-latin{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--gold-light);font-style:italic;margin-bottom:.3rem}
-.mass-card-english{color:var(--parchment);font-size:.95rem;opacity:.7}
-.mass-card-audio{display:inline-flex;align-items:center;gap:.3rem;color:var(--gold);font-size:.8rem;cursor:pointer;margin-top:.6rem;opacity:.5;transition:opacity .3s}
-.mass-card-audio:hover{opacity:1}
-.mass-card-audio svg{width:12px;height:12px;fill:var(--gold)}
-
-
-/* THEME TOGGLE */
-.theme-toggle{position:fixed;bottom:5.5rem;left:1rem;z-index:1001;background:rgba(14,30,62,0.6);border:1px solid rgba(212,168,67,0.15);border-radius:20px;padding:.35rem .6rem;cursor:pointer;display:flex;align-items:center;gap:.3rem;transition:all .3s;backdrop-filter:blur(8px)}
-.theme-toggle:hover{border-color:var(--gold)}
-.theme-toggle svg{width:16px;height:16px;fill:var(--gold);transition:transform .3s}
-body.light-mode{--ink:#F5F0E8;--navy:#E8DFD0;--navy-mid:#DDD4C5;--navy-light:#D5CCBD;--parchment:#1A1408;--stone:#6B5D4A;--gold:#A07820;--gold-light:#8B6A18;--gold-dim:rgba(160,120,32,0.15);--gold-faint:rgba(160,120,32,0.06);--green:#2A8050}
-body.light-mode .nav-logo,body.light-mode .hero h1,body.light-mode .section-title{color:var(--parchment)}
-body.light-mode nav{background:rgba(245,240,232,0.95)}
-body.light-mode .nav-cta{background:var(--gold);color:#fff}
-body.light-mode .iphone-frame{background:linear-gradient(145deg,#ddd,#eee)}
-body.light-mode .fb-textarea,body.light-mode .fb-input{background:rgba(26,20,8,0.04);color:var(--parchment)}
-body.light-mode .mass-card,body.light-mode .quiz-card,body.light-mode .potw-card,body.light-mode .feedback-card{background:rgba(220,212,197,0.4);border-color:rgba(160,120,32,0.12)}
-@media(max-width:768px){.theme-toggle{top:auto;bottom:5rem;right:1rem;left:auto}}
 
 </style>
 
@@ -861,7 +777,6 @@ body.light-mode .mass-card,body.light-mode .quiz-card,body.light-mode .potw-card
 
 <!-- NAV -->
 <div class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark mode"><svg id="themeIcon" viewBox="0 0 24 24"><path d="M12 3a9 9 0 109 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 01-4.4 2.26 5.403 5.403 0 01-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"/></svg></div>
-<div class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark mode"><svg id="themeIcon" viewBox="0 0 24 24"><path d="M12 3a9 9 0 109 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 01-4.4 2.26 5.403 5.403 0 01-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"/></svg></div>
 <nav id="nav">
   <div class="nav-logo">Lingua Sacra</div>
   <div class="nav-links">
@@ -882,12 +797,6 @@ body.light-mode .mass-card,body.light-mode .quiz-card,body.light-mode .potw-card
   <div class="hero-badge reveal"><span class="dot"></span>Now on iOS &middot; Android coming soon</div>
   <h1 class="hero-headline"><span class="hl-word" style="--d:0.05s">Learn</span> <span class="hl-word" style="--d:0.2s">the</span><br><em><span class="hl-word" style="--d:0.4s">Sacred</span> <span class="hl-word" style="--d:0.6s">Language</span></em></h1>
   <p class="hero-sub reveal reveal-delay-2">Lingua Sacra teaches Ecclesiastical Latin through beautiful flashcards, classic prayers, adaptive quizzes, and spaced repetition &mdash; all completely offline.</p>
-    <div class="hero-listen reveal reveal-delay-3" onclick="playHeroAudio(this)" aria-label="Listen to In nomine Patris">
-      <svg viewBox="0 0 24 24"><polygon points="6,4 20,12 6,20"/></svg>
-      <span>Hear it: <em>In nomine Patris</em></span>
-    </div>
-    <div class="hero-listen reveal reveal-delay-3" onclick="playHeroAudio(this)" aria-label="Listen to In nomine Patris"><svg viewBox="0 0 24 24"><polygon points="6,4 20,12 6,20"/></svg><span>Hear it: <em>In nomine Patris</em></span></div>
-    <div class="hero-listen reveal reveal-delay-3" onclick="playHeroAudio(this)" aria-label="Listen to In nomine Patris"><svg viewBox="0 0 24 24"><polygon points="6,4 20,12 6,20"/></svg><span>Hear it: <em>In nomine Patris</em></span></div>
     <div class="hero-listen reveal reveal-delay-3" onclick="playHeroAudio(this)" aria-label="Listen to In nomine Patris">
       <svg viewBox="0 0 24 24"><polygon points="6,4 20,12 6,20"/></svg>
       <span>Hear it: <em>In nomine Patris</em></span>
@@ -1190,11 +1099,6 @@ body.light-mode .mass-card,body.light-mode .quiz-card,body.light-mode .potw-card
 </section>
 
 <div class="divider"></div>
-
-
-<div class="divider"></div>
-
-<div class="divider"></div>
 <!-- COMPARISON TABLE -->
 <section class="compare-table-section">
   <div style="text-align:center">
@@ -1224,51 +1128,6 @@ body.light-mode .mass-card,body.light-mode .quiz-card,body.light-mode .potw-card
 </section>
 
 
-<div class="divider"></div>
-<!-- LATIN AT MASS -->
-<section class="mass-section" id="mass">
-  <div class="section-label reveal">Quick Reference</div>
-  <h2 class="section-title reveal reveal-delay-1" style="margin:0 auto;text-align:center">Latin you&rsquo;ll hear at Mass</h2>
-  <p class="section-desc reveal reveal-delay-2" style="margin:0 auto;text-align:center">The essential responses and prayers every Catholic can learn</p>
-  <div class="mass-grid">
-    <div class="mass-card reveal">
-      <div class="mass-card-context">Greeting</div>
-      <div class="mass-card-latin">Dominus vobiscum</div>
-      <div class="mass-card-english">The Lord be with you</div>
-      <div class="mass-card-audio" onclick="playMassAudio('audio/dominus.mp3',this)"><svg viewBox="0 0 24 24"><polygon points="6,4 20,12 6,20"/></svg> Listen</div>
-    </div>
-    <div class="mass-card reveal">
-      <div class="mass-card-context">Penitential Act</div>
-      <div class="mass-card-latin">Kyrie, eleison</div>
-      <div class="mass-card-english">Lord, have mercy</div>
-    </div>
-    <div class="mass-card reveal">
-      <div class="mass-card-context">Gloria</div>
-      <div class="mass-card-latin">Gloria in excelsis Deo</div>
-      <div class="mass-card-english">Glory to God in the highest</div>
-      <div class="mass-card-audio" onclick="playMassAudio('audio/gloria-in-excelsis-deo.mp3',this)"><svg viewBox="0 0 24 24"><polygon points="6,4 20,12 6,20"/></svg> Listen</div>
-    </div>
-    <div class="mass-card reveal">
-      <div class="mass-card-context">Creed</div>
-      <div class="mass-card-latin">Credo in unum Deum</div>
-      <div class="mass-card-english">I believe in one God</div>
-      <div class="mass-card-audio" onclick="playMassAudio('audio/credo-in-unum-deum.mp3',this)"><svg viewBox="0 0 24 24"><polygon points="6,4 20,12 6,20"/></svg> Listen</div>
-    </div>
-    <div class="mass-card reveal">
-      <div class="mass-card-context">Sanctus</div>
-      <div class="mass-card-latin">Sanctus, Sanctus, Sanctus</div>
-      <div class="mass-card-english">Holy, Holy, Holy</div>
-      <div class="mass-card-audio" onclick="playMassAudio('audio/sanctus.mp3',this)"><svg viewBox="0 0 24 24"><polygon points="6,4 20,12 6,20"/></svg> Listen</div>
-    </div>
-    <div class="mass-card reveal">
-      <div class="mass-card-context">Lamb of God</div>
-      <div class="mass-card-latin">Agnus Dei, qui tollis peccata mundi</div>
-      <div class="mass-card-english">Lamb of God, who takes away the sins of the world</div>
-      <div class="mass-card-audio" onclick="playMassAudio('audio/agnus-dei-qui-tollis.mp3',this)"><svg viewBox="0 0 24 24"><polygon points="6,4 20,12 6,20"/></svg> Listen</div>
-    </div>
-  </div>
-</section>
-<div class="divider"></div>
 <div class="divider"></div>
 <!-- LATIN AT MASS -->
 <section class="mass-section" id="mass">
@@ -1426,54 +1285,7 @@ body.light-mode .mass-card,body.light-mode .quiz-card,body.light-mode .potw-card
     <button class="potw-listen" onclick="playPotwAudio(this)" aria-label="Listen to prayer"><svg viewBox="0 0 24 24"><polygon points="6,4 20,12 6,20"/></svg> Listen</button>
   </div>
 </section>
-<div class="divider"></div>
-<div class="divider"></div>
-<!-- PRAYER OF THE WEEK -->
-<section class="potw-section" id="prayer-week">
-  <div class="section-label reveal">Pray in Latin</div>
-  <h2 class="section-title reveal reveal-delay-1" style="margin:0 auto;text-align:center">Prayer of the Week</h2>
-  <div class="potw-card reveal reveal-delay-2">
-    <div class="potw-badge" id="potwBadge">This Week</div>
-    <div class="potw-title" id="potwTitle">Salve Regina</div>
-    <div class="potw-latin" id="potwLatin">Salve, Regina, Mater misericordiae, vita, dulcedo, et spes nostra, salve. Ad te clamamus exsules filii Hevae. Ad te suspiramus, gementes et flentes in hac lacrimarum valle.</div>
-    <div class="potw-english" id="potwEnglish">Hail, holy Queen, Mother of mercy, our life, our sweetness, and our hope. To you we cry, poor banished children of Eve. To you we send up our sighs, mourning and weeping in this valley of tears.</div>
-    <button class="potw-listen" onclick="playPotwAudio(this)" aria-label="Listen to prayer"><svg viewBox="0 0 24 24"><polygon points="6,4 20,12 6,20"/></svg> Listen</button>
-  </div>
-</section>
-<div class="divider"></div>
-<!-- DEVELOPER STORY -->
-<section class="dev-section">
-  <div class="dev-layout">
-    <div class="dev-avatar reveal"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="76" height="76" aria-hidden="true"><path fill="var(--gold)" opacity=".85" d="M19.2013,8.1003c-0.1196-0.7742-0.7907-1.3694-1.599-1.3694c-0.8929,0-1.6184,0.7256-1.6184,1.6184c0,0.0408,0.0019,0.0827,0.0058,0.1245h-2.4957V6.7969c0.8345-0.0632,1.4939-0.7635,1.4939-1.6136c0-0.8034-0.5875-1.4716-1.3694-1.5961C13.6019,2.709,12.8822,2,12,2c-0.8812,0-1.6,0.7071-1.6184,1.5844C9.6074,3.704,9.0121,4.3751,9.0121,5.1834c0,0.8501,0.6594,1.5504,1.4939,1.6136v1.6768H8.0103c0.0039-0.0418,0.0058-0.0836,0.0058-0.1245c0-0.8929-0.7256-1.6184-1.6184-1.6184c-0.8034,0-1.4716,0.5875-1.5961,1.3694C3.9234,8.1168,3.2144,8.8365,3.2144,9.7187c0,0.8812,0.7071,1.6,1.5844,1.6184c0.1196,0.7742,0.7907,1.3694,1.599,1.3694c0.8929,0,1.6184-0.7256,1.6184-1.6184c0-0.0408-0.0019-0.0827-0.0058-0.1245h2.4957v6.2296c-0.8345,0.0632-1.4939,0.7635-1.4939,1.6136c0,0.8034,0.5875,1.4716,1.3694,1.5961c0.0165,0.8783,0.7363,1.5873,1.6184,1.5873c0.8812,0,1.6-0.7071,1.6184-1.5844c0.7742-0.1196,1.3694-0.7907,1.3694-1.599c0-0.8501-0.6594-1.5504-1.4939-1.6136v-6.2296h2.4957c-0.0039,0.0418-0.0058,0.0836-0.0058,0.1245c0,0.8929,0.7256,1.6184,1.6184,1.6184c0.8034,0,1.4716-0.5875,1.5961-1.3694c0.8783-0.0165,1.5873-0.7363,1.5873-1.6184C20.7856,8.8375,20.0786,8.1187,19.2013,8.1003z"/></svg></div>
-    <div class="dev-content">
-      <div class="section-label reveal">From the Developer</div>
-      <blockquote class="reveal reveal-delay-1">&ldquo;I built Lingua Sacra because I saw so many Catholics hungry to understand the Latin they hear at Mass and in sacred music, but the existing tools all taught Classical Latin &mdash; Caesar and Cicero, not the Pater Noster and the Vulgate. This app is my small contribution to keeping the Church&rsquo;s living Latin tradition accessible to everyone.&rdquo;</blockquote>
-      <div class="dev-name reveal reveal-delay-2">Fr. Juan Macias Marquez, O.P.</div>
-      <div class="dev-title reveal reveal-delay-2">Dominican Friar &amp; Developer</div>
-    </div>
-  </div>
-</section>
 
-<!-- QUOTE -->
-<section class="quote-section">
-  <div class="big-quote reveal">The Latin language, which served for so many centuries as the vehicle for the teaching of the Church, must be held in high esteem.</div>
-  <div class="quote-attr reveal reveal-delay-1">&mdash; Veterum Sapientia, St. John XXIII</div>
-  <div style="height:2.5rem"></div>
-  <div class="big-quote reveal" style="font-size:clamp(1.2rem,2.5vw,1.7rem);opacity:.85">The use of the Latin language is to be preserved in the Latin rites.</div>
-  <div class="quote-attr reveal reveal-delay-1">&mdash; Sacrosanctum Concilium &#167;36, Second Vatican Council</div>
-</section>
-
-<div class="divider"></div>
-
-<div class="divider"></div>
-<!-- LATIN QUIZ -->
-<section class="quiz-section" id="quiz">
-  <div class="section-label reveal">Test Yourself</div>
-  <h2 class="section-title reveal reveal-delay-1" style="margin:0 auto;text-align:center">How much Latin do you know?</h2>
-  <p class="section-desc reveal reveal-delay-2" style="margin:0 auto;text-align:center">5 quick questions to find your level</p>
-  <div class="quiz-card reveal reveal-delay-3" id="quizCard"></div>
-</section>
-<div class="divider"></div>
 <div class="divider"></div>
 <!-- LATIN QUIZ -->
 <section class="quiz-section" id="quiz">
@@ -2362,116 +2174,5 @@ function toggleTheme(){
 if(localStorage.getItem('ls-theme')==='light'){document.body.classList.add('light-mode');toggleTheme();toggleTheme()}
 </script>
 
-<script>
-var heroAudio=null;
-function playHeroAudio(btn){
-  if(heroAudio&&!heroAudio.paused){heroAudio.pause();heroAudio.currentTime=0;btn.classList.remove('playing');btn.querySelector('span').innerHTML='Hear it: <em>In nomine Patris</em>';return}
-  heroAudio=new Audio('audio/in-nomine-patris.mp3');
-  btn.classList.add('playing');btn.querySelector('span').innerHTML='Playing...';
-  heroAudio.play().catch(function(){});
-  heroAudio.onended=function(){btn.classList.remove('playing');btn.querySelector('span').innerHTML='Hear it: <em>In nomine Patris</em>'};
-}
-</script>
-
-<script>
-var heroAudio=null;
-function playHeroAudio(btn){
-  if(heroAudio&&!heroAudio.paused){heroAudio.pause();heroAudio.currentTime=0;btn.classList.remove('playing');btn.querySelector('span').innerHTML='Hear it: <em>In nomine Patris</em>';return}
-  heroAudio=new Audio('audio/in-nomine-patris.mp3');
-  btn.classList.add('playing');btn.querySelector('span').innerHTML='Playing...';
-  heroAudio.play().catch(function(){});
-  heroAudio.onended=function(){btn.classList.remove('playing');btn.querySelector('span').innerHTML='Hear it: <em>In nomine Patris</em>'};
-}
-</script>
-<script>
-/* HERO AUDIO */
-var heroAudio=null;
-function playHeroAudio(btn){
-  if(heroAudio&&!heroAudio.paused){heroAudio.pause();heroAudio.currentTime=0;btn.classList.remove('playing');btn.querySelector('span').innerHTML='Hear it: <em>In nomine Patris</em>';return}
-  heroAudio=new Audio('audio/in-nomine-patris.mp3');
-  btn.classList.add('playing');btn.querySelector('span').innerHTML='Playing...';
-  heroAudio.play().catch(function(){});
-  heroAudio.onended=function(){btn.classList.remove('playing');btn.querySelector('span').innerHTML='Hear it: <em>In nomine Patris</em>'};
-}
-
-/* LATIN QUIZ */
-var quizData=[
-  {q:'What does this mean?',latin:'Dominus vobiscum',opts:['The Lord be with you','Lord have mercy','Give us peace','Glory to God'],ans:0},
-  {q:'Translate:',latin:'Agnus Dei',opts:['Angel of God','Lamb of God','House of God','Word of God'],ans:1},
-  {q:'What does this mean?',latin:'Pater noster',opts:['Holy Spirit','Hail Mary','Our Father','Eternal rest'],ans:2},
-  {q:'Translate:',latin:'Gloria in excelsis Deo',opts:['God is love','Glory to God in the highest','The word of God','In the name of God'],ans:0},
-  {q:'What does this mean?',latin:'Sanctus, Sanctus, Sanctus',opts:['Blessed, Blessed, Blessed','Peace, Peace, Peace','Holy, Holy, Holy','Lord, Lord, Lord'],ans:2}
-];
-var quizIdx=0,quizScore=0;
-function renderQuiz(){
-  var c=document.getElementById('quizCard');if(!c)return;
-  if(quizIdx>=quizData.length){
-    var level=quizScore<=1?'Beginner (Tier 1)':quizScore<=3?'Intermediate (Tier 3)':'Advanced (Tier 5)';
-    c.innerHTML='<div class="quiz-result"><div class="quiz-score">'+quizScore+'/5</div><h3>'+level+'</h3><p>'+
-      (quizScore<=1?'You\'re just starting out — perfect! Lingua Sacra begins with the basics and builds from there.':
-       quizScore<=3?'You know some key phrases! Lingua Sacra will fill in the gaps and deepen your understanding.':
-       'Impressive! You already have a strong foundation. Lingua Sacra\'s advanced tiers will challenge you further.')+
-      '</p><button class="quiz-restart" onclick="quizIdx=0;quizScore=0;renderQuiz()">Try Again</button></div>';
-    return;
-  }
-  var d=quizData[quizIdx];
-  var pips='<div class="quiz-progress">';
-  for(var i=0;i<5;i++)pips+='<div class="quiz-pip'+(i<quizIdx?' done':'')+(i===quizIdx?' current':'')+'"></div>';
-  pips+='</div>';
-  var opts='<div class="quiz-opts">';
-  for(var i=0;i<d.opts.length;i++)opts+='<button class="quiz-opt" onclick="answerQuiz('+i+',this)">'+d.opts[i]+'</button>';
-  opts+='</div>';
-  c.innerHTML=pips+'<div class="quiz-q">'+d.q+'</div><div class="quiz-latin">'+d.latin+'</div>'+opts;
-}
-function answerQuiz(i,btn){
-  var d=quizData[quizIdx];var btns=btn.parentElement.querySelectorAll('.quiz-opt');
-  btns.forEach(function(b,j){b.style.pointerEvents='none';if(j===d.ans)b.classList.add('correct');if(j===i&&i!==d.ans)b.classList.add('wrong')});
-  if(i===d.ans)quizScore++;
-  setTimeout(function(){quizIdx++;renderQuiz()},900);
-}
-renderQuiz();
-
-/* PRAYER OF THE WEEK */
-var prayers=[
-  {title:'Salve Regina',latin:'Salve, Regina, Mater misericordiae, vita, dulcedo, et spes nostra, salve. Ad te clamamus exsules filii Hevae. Ad te suspiramus, gementes et flentes in hac lacrimarum valle.',english:'Hail, holy Queen, Mother of mercy, our life, our sweetness, and our hope. To you we cry, poor banished children of Eve. To you we send up our sighs, mourning and weeping in this valley of tears.',audio:'audio/sancta-maria-ora-pro-nobis.mp3'},
-  {title:'Sub Tuum Praesidium',latin:'Sub tuum praesidium confugimus, Sancta Dei Genetrix. Nostras deprecationes ne despicias in necessitatibus, sed a periculis cunctis libera nos semper, Virgo gloriosa et benedicta.',english:'We fly to thy protection, O Holy Mother of God. Do not despise our petitions in our necessities, but deliver us always from all dangers, O glorious and blessed Virgin.',audio:'audio/sancta-maria-ora-pro-nobis.mp3'},
-  {title:'Anima Christi',latin:'Anima Christi, sanctifica me. Corpus Christi, salva me. Sanguis Christi, inebria me. Aqua lateris Christi, lava me. Passio Christi, conforta me.',english:'Soul of Christ, sanctify me. Body of Christ, save me. Blood of Christ, inebriate me. Water from the side of Christ, wash me. Passion of Christ, strengthen me.',audio:'audio/magnificat-anima-mea-dominum.mp3'},
-  {title:'Gloria Patri',latin:'Gloria Patri, et Filio, et Spiritui Sancto. Sicut erat in principio, et nunc, et semper, et in saecula saeculorum. Amen.',english:'Glory be to the Father, and to the Son, and to the Holy Spirit. As it was in the beginning, is now, and ever shall be, world without end. Amen.',audio:'audio/gloria-in-excelsis-deo.mp3'}
-];
-var weekNum=Math.floor((Date.now()-new Date(2026,0,1))/(7*24*60*60*1000))%prayers.length;
-var pw=prayers[weekNum];
-var potwT=document.getElementById('potwTitle');
-var potwL=document.getElementById('potwLatin');
-var potwE=document.getElementById('potwEnglish');
-if(potwT){potwT.textContent=pw.title;potwL.textContent=pw.latin;potwE.textContent=pw.english}
-var potwAudio=null;
-function playPotwAudio(btn){
-  if(potwAudio&&!potwAudio.paused){potwAudio.pause();potwAudio.currentTime=0;btn.innerHTML='<svg viewBox="0 0 24 24"><polygon points="6,4 20,12 6,20"/></svg> Listen';return}
-  potwAudio=new Audio(pw.audio);btn.innerHTML='<svg viewBox="0 0 24 24"><polygon points="6,4 20,12 6,20"/></svg> Playing...';
-  potwAudio.play().catch(function(){});
-  potwAudio.onended=function(){btn.innerHTML='<svg viewBox="0 0 24 24"><polygon points="6,4 20,12 6,20"/></svg> Listen'};
-}
-
-/* LATIN AT MASS AUDIO */
-var massAud=null;
-function playMassAudio(src,btn){
-  if(massAud&&!massAud.paused){massAud.pause();massAud.currentTime=0}
-  massAud=new Audio(src);
-  btn.innerHTML='<svg viewBox="0 0 24 24"><polygon points="6,4 20,12 6,20"/></svg> Playing...';
-  massAud.play().catch(function(){});
-  massAud.onended=function(){btn.innerHTML='<svg viewBox="0 0 24 24"><polygon points="6,4 20,12 6,20"/></svg> Listen'};
-}
-
-/* THEME TOGGLE */
-function toggleTheme(){
-  document.body.classList.toggle('light-mode');
-  var isLight=document.body.classList.contains('light-mode');
-  localStorage.setItem('ls-theme',isLight?'light':'dark');
-  document.getElementById('themeIcon').innerHTML=isLight?
-    '<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3" stroke="var(--gold)" stroke-width="2"/><line x1="12" y1="21" x2="12" y2="23" stroke="var(--gold)" stroke-width="2"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="var(--gold)" stroke-width="2"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="var(--gold)" stroke-width="2"/><line x1="1" y1="12" x2="3" y2="12" stroke="var(--gold)" stroke-width="2"/><line x1="21" y1="12" x2="23" y2="12" stroke="var(--gold)" stroke-width="2"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="var(--gold)" stroke-width="2"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="var(--gold)" stroke-width="2"/>':
-    '<path d="M12 3a9 9 0 109 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 01-4.4 2.26 5.403 5.403 0 01-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"/>';
-}
-if(localStorage.getItem('ls-theme')==='light'){document.body.classList.add('light-mode');toggleTheme();toggleTheme()}
-</script>
 </body>
 </html>
