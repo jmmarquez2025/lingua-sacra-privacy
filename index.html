@@ -336,6 +336,42 @@ footer a:hover{opacity:.7}
 .fp-download:hover{transform:translateY(-1px)}
 @media(max-width:480px){.float-popup{right:1rem;left:1rem;width:auto;bottom:5rem}}
 
+
+/* CURRICULUM ROADMAP */
+.curriculum-section{padding:8rem 2rem;position:relative;overflow:hidden}
+.curriculum-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 40% 50%,rgba(26,50,96,0.2) 0%,transparent 60%)}
+.curriculum-grid{max-width:1100px;margin:3rem auto 0;display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.2rem;position:relative;z-index:2}
+.curriculum-tier{background:linear-gradient(135deg,rgba(14,30,62,0.4) 0%,rgba(8,13,28,0.7) 100%);border:1px solid rgba(212,168,67,0.08);border-radius:14px;padding:1.5rem 1.8rem;transition:border-color .4s,transform .3s,box-shadow .4s;position:relative}
+.curriculum-tier:hover{border-color:rgba(212,168,67,0.2);transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,0.3)}
+.curriculum-tier.ct-unlocked{border-color:rgba(212,168,67,0.15)}
+.curriculum-tier.ct-new{border-color:rgba(61,175,120,0.2);background:linear-gradient(135deg,rgba(14,30,62,0.5) 0%,rgba(8,13,28,0.7) 100%)}
+.ct-header{display:flex;align-items:center;gap:1rem;margin-bottom:.8rem}
+.ct-number{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:700;color:var(--gold);min-width:2.2rem;opacity:.7}
+.ct-unlocked .ct-number{opacity:1}
+.ct-new .ct-number{color:var(--green)}
+.ct-title-group{flex:1}
+.ct-name{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--parchment);margin:0}
+.ct-count{font-size:.78rem;color:var(--stone);letter-spacing:.06em}
+.ct-badge-new{font-size:.65rem;text-transform:uppercase;letter-spacing:.12em;padding:.2rem .6rem;border-radius:12px;background:rgba(61,175,120,0.15);color:var(--green);border:1px solid rgba(61,175,120,0.25);font-weight:700;white-space:nowrap}
+.ct-desc{font-size:.95rem;color:var(--stone);line-height:1.6;margin:0}
+.ct-desc em{color:var(--parchment-mid);font-style:italic}
+
+/* PEDAGOGY SECTION */
+.pedagogy-section{padding:8rem 2rem;position:relative;overflow:hidden}
+.pedagogy-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 60% 40%,rgba(139,32,48,0.05) 0%,transparent 60%)}
+.pedagogy-grid{max-width:1100px;margin:3rem auto 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.5rem;position:relative;z-index:2}
+.pedagogy-card{background:linear-gradient(135deg,rgba(14,30,62,0.5) 0%,rgba(8,13,28,0.8) 100%);border:1px solid rgba(212,168,67,0.1);border-radius:16px;padding:2rem;transition:border-color .4s,transform .3s}
+.pedagogy-card:hover{border-color:rgba(212,168,67,0.25);transform:translateY(-3px)}
+.ped-icon{font-size:2rem;margin-bottom:1rem}
+.pedagogy-card h3{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:600;color:var(--parchment);margin-bottom:.6rem}
+.pedagogy-card p{color:var(--stone);line-height:1.65;font-size:.95rem}
+.pedagogy-card strong{color:var(--gold);font-weight:600}
+
+@media(max-width:768px){
+  .curriculum-grid{grid-template-columns:1fr}
+  .pedagogy-grid{grid-template-columns:1fr}
+}
+
 /* STICKY MOBILE CTA */
 .sticky-cta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:800;background:rgba(8,13,28,0.95);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-top:1px solid rgba(212,168,67,0.15);padding:.7rem 1rem;transform:translateY(100%);transition:transform .4s ease}
 .sticky-cta.show{transform:translateY(0)}
@@ -782,6 +818,8 @@ body.light-mode .mass-card-english{color:#6B5D4A}
   <div class="nav-logo">Lingua Sacra</div>
   <div class="nav-links">
     <a href="#features">Features</a>
+    <a href="#curriculum">Curriculum</a>
+    <a href="vocabulary.html">Vocabulary</a>
     <a href="#journey">Journey</a>
     <a href="#try-it">Try It</a>
     <a href="#feedback">Feedback</a>
@@ -857,10 +895,10 @@ body.light-mode .mass-card-english{color:#6B5D4A}
 <!-- STATS -->
 <section class="stats">
   <div class="stats-inner">
-    <div class="stat reveal"><div class="stat-number" data-count="700">0</div><div class="stat-label">Vocabulary Words</div></div>
-    <div class="stat reveal reveal-delay-1"><div class="stat-number" data-count="57">0</div><div class="stat-label">Structured Lessons</div></div>
-    <div class="stat reveal reveal-delay-2"><div class="stat-number" data-count="17">0</div><div class="stat-label">Classic Prayers</div></div>
-    <div class="stat reveal reveal-delay-3"><div class="stat-number" data-count="365">0</div><div class="stat-label">Daily Phrases</div></div>
+    <div class="stat reveal"><div class="stat-number" data-count="1000">0</div><div class="stat-label">Vocabulary Words</div></div>
+    <div class="stat reveal reveal-delay-1"><div class="stat-number" data-count="97">0</div><div class="stat-label">Structured Lessons</div></div>
+    <div class="stat reveal reveal-delay-2"><div class="stat-number" data-count="24">0</div><div class="stat-label">Classic Prayers</div></div>
+    <div class="stat reveal reveal-delay-3"><div class="stat-number" data-count="404">0</div><div class="stat-label">Daily Phrases</div></div>
   </div>
 </section>
 
@@ -922,7 +960,7 @@ body.light-mode .mass-card-english{color:#6B5D4A}
       <div class="scroll-feat-item sf-active" data-screen="0">
         <div class="scroll-feat-icon">&#128218;</div>
         <h3>Structured Lessons</h3>
-        <p>58 lessons introduce 367 essential Latin words drawn from Scripture, the Mass, and the great prayers. Each lesson uses a 3-round mastery system &mdash; Learn, Practice, Master &mdash; so every word moves from recognition to true fluency.</p>
+        <p>97 lessons across 10 tiers take you from absolute beginner to near-seminary Latin. Over 1,000 vocabulary words drawn from Scripture, the Mass, the Church Fathers, and the great prayers. Each lesson uses a 3-round mastery system &mdash; Learn, Practice, Master &mdash; so every word moves from recognition to true fluency.</p>
       </div>
       <div class="scroll-feat-item" data-screen="1">
         <div class="scroll-feat-icon">&#127911;</div>
@@ -937,12 +975,12 @@ body.light-mode .mass-card-english{color:#6B5D4A}
       <div class="scroll-feat-item" data-screen="3">
         <div class="scroll-feat-icon">&#128591;</div>
         <h3>Prayer Library</h3>
-        <p>17 complete prayers with word-by-word annotations. Tap any word to see its meaning, grammatical role, and etymology. From the Pater Noster and Ave Maria to the Anima Christi and Salve Regina.</p>
+        <p>24 complete prayers with word-by-word annotations, plus the Rosary in Latin, the Litany of the Blessed Virgin Mary, and the Litany of the Saints. Tap any word to see its meaning, grammatical role, and etymology. A complete chant guide and Mass companion round out the liturgical library.</p>
       </div>
       <div class="scroll-feat-item" data-screen="4">
         <div class="scroll-feat-icon">&#9728;&#65039;</div>
         <h3>Daily Phrases</h3>
-        <p>354 daily Latin phrases drawn from Scripture, the liturgy, and the saints. A new phrase every day to deepen your practice and keep the sacred language alive in your daily routine.</p>
+        <p>404 daily Latin phrases drawn from Scripture, the liturgy, and the saints. A new phrase every day to deepen your practice and keep the sacred language alive in your daily routine.</p>
       </div>
       <div class="scroll-feat-item" data-screen="5">
         <div class="scroll-feat-icon">&#128200;</div>
@@ -1030,7 +1068,7 @@ body.light-mode .mass-card-english{color:#6B5D4A}
     <button class="iphone-nav iphone-next" onclick="iphoneNext()" aria-label="Next">&#8250;</button>
   </div>
   <div class="iphone-caption" id="iphoneCaption">Structured Lessons</div>
-  <div class="iphone-caption-desc" id="iphoneCaptionDesc">Flashcard-based lessons across 8 tiers, from greetings to Vulgate readings</div>
+  <div class="iphone-caption-desc" id="iphoneCaptionDesc">97 lessons across 10 tiers, from first prayers to seminary-level Latin</div>
   <div class="iphone-dots"><button class="iphone-dot active" onclick="iphoneGoTo(0)" aria-label="Structured Lessons"></button><button class="iphone-dot" onclick="iphoneGoTo(1)" aria-label="Beautiful Flashcards"></button><button class="iphone-dot" onclick="iphoneGoTo(2)" aria-label="Adaptive Quizzes"></button><button class="iphone-dot" onclick="iphoneGoTo(3)" aria-label="Prayer Library"></button><button class="iphone-dot" onclick="iphoneGoTo(4)" aria-label="Daily Latin Phrases"></button><button class="iphone-dot" onclick="iphoneGoTo(5)" aria-label="Track Your Progress"></button><button class="iphone-dot" onclick="iphoneGoTo(6)" aria-label="Practice & Review"></button></div>
 </section>
 
@@ -1116,18 +1154,134 @@ body.light-mode .mass-card-english{color:#6B5D4A}
       </tr></thead>
       <tbody>
         <tr><td>Ecclesiastical pronunciation</td><td class="ours yes">&#10003; Yes</td><td class="no">&#10007; Classical only</td><td class="no">&#10007; Classical only</td></tr>
-        <tr><td>Audio for every word</td><td class="ours yes">&#10003; 700+ words</td><td class="no">&#10007; None</td><td class="partial">&#9679; Some</td></tr>
-        <tr><td>Prayer library with grammar</td><td class="ours yes">&#10003; 17 prayers</td><td class="no">&#10007; No</td><td class="no">&#10007; No</td></tr>
+        <tr><td>Audio for every word</td><td class="ours yes">&#10003; 1,000+ words</td><td class="no">&#10007; None</td><td class="partial">&#9679; Some</td></tr>
+        <tr><td>Prayer library with grammar</td><td class="ours yes">&#10003; 24 prayers + Rosary</td><td class="no">&#10007; No</td><td class="no">&#10007; No</td></tr>
         <tr><td>Spaced repetition (SRS)</td><td class="ours yes">&#10003; Built-in</td><td class="no">&#10007; Manual</td><td class="partial">&#9679; Basic</td></tr>
         <tr><td>Works fully offline</td><td class="ours yes">&#10003; 100%</td><td class="yes">&#10003; Yes</td><td class="no">&#10007; No</td></tr>
         <tr><td>Catholic liturgical focus</td><td class="ours yes">&#10003; Mass, Vulgate, hymns</td><td class="partial">&#9679; Varies</td><td class="no">&#10007; Secular</td></tr>
         <tr><td>No subscription required</td><td class="ours yes">&#10003; One-time $4.99</td><td class="yes">&#10003; One-time</td><td class="no">&#10007; $84/year</td></tr>
+        <tr><td>Curriculum depth</td><td class="ours yes">&#10003; 10 tiers to seminary level</td><td class="partial">&#9679; Varies</td><td class="no">&#10007; Basic only</td></tr>
         <tr><td>Placement test</td><td class="ours yes">&#10003; Skip ahead</td><td class="no">&#10007; No</td><td class="partial">&#9679; Basic</td></tr>
       </tbody>
     </table>
   </div>
 </section>
 
+<div class="divider"></div>
+<!-- CURRICULUM ROADMAP -->
+<section class="curriculum-section" id="curriculum">
+  <div style="text-align:center">
+    <div class="section-label reveal">Full Curriculum</div>
+    <h2 class="section-title reveal reveal-delay-1" style="margin:0 auto;text-align:center">From first words to seminary Latin</h2>
+    <p class="section-desc reveal reveal-delay-2" style="margin:0 auto;text-align:center">10 tiers, 97 lessons. A complete path through the sacred language.</p>
+  </div>
+  <div class="curriculum-grid reveal reveal-delay-3">
+    <div class="curriculum-tier ct-unlocked" data-tier="1">
+      <div class="ct-header">
+        <span class="ct-number">I</span>
+        <div class="ct-title-group">
+          <h3 class="ct-name">First Steps</h3>
+          <span class="ct-count">6 lessons</span>
+        </div>
+      </div>
+      <p class="ct-desc">Core prayers, basic vocabulary, and your first Latin sentences. <em>Pater Noster</em>, <em>Ave Maria</em>, essential greetings.</p>
+    </div>
+    <div class="curriculum-tier ct-unlocked" data-tier="2">
+      <div class="ct-header">
+        <span class="ct-number">II</span>
+        <div class="ct-title-group">
+          <h3 class="ct-name">Foundations</h3>
+          <span class="ct-count">10 lessons</span>
+        </div>
+      </div>
+      <p class="ct-desc">The Mass ordinary, basic grammar, first and second declension nouns. Begin reading simple Scripture passages.</p>
+    </div>
+    <div class="curriculum-tier" data-tier="3">
+      <div class="ct-header">
+        <span class="ct-number">III</span>
+        <div class="ct-title-group">
+          <h3 class="ct-name">Grammar &amp; Scripture</h3>
+          <span class="ct-count">12 lessons</span>
+        </div>
+      </div>
+      <p class="ct-desc">Third declension, verb conjugations, adjective agreement. Read John 1:1&ndash;5 and the Magnificat in the original Latin.</p>
+    </div>
+    <div class="curriculum-tier" data-tier="4">
+      <div class="ct-header">
+        <span class="ct-number">IV</span>
+        <div class="ct-title-group">
+          <h3 class="ct-name">Intermediate Latin</h3>
+          <span class="ct-count">12 lessons</span>
+        </div>
+      </div>
+      <p class="ct-desc">Subjunctive mood, relative clauses, passive voice. Tackle the <em>Te Deum</em>, psalms, and longer Vulgate passages.</p>
+    </div>
+    <div class="curriculum-tier" data-tier="5">
+      <div class="ct-header">
+        <span class="ct-number">V</span>
+        <div class="ct-title-group">
+          <h3 class="ct-name">Advanced Grammar</h3>
+          <span class="ct-count">10 lessons</span>
+        </div>
+      </div>
+      <p class="ct-desc">Deponent verbs, ablative absolute, complex sentence structure. Read the Benedictus and extended Gospel passages.</p>
+    </div>
+    <div class="curriculum-tier" data-tier="6">
+      <div class="ct-header">
+        <span class="ct-number">VI</span>
+        <div class="ct-title-group">
+          <h3 class="ct-name">Vulgate Mastery</h3>
+          <span class="ct-count">7 lessons</span>
+        </div>
+      </div>
+      <p class="ct-desc">Extended Vulgate reading. Genesis, Exodus, Psalms, and prophetic texts. Build fluency with sustained Latin prose.</p>
+    </div>
+    <div class="curriculum-tier ct-new" data-tier="7">
+      <div class="ct-header">
+        <span class="ct-number">VII</span>
+        <div class="ct-title-group">
+          <h3 class="ct-name">Complex Constructions</h3>
+          <span class="ct-count">10 lessons</span>
+        </div>
+        <span class="ct-badge-new">NEW</span>
+      </div>
+      <p class="ct-desc">Conditional sentences, gerunds &amp; gerundives, fear clauses, indirect questions. Read Philippians and Romans in the original.</p>
+    </div>
+    <div class="curriculum-tier ct-new" data-tier="8">
+      <div class="ct-header">
+        <span class="ct-number">VIII</span>
+        <div class="ct-title-group">
+          <h3 class="ct-name">Reading the Tradition</h3>
+          <span class="ct-count">10 lessons</span>
+        </div>
+        <span class="ct-badge-new">NEW</span>
+      </div>
+      <p class="ct-desc">Extended readings from Augustine&rsquo;s <em>Confessions</em>, Aquinas&rsquo;s <em>Summa</em>, Isaiah, Wisdom, and Jerome. Medieval Latin vocabulary.</p>
+    </div>
+    <div class="curriculum-tier ct-new" data-tier="9">
+      <div class="ct-header">
+        <span class="ct-number">IX</span>
+        <div class="ct-title-group">
+          <h3 class="ct-name">Ecclesiastical Latin</h3>
+          <span class="ct-count">10 lessons</span>
+        </div>
+        <span class="ct-badge-new">NEW</span>
+      </div>
+      <p class="ct-desc">The Ordinary of the Mass, liturgical calendar, conciliar and papal Latin, the Divine Office, canon law, and theological vocabulary.</p>
+    </div>
+    <div class="curriculum-tier ct-new" data-tier="10">
+      <div class="ct-header">
+        <span class="ct-number">X</span>
+        <div class="ct-title-group">
+          <h3 class="ct-name">Seminary Capstone</h3>
+          <span class="ct-count">10 lessons</span>
+        </div>
+        <span class="ct-badge-new">NEW</span>
+      </div>
+      <p class="ct-desc">Latin prose composition, English-to-Latin translation, sight reading, letter writing. Hebrews, Revelation, and the <em>Te Deum Laudamus</em> grand capstone.</p>
+    </div>
+  </div>
+</section>
 
 <div class="divider"></div>
 <!-- LATIN AT MASS -->
@@ -1173,6 +1327,48 @@ body.light-mode .mass-card-english{color:#6B5D4A}
     </div>
   </div>
 </section>
+
+<!-- PEDAGOGY / HOW YOU LEARN -->
+<section class="pedagogy-section" id="pedagogy">
+  <div style="text-align:center">
+    <div class="section-label reveal">Science of Learning</div>
+    <h2 class="section-title reveal reveal-delay-1" style="margin:0 auto;text-align:center">Built on proven learning science</h2>
+    <p class="section-desc reveal reveal-delay-2" style="margin:0 auto;text-align:center">Every feature is designed to move Latin from short-term memory into lasting knowledge</p>
+  </div>
+  <div class="pedagogy-grid">
+    <div class="pedagogy-card reveal">
+      <div class="ped-icon">&#128337;</div>
+      <h3>Spaced Repetition (SM-2)</h3>
+      <p>Words reappear at scientifically optimal intervals. The algorithm adapts to your confidence &mdash; words you know well space out, words you&rsquo;re unsure of come back sooner.</p>
+    </div>
+    <div class="pedagogy-card reveal reveal-delay-1">
+      <div class="ped-icon">&#127919;</div>
+      <h3>Three-Round Mastery</h3>
+      <p>Every lesson progresses through three rounds: <strong>Learn</strong> (recognition), <strong>Practice</strong> (production), and <strong>Master</strong> (composition). You don&rsquo;t move on until you truly know the material.</p>
+    </div>
+    <div class="pedagogy-card reveal reveal-delay-2">
+      <div class="ped-icon">&#9889;</div>
+      <h3>Fluency Drills</h3>
+      <p>60-second timed rapid-fire sessions build speed and automaticity. Track your words-per-minute and watch your reaction time improve over weeks of practice.</p>
+    </div>
+    <div class="pedagogy-card reveal reveal-delay-3">
+      <div class="ped-icon">&#128214;</div>
+      <h3>Grammar-Aware Feedback</h3>
+      <p>When you make a mistake, you don&rsquo;t just see the right answer &mdash; you get a targeted grammar note explaining <em>why</em>, helping you understand the underlying pattern.</p>
+    </div>
+    <div class="pedagogy-card reveal reveal-delay-1">
+      <div class="ped-icon">&#128200;</div>
+      <h3>Adaptive Mastery Checks</h3>
+      <p>Periodic mastery checks use weighted sampling &mdash; words you struggle with appear more often. Results feed back into spaced repetition for continuous improvement.</p>
+    </div>
+    <div class="pedagogy-card reveal reveal-delay-2">
+      <div class="ped-icon">&#127897;</div>
+      <h3>15+ Question Types</h3>
+      <p>Multiple choice, listening comprehension, type-in, sentence parsing, cloze deletion, matching, and more. Variety keeps practice engaging and tests different aspects of knowledge.</p>
+    </div>
+  </div>
+</section>
+
 <div class="divider"></div>
 <!-- TRY YOUR FIRST WORD -->
 <section class="try-section" id="try" aria-label="Try your first Latin words">
@@ -1251,7 +1447,7 @@ body.light-mode .mass-card-english{color:#6B5D4A}
   <div class="daily-phrase-layout">
     <div class="section-label reveal">Phrase of the Day</div>
     <h2 class="section-title reveal reveal-delay-1" style="margin:0 auto .5rem;text-align:center">A new Latin phrase every day</h2>
-    <p class="section-desc reveal reveal-delay-2" style="margin:0 auto 0;text-align:center">Lingua Sacra includes 354 daily phrases to deepen your practice</p>
+    <p class="section-desc reveal reveal-delay-2" style="margin:0 auto 0;text-align:center">Lingua Sacra includes 404 daily phrases to deepen your practice</p>
     <div class="daily-phrase-card reveal reveal-delay-3">
       <div class="dp-ornament">&mdash; &#10013; &mdash;</div>
       <div class="dp-day-label" id="dpDayLabel">Today&#8217;s Phrase</div>
@@ -1535,10 +1731,10 @@ function toggleTier(node){
 /* === IPHONE SHOWCASE === */
 (function(){
 var slides=[
-  {caption:'Structured Lessons',desc:'Flashcard-based lessons across 8 tiers, from greetings to Vulgate readings'},
+  {caption:'Structured Lessons',desc:'97 lessons across 10 tiers, from first prayers to seminary-level Latin'},
   {caption:'Beautiful Flashcards',desc:'Every word with audio, pronunciation guide, and grammatical analysis'},
   {caption:'Adaptive Quizzes',desc:'Spaced repetition that learns what you need to review'},
-  {caption:'Prayer Library',desc:'17 classic prayers with full Latin text and word-by-word grammar'},
+  {caption:'Prayer Library',desc:'24 classic prayers with full Latin text and word-by-word grammar'},
   {caption:'Daily Latin Phrases',desc:'A new phrase each day drawn from the Mass and sacred tradition'},
   {caption:'Track Your Progress',desc:'See your streak, mastery, and lesson history at a glance'},
   {caption:'Practice & Review',desc:'Your SRS queue, grammar drills, and graded stories in one place'}
@@ -2006,7 +2202,7 @@ function flipTryCard(card) {
   tryFlipped++;
   if(tryFlipped >= cards.length) {
     setTimeout(function(){
-      document.querySelector('.try-hint').textContent = 'You just learned 3 Latin words! Imagine what 58 lessons can do.';
+      document.querySelector('.try-hint').textContent = 'You just learned 3 Latin words! Imagine what 97 lessons can do.';
       document.querySelector('.try-hint').style.opacity = '1';
       document.querySelector('.try-hint').style.color = 'var(--gold)';
     }, 800);

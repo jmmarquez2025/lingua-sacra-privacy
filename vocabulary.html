@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vocabulary Preview — Lingua Sacra</title>
+<meta name="description" content="Explore a sample of the vocabulary taught in Lingua Sacra across 10 progressive tiers, from first steps through seminary capstone.">
+<meta property="og:title" content="Vocabulary Preview — Lingua Sacra">
+<meta property="og:description" content="A glimpse into the sacred language curriculum. 10 tiers of Ecclesiastical Latin vocabulary.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://applinguasacra.com/vocabulary.html">
+<link rel="canonical" href="https://applinguasacra.com/vocabulary.html">
+<link rel="icon" type="image/png" sizes="32x32" href="./img/favicon-32.png">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Cormorant+Garamond:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#080D1C;
+  --navy:#0E1E3E;
+  --gold:#D4A843;
+  --gold-light:#E8C96A;
+  --parchment:#F0DDB8;
+  --stone:#A09880;
+  --crimson:#8B2030;
+  --green:#3DAF78
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box
+}
+
+body{
+  background:var(--ink);
+  color:var(--parchment);
+  font-family:'EB Garamond',serif;
+  line-height:1.7;
+  min-height:100vh
+}
+
+a{
+  color:var(--gold);
+  text-decoration:none
+}
+
+a:hover{
+  color:var(--gold-light)
+}
+
+.header{
+  padding:3rem 2rem 2rem;
+  text-align:center;
+  border-bottom:1px solid rgba(212,168,67,0.1)
+}
+
+.header h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:2.5rem;
+  font-weight:300;
+  color:var(--gold);
+  letter-spacing:.15em;
+  margin-bottom:.25rem
+}
+
+.header p{
+  color:var(--stone);
+  margin-top:.5rem;
+  font-size:1rem
+}
+
+.header .home-link{
+  display:inline-block;
+  margin-top:1rem;
+  font-size:.9rem;
+  color:var(--stone);
+  border-bottom:1px solid rgba(160,152,136,0.3);
+  transition:color 0.3s ease
+}
+
+.header .home-link:hover{
+  color:var(--gold)
+}
+
+.content{
+  max-width:900px;
+  margin:0 auto;
+  padding:3rem 2rem
+}
+
+.tier-section{
+  margin-bottom:4rem;
+  padding-bottom:3rem;
+  border-bottom:1px solid rgba(212,168,67,0.08)
+}
+
+.tier-section:last-of-type{
+  border-bottom:none
+}
+
+.tier-header{
+  display:flex;
+  align-items:baseline;
+  gap:1rem;
+  margin-bottom:1rem
+}
+
+.tier-number{
+  font-family:'Cormorant Garamond',serif;
+  font-size:2rem;
+  font-weight:600;
+  color:var(--gold)
+}
+
+.tier-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.8rem;
+  font-weight:400;
+  color:var(--parchment)
+}
+
+.tier-badge{
+  display:inline-block;
+  background:var(--green);
+  color:var(--ink);
+  font-size:.65rem;
+  font-weight:600;
+  padding:.25rem .5rem;
+  border-radius:2px;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  margin-left:auto
+}
+
+.tier-meta{
+  display:flex;
+  gap:1.5rem;
+  margin-bottom:1.5rem;
+  font-size:.95rem;
+  color:var(--stone)
+}
+
+.tier-description{
+  color:var(--stone);
+  margin-bottom:1.5rem;
+  font-size:1rem;
+  line-height:1.7
+}
+
+.vocab-table{
+  width:100%;
+  margin-bottom:1.5rem;
+  border-collapse:collapse;
+  background:rgba(14,30,62,0.4);
+  border:1px solid rgba(212,168,67,0.1)
+}
+
+.vocab-table th{
+  background:rgba(212,168,67,0.08);
+  color:var(--gold);
+  padding:1rem;
+  text-align:left;
+  font-weight:600;
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.1rem;
+  border-bottom:1px solid rgba(212,168,67,0.15)
+}
+
+.vocab-table td{
+  padding:0.9rem 1rem;
+  border-bottom:1px solid rgba(212,168,67,0.08)
+}
+
+.vocab-table tr:last-child td{
+  border-bottom:none
+}
+
+.vocab-latin{
+  color:var(--gold-light);
+  font-weight:500;
+  width:35%
+}
+
+.vocab-english{
+  color:var(--parchment);
+  width:65%
+}
+
+.tier-footnote{
+  color:var(--stone);
+  font-size:.95rem;
+  font-style:italic;
+  padding:1rem;
+  background:rgba(160,152,136,0.05);
+  border-left:3px solid rgba(212,168,67,0.2)
+}
+
+.cta-section{
+  margin-top:4rem;
+  padding:3rem 2rem;
+  background:rgba(14,30,62,0.6);
+  border:1px solid rgba(212,168,67,0.15);
+  text-align:center;
+  border-radius:4px
+}
+
+.cta-section h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.8rem;
+  font-weight:400;
+  color:var(--gold);
+  margin-bottom:1rem
+}
+
+.cta-section p{
+  color:var(--stone);
+  margin-bottom:1.5rem;
+  font-size:1rem
+}
+
+.cta-button{
+  display:inline-block;
+  background:var(--gold);
+  color:var(--ink);
+  padding:.8rem 2rem;
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.1rem;
+  font-weight:600;
+  letter-spacing:.1em;
+  border-radius:3px;
+  transition:all 0.3s ease
+}
+
+.cta-button:hover{
+  background:var(--gold-light);
+  transform:translateY(-2px)
+}
+
+.footer{
+  text-align:center;
+  padding:3rem 2rem;
+  color:var(--stone);
+  font-size:.85rem;
+  border-top:1px solid rgba(212,168,67,0.08)
+}
+
+@media(max-width:700px){
+  .header h1{
+    font-size:2rem
+  }
+
+  .tier-header{
+    flex-direction:column;
+    gap:.5rem
+  }
+
+  .tier-badge{
+    margin-left:0;
+    margin-top:.5rem
+  }
+
+  .tier-meta{
+    flex-direction:column;
+    gap:.5rem
+  }
+
+  .vocab-table{
+    font-size:.95rem
+  }
+
+  .vocab-table th,
+  .vocab-table td{
+    padding:.7rem
+  }
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <h1>VOCABULARY PREVIEW</h1>
+  <p>A glimpse into Lingua Sacra&rsquo;s progressive curriculum</p>
+  <a href="/" class="home-link">&larr; Back to app</a>
+</header>
+
+<main class="content">
+
+  <!-- TIER I -->
+  <section class="tier-section">
+    <div class="tier-header">
+      <span class="tier-number">I.</span>
+      <span class="tier-title">First Steps</span>
+    </div>
+    <div class="tier-meta">
+      <span>6 lessons</span>
+      <span>~35 total words</span>
+    </div>
+    <p class="tier-description">Begin your journey into Latin with the most essential vocabulary: God, peace, grace, light, and the way.</p>
+    <table class="vocab-table">
+      <thead>
+        <tr>
+          <th>Latin</th>
+          <th>Meaning</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="vocab-latin">Deus</td>
+          <td class="vocab-english">God</td>
+        </tr>
+        <tr>
+          <td class="vocab-latin">pax</td>
+          <td class="vocab-english">peace</td>
+        </tr>
+        <tr>
+          <td class="vocab-latin">gr&aacute;tia</td>
+          <td class="vocab-english">grace</td>
+        </tr>
+        <tr>
+          <td class="vocab-latin">lux</td>
+          <td class="vocab-english">light</td>
+        </tr>
+        <tr>
+          <td class="vocab-latin">via</td>
+          <td class="vocab-english">way</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="tier-footnote">&hellip; and 30 more words in the app</div>
+  </section>
+
+  <!-- TIER II -->
+  <section class="tier-section">
+    <div class="tier-header">
+      <span class="tier-number">II.</span>
+      <span class="tier-title">Foundations</span>
+    </div>
+    <div class="tier-meta">
+      <span>10 lessons</span>
+      <span>~60 total words</span>
+    </div>
+    <p class="tier-description">Build your foundation with family relationships and essential nouns that form the backbone of all Latin discourse.</p>
+    <table class="vocab-table">
+      <thead>
+        <tr>
+          <th>Latin</th>
+          <th>Meaning</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="vocab-latin">filius</td>
+          <td class="vocab-english">son</td>
+        </tr>
+        <tr>
+          <td class="vocab-latin">filia</td>
+          <td class="vocab-english">daughter</td>
+        </tr>
+        <tr>
+          <td class="vocab-latin">m&aacute;ter</td>
+          <td class="vocab-english">mother</td>
+        </tr>
+        <tr>
+          <td class="vocab-latin">p&aacute;ter</td>
+          <td class="vocab-english">father</td>
+        </tr>
+        <tr>
+          <td class="vocab-latin">fr&aacute;ter</td>
+          <td class="vocab-english">brother</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="tier-footnote">&hellip; and 55 more words in the app</div>
+  </section>
+
+  <!-- TIER III -->
+  <section class="tier-section">
+    <div class="tier-header">
+      <span class="tier-number">III.</span>
+      <span class="tier-title">Grammar &amp; Scripture</span>
+    </div>
+    <div class="tier-meta">
+      <span>12 lessons</span>
+      <span>~85 total words</span>
+    </div>
+    <p class="tier-description">Master the fundamentals of Latin grammar through sacred texts, learning cases, agreement, and the structure of sentences.</p>
+    <table class="vocab-table">
+      <thead>
+        <tr>
+          <th>Latin</th>
+          <th>Meaning</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="vocab-latin">r&oacute;sa (nom.)</td>
+          <td class="vocab-english">the rose (subject)</td>
+        </tr>
+        <tr>
+          <td class="vocab-latin">r&oacute;sam (acc.)</td>
+          <td class="vocab-english">the rose (object)</td>
+        </tr>
+        <tr>
+          <td class="vocab-latin">c&oacute;rpus</td>
+          <td class="vocab-english">body</td>
+        </tr>
+        <tr>
+          <td class="vocab-latin">verbum</td>
+          <td class="vocab-english">word</td>
+        </tr>
+        <tr>
+          <td class="vocab-latin">nomen</td>
+          <td class="vocab-english">name</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="tier-footnote">&hellip; and 80 more words in the app</div>
+  </section>
+
+  <!-- TIER IV -->
+  <section class="tier-section">
+    <div class="tier-header">
+      <span class="tier-number">IV.</span>
+      <span class="tier-title">Intermediate Latin</span>
+    </div>
+    <div class="tier-meta">
+      <span>12 lessons</span>
+      <span>~95 total words</span>
+    </div>
+    <p class="tier-description">Advance to participles, subjunctive forms, and complex verbal expressions used throughout Ecclesiastical texts.</p>
+    <table class="vocab-table">
+      <thead>
+        <tr>
+          <th>Latin</th>
+          <th>Meaning</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="vocab-latin">am&aacute;ns, am&aacute;ntis</td>
+          <td class="vocab-english">loving</td>
+        </tr>
+        <tr>
+          <td class="vocab-latin">cr&eacute;dens</td>
+          <td class="vocab-english">believing</td>
+        </tr>
+        <tr>
+          <td class="vocab-latin">voc&aacute;tus</td>
+          <td class="vocab-english">called</td>
+        </tr>
+        <tr>
+          <td class="vocab-latin">audie&aacute;tur</td>
+          <td class="vocab-english">let it be heard</td>
+        </tr>
+        <tr>
+          <td class="vocab-latin">mitt&eacute;ret</td>
+          <td class="vocab-english">he might send</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="tier-footnote">&hellip; and 90 more words in the app</div>
+  </section>
+
+  <!-- TIER V -->
+  <section class="tier-section">
+    <div class="tier-header">
+      <span class="tier-number">V.</span>
+      <span class="tier-title">Advanced Grammar</span>
+    </div>
+    <div class="tier-meta">
+      <span>10 lessons</span>
+      <span>~70 total words</span>
+    </div>
+    <p class="tier-description">Explore indirect discourse, mental verbs, and the nuanced philosophical and theological vocabulary of Church tradition.</p>
+    <table class="vocab-table">
+      <thead>
+        <tr>
+          <th>Latin</th>
+          <th>Meaning</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="vocab-latin">d&iacute;xit se ven&iacute;re</td>
+          <td class="vocab-english">he said he was coming</td>
+        </tr>
+        <tr>
+          <td class="vocab-latin">scio</td>
+          <td class="vocab-english">I know</td>
+        </tr>
+        <tr>
+          <td class="vocab-latin">n&eacute;go</td>
+          <td class="vocab-english">to deny</td>
+        </tr>
+        <tr>
+          <td class="vocab-latin">cr&eacute;do</td>
+          <td class="vocab-english">I believe</td>
+        </tr>
+        <tr>
+          <td class="vocab-latin">puto</td>
+          <td class="vocab-english">I think</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="tier-footnote">&hellip; and 65 more words in the app</div>
+  </section>
+
+  <!-- TIER VI -->
+  <section class="tier-section">
+    <div class="tier-header">
+      <span class="tier-number">VI.</span>
+      <span class="tier-title">Vulgate Mastery</span>
+    </div>
+    <div class="tier-meta">
+      <span>7 lessons</span>
+      <span>~50 total words</span>
+    </div>
+    <p class="tier-description">Study the language of St. Jerome&rsquo;s Latin Bible, mastering the most common verbs and forms of the sacred text.</p>
+    <table class="vocab-table">
+      <thead>
+        <tr>
+          <th>Latin</th>
+          <th>Meaning</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="vocab-latin">d&iacute;xit</td>
+          <td class="vocab-english">he said</td>
+        </tr>
+        <tr>
+          <td class="vocab-latin">&eacute;rat</td>
+          <td class="vocab-english">was</td>
+        </tr>
+        <tr>
+          <td class="vocab-latin">v&eacute;nit</td>
+          <td class="vocab-english">he came</td>
+        </tr>
+        <tr>
+          <td class="vocab-latin">m&iacute;sit</td>
+          <td class="vocab-english">he sent</td>
+        </tr>
+        <tr>
+          <td class="vocab-latin">d&eacute;dit</td>
+          <td class="vocab-english">he gave</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="tier-footnote">&hellip; and 45 more words in the app</div>
+  </section>
+
+  <!-- TIER VII -->
+  <section class="tier-section">
+    <div class="tier-header">
+      <span class="tier-number">VII.</span>
+      <span class="tier-title">Complex Constructions</span>
+      <span class="tier-badge">New</span>
+    </div>
+    <div class="tier-meta">
+      <span>10 lessons</span>
+      <span>~100 total words</span>
+    </div>
+    <p class="tier-description">Master conditional expressions, gerunds, and the intricate grammatical structures that elevate from reading to deep comprehension.</p>
+    <table class="vocab-table">
+      <thead>
+        <tr>
+          <th>Latin</th>
+          <th>Meaning</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="vocab-latin">si</td>
+          <td class="vocab-english">if</td>
+        </tr>
+        <tr>
+          <td class="vocab-latin">nisi</td>
+          <td class="vocab-english">unless</td>
+        </tr>
+        <tr>
+          <td class="vocab-latin">conditi&oacute;</td>
+          <td class="vocab-english">condition</td>
+        </tr>
+        <tr>
+          <td class="vocab-latin">gerundium</td>
+          <td class="vocab-english">gerund</td>
+        </tr>
+        <tr>
+          <td class="vocab-latin">tim&eacute;o ne</td>
+          <td class="vocab-english">I fear that</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="tier-footnote">&hellip; and 95 more words in the app</div>
+  </section>
+
+  <!-- TIER VIII -->
+  <section class="tier-section">
+    <div class="tier-header">
+      <span class="tier-number">VIII.</span>
+      <span class="tier-title">Reading the Tradition</span>
+      <span class="tier-badge">New</span>
+    </div>
+    <div class="tier-meta">
+      <span>10 lessons</span>
+      <span>~100 total words</span>
+    </div>
+    <p class="tier-description">Access the great texts of the Church Fathers through vocabulary centered on textual, interpretive, and theological discourse.</p>
+    <table class="vocab-table">
+      <thead>
+        <tr>
+          <th>Latin</th>
+          <th>Meaning</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="vocab-latin">textus</td>
+          <td class="vocab-english">text</td>
+        </tr>
+        <tr>
+          <td class="vocab-latin">sensus</td>
+          <td class="vocab-english">meaning</td>
+        </tr>
+        <tr>
+          <td class="vocab-latin">interpret&aacute;tio</td>
+          <td class="vocab-english">interpretation</td>
+        </tr>
+        <tr>
+          <td class="vocab-latin">patristricus</td>
+          <td class="vocab-english">patristic</td>
+        </tr>
+        <tr>
+          <td class="vocab-latin">summa</td>
+          <td class="vocab-english">summary</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="tier-footnote">&hellip; and 95 more words in the app</div>
+  </section>
+
+  <!-- TIER IX -->
+  <section class="tier-section">
+    <div class="tier-header">
+      <span class="tier-number">IX.</span>
+      <span class="tier-title">Ecclesiastical Latin</span>
+      <span class="tier-badge">New</span>
+    </div>
+    <div class="tier-meta">
+      <span>10 lessons</span>
+      <span>~100 total words</span>
+    </div>
+    <p class="tier-description">Immerse yourself in the language of the liturgy and canon law, with specialized vocabulary of the Church&rsquo;s ceremonial and doctrinal life.</p>
+    <table class="vocab-table">
+      <thead>
+        <tr>
+          <th>Latin</th>
+          <th>Meaning</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="vocab-latin">confite&oacute;r</td>
+          <td class="vocab-english">I confess</td>
+        </tr>
+        <tr>
+          <td class="vocab-latin">Cr&eacute;do</td>
+          <td class="vocab-english">I believe</td>
+        </tr>
+        <tr>
+          <td class="vocab-latin">consubstanti&aacute;lem</td>
+          <td class="vocab-english">consubstantial</td>
+        </tr>
+        <tr>
+          <td class="vocab-latin">ordin&aacute;rius</td>
+          <td class="vocab-english">ordinary</td>
+        </tr>
+        <tr>
+          <td class="vocab-latin">pontific&aacute;lis</td>
+          <td class="vocab-english">pontifical</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="tier-footnote">&hellip; and 95 more words in the app</div>
+  </section>
+
+  <!-- TIER X -->
+  <section class="tier-section">
+    <div class="tier-header">
+      <span class="tier-number">X.</span>
+      <span class="tier-title">Seminary Capstone</span>
+      <span class="tier-badge">New</span>
+    </div>
+    <div class="tier-meta">
+      <span>10 lessons</span>
+      <span>~100 total words</span>
+    </div>
+    <p class="tier-description">Achieve mastery in composition, translation, and expression. Master the vocabulary of theological writing and classical homiletic tradition.</p>
+    <table class="vocab-table">
+      <thead>
+        <tr>
+          <th>Latin</th>
+          <th>Meaning</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="vocab-latin">comp&oacute;no</td>
+          <td class="vocab-english">I compose</td>
+        </tr>
+        <tr>
+          <td class="vocab-latin">scr&iacute;bo</td>
+          <td class="vocab-english">I write</td>
+        </tr>
+        <tr>
+          <td class="vocab-latin">v&eacute;rto</td>
+          <td class="vocab-english">I translate</td>
+        </tr>
+        <tr>
+          <td class="vocab-latin">r&eacute;ddo</td>
+          <td class="vocab-english">I render</td>
+        </tr>
+        <tr>
+          <td class="vocab-latin">expr&iacute;mo</td>
+          <td class="vocab-english">I express</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="tier-footnote">&hellip; and 95 more words in the app</div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2>Begin Your Journey</h2>
+    <p>This vocabulary preview is just a glimpse of what Lingua Sacra offers. Download the app to access all 10 tiers, full lessons with audio pronunciation, and the complete path to mastering Ecclesiastical Latin.</p>
+    <a href="/" class="cta-button">DOWNLOAD THE APP</a>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>Lingua Sacra &copy; 2025 &middot; <a href="/privacy.html">Privacy</a> &middot; <a href="/">Home</a></p>
+</footer>
+
+</body>
+</html>
