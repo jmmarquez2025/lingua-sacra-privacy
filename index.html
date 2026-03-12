@@ -699,7 +699,7 @@ body.is-desktop .smart-cta-device-desktop{display:block}
 
 
 /* THEME TOGGLE */
-.theme-toggle{position:fixed;top:1.2rem;right:calc(1rem + 140px);z-index:1001;background:rgba(14,30,62,0.6);border:1px solid rgba(212,168,67,0.15);border-radius:20px;padding:.35rem .6rem;cursor:pointer;display:flex;align-items:center;gap:.3rem;transition:all .3s;backdrop-filter:blur(8px)}
+.theme-toggle{position:fixed;bottom:5.5rem;left:1rem;z-index:1001;background:rgba(14,30,62,0.6);border:1px solid rgba(212,168,67,0.15);border-radius:20px;padding:.35rem .6rem;cursor:pointer;display:flex;align-items:center;gap:.3rem;transition:all .3s;backdrop-filter:blur(8px)}
 .theme-toggle:hover{border-color:var(--gold)}
 .theme-toggle svg{width:16px;height:16px;fill:var(--gold);transition:transform .3s}
 body.light-mode{--ink:#F5F0E8;--navy:#E8DFD0;--navy-mid:#DDD4C5;--navy-light:#D5CCBD;--parchment:#1A1408;--stone:#6B5D4A;--gold:#A07820;--gold-light:#8B6A18;--gold-dim:rgba(160,120,32,0.15);--gold-faint:rgba(160,120,32,0.06);--green:#2A8050}
@@ -799,7 +799,7 @@ body.light-mode .mass-card,body.light-mode .quiz-card,body.light-mode .potw-card
 
 
 /* THEME TOGGLE */
-.theme-toggle{position:fixed;top:1.2rem;right:calc(1rem + 140px);z-index:1001;background:rgba(14,30,62,0.6);border:1px solid rgba(212,168,67,0.15);border-radius:20px;padding:.35rem .6rem;cursor:pointer;display:flex;align-items:center;gap:.3rem;transition:all .3s;backdrop-filter:blur(8px)}
+.theme-toggle{position:fixed;bottom:5.5rem;left:1rem;z-index:1001;background:rgba(14,30,62,0.6);border:1px solid rgba(212,168,67,0.15);border-radius:20px;padding:.35rem .6rem;cursor:pointer;display:flex;align-items:center;gap:.3rem;transition:all .3s;backdrop-filter:blur(8px)}
 .theme-toggle:hover{border-color:var(--gold)}
 .theme-toggle svg{width:16px;height:16px;fill:var(--gold);transition:transform .3s}
 body.light-mode{--ink:#F5F0E8;--navy:#E8DFD0;--navy-mid:#DDD4C5;--navy-light:#D5CCBD;--parchment:#1A1408;--stone:#6B5D4A;--gold:#A07820;--gold-light:#8B6A18;--gold-dim:rgba(160,120,32,0.15);--gold-faint:rgba(160,120,32,0.06);--green:#2A8050}
@@ -1191,33 +1191,9 @@ body.light-mode .mass-card,body.light-mode .quiz-card,body.light-mode .potw-card
 
 <div class="divider"></div>
 
+
 <div class="divider"></div>
-<!-- VIDEO -->
-<section class="video-section" id="video">
-  <div class="section-label reveal">Watch</div>
-  <h2 class="section-title reveal reveal-delay-1" style="margin:0 auto;text-align:center">See Lingua Sacra in action</h2>
-  <div class="video-wrapper reveal reveal-delay-2" id="videoWrapper">
-    <div class="video-bg-text">Lingua Sacra</div>
-    <div class="video-play-overlay" id="videoOverlay">
-      <div class="video-play-btn"><svg viewBox="0 0 24 24"><polygon points="6,4 20,12 6,20"/></svg></div>
-      <div class="video-coming">App preview &mdash; coming soon</div>
-    </div>
-  </div>
-</section>
-<div class="divider"></div>
-<div class="divider"></div>
-<!-- VIDEO -->
-<section class="video-section" id="video">
-  <div class="section-label reveal">Watch</div>
-  <h2 class="section-title reveal reveal-delay-1" style="margin:0 auto;text-align:center">See Lingua Sacra in action</h2>
-  <div class="video-wrapper reveal reveal-delay-2" id="videoWrapper">
-    <div class="video-bg-text">Lingua Sacra</div>
-    <div class="video-play-overlay" id="videoOverlay">
-      <div class="video-play-btn"><svg viewBox="0 0 24 24"><polygon points="6,4 20,12 6,20"/></svg></div>
-      <div class="video-coming">App preview &mdash; coming soon</div>
-    </div>
-  </div>
-</section>
+
 <div class="divider"></div>
 <!-- COMPARISON TABLE -->
 <section class="compare-table-section">
@@ -1546,25 +1522,25 @@ body.light-mode .mass-card,body.light-mode .quiz-card,body.light-mode .potw-card
         </div>
         <div class="fb-group">
           <label class="fb-label" for="fbLike">What do you like most about the app?</label>
-          <textarea class="fb-textarea" id="fbLike" name="likes" placeholder="The prayers, the audio, the design..."></textarea>
+          <textarea class="fb-textarea" id="fbLike" name="likes" aria-label="What do you like most" placeholder="The prayers, the audio, the design..."></textarea>
         </div>
         <div class="fb-group">
           <label class="fb-label" for="fbImprove">What could be improved?</label>
-          <textarea class="fb-textarea" id="fbImprove" name="improve" placeholder="Any features you'd like to see..."></textarea>
+          <textarea class="fb-textarea" id="fbImprove" name="improve" aria-label="What could be improved" placeholder="Any features you'd like to see..."></textarea>
         </div>
         <div class="fb-group">
           <label class="fb-label">Which features do you use most?</label>
           <div class="fb-checks">
-            <label class="fb-check"><input type="checkbox" name="features" value="flashcards"> Flashcards</label>
-            <label class="fb-check"><input type="checkbox" name="features" value="prayers"> Prayer Library</label>
-            <label class="fb-check"><input type="checkbox" name="features" value="quizzes"> Quizzes</label>
-            <label class="fb-check"><input type="checkbox" name="features" value="daily"> Daily Phrases</label>
-            <label class="fb-check"><input type="checkbox" name="features" value="srs"> Spaced Repetition</label>
+            <label class="fb-check"><input type="checkbox" name="features" value="flashcards" aria-label="Flashcards"> Flashcards</label>
+            <label class="fb-check"><input type="checkbox" name="features" value="prayers" aria-label="Prayer Library"> Prayer Library</label>
+            <label class="fb-check"><input type="checkbox" name="features" value="quizzes" aria-label="Quizzes"> Quizzes</label>
+            <label class="fb-check"><input type="checkbox" name="features" value="daily" aria-label="Daily Phrases"> Daily Phrases</label>
+            <label class="fb-check"><input type="checkbox" name="features" value="srs" aria-label="Spaced Repetition"> Spaced Repetition</label>
           </div>
         </div>
         <div class="fb-group">
           <label class="fb-label" for="fbEmail">Email <span class="optional">(optional, if you'd like a response)</span></label>
-          <input type="email" class="fb-input" id="fbEmail" name="email" placeholder="your@email.com">
+          <input type="email" class="fb-input" id="fbEmail" name="email" aria-label="Email address" placeholder="your@email.com">
         </div>
         <button type="submit" class="fb-submit">Send Feedback &#10132;</button>
       </form>

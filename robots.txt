@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://applinguasacra.com/sitemap.xml
