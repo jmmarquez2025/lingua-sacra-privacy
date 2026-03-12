@@ -68,6 +68,11 @@
     }
     strong { color: var(--ink); }
     a { color: var(--gold); }
+    ul {
+      margin: 0 0 16px 24px;
+      font-size: 16px;
+    }
+    li { margin-bottom: 6px; }
     .footer {
       text-align: center;
       margin-top: 48px;
@@ -84,30 +89,49 @@
   <div class="header">
     <div class="app-name">Lingua Sacra</div>
     <h1>Privacy Policy</h1>
-    <div class="effective">Effective Date: March 9, 2026</div>
-    <div class="badge">Zero Data Collection</div>
+    <div class="effective">Effective Date: March 12, 2026</div>
+    <div class="badge">Offline-First &middot; Minimal Data</div>
   </div>
 
   <h2>Overview</h2>
-  <p>Lingua Sacra is an educational app for learning Ecclesiastical Latin in the context of the Catholic tradition. Your privacy is important to us, and this app was designed from the ground up to respect it completely.</p>
+  <p>Lingua Sacra is an educational app for learning Ecclesiastical Latin in the context of the Catholic tradition. Your privacy is important to us. The app is designed to work fully offline, and online features are entirely optional.</p>
 
-  <h2>Data Collection</h2>
-  <p>Lingua Sacra collects <strong>no personal data whatsoever</strong>. Specifically, the app does not collect your name, email address, location, device identifiers, usage analytics, crash reports, or any other information about you or your device.</p>
+  <h2>Offline Mode (Default)</h2>
+  <p>By default, Lingua Sacra operates entirely on your device. All lesson progress, quiz scores, vocabulary review schedules, and settings are stored locally using on-device storage. In this mode, the app collects <strong>no personal data</strong>, makes no network requests, and does not communicate with any servers.</p>
 
-  <h2>Data Storage</h2>
-  <p>All app data — including your lesson progress, quiz scores, vocabulary review schedule, and settings — is stored locally on your device using on-device storage. This data never leaves your device and is not accessible to us or any third party.</p>
+  <h2>Optional Account &amp; Cloud Features</h2>
+  <p>If you choose to create an account, the following data is collected and stored on our servers:</p>
+  <ul>
+    <li><strong>Email address</strong> — used for authentication and password recovery.</li>
+    <li><strong>Display name</strong> — an optional name you choose, shown on group leaderboards.</li>
+    <li><strong>Learning progress</strong> — lesson completions, vocabulary mastery, XP, and streak data, synced to enable cloud backup and cross-device access.</li>
+    <li><strong>Group membership</strong> — if you join a study group, your display name, XP, streak, and lessons completed are visible to other group members.</li>
+    <li><strong>Daily challenge scores</strong> — if you participate in daily challenges, your score and completion time are recorded.</li>
+  </ul>
+  <p>You may use the app without creating an account. All online features are opt-in.</p>
 
-  <h2>Network Activity</h2>
-  <p>Lingua Sacra operates entirely offline. The app makes no network requests and does not communicate with any servers. No internet connection is required to use any feature of the app.</p>
+  <h2>Data Storage &amp; Security</h2>
+  <p>Online data is stored using <strong>Supabase</strong>, a cloud database service hosted on Amazon Web Services (AWS) in the United States. All data is transmitted over HTTPS and protected by Row Level Security policies, meaning each user can only access their own data (and shared group data for groups they belong to).</p>
+
+  <h2>Crash Reporting</h2>
+  <p>Lingua Sacra uses <strong>Sentry</strong> for anonymous crash and error reporting in production builds. Sentry collects technical information about errors (such as stack traces, device model, and operating system version) to help us fix bugs. Sentry does <strong>not</strong> collect your name, email address, IP address, or any personally identifiable information.</p>
 
   <h2>Third-Party Services</h2>
-  <p>Lingua Sacra does not integrate any third-party analytics, advertising, social media, or tracking services.</p>
+  <p>Lingua Sacra uses the following third-party services:</p>
+  <ul>
+    <li><strong>Supabase</strong> (optional, only if you create an account) — authentication and data storage. <a href="https://supabase.com/privacy">Supabase Privacy Policy</a></li>
+    <li><strong>Sentry</strong> (production builds only) — anonymous crash reporting. <a href="https://sentry.io/privacy/">Sentry Privacy Policy</a></li>
+  </ul>
+  <p>Lingua Sacra does not integrate any advertising, social media tracking, or analytics services.</p>
 
   <h2>Children's Privacy</h2>
-  <p>Lingua Sacra is suitable for users of all ages. Because the app collects no data of any kind, it complies with the Children's Online Privacy Protection Act (COPPA) and similar regulations worldwide.</p>
+  <p>Lingua Sacra is suitable for users of all ages. The app does not knowingly collect personal information from children under 13. If a child creates an account, only an email address and optional display name are collected — the same minimal data collected from all users. Parents or guardians may contact us to request deletion of a child's account.</p>
+
+  <h2>Data Deletion</h2>
+  <p>You may delete your account and all associated cloud data at any time from within the app. Local data stored on your device can be removed by uninstalling the app. To request data deletion by email, contact us at the address below.</p>
 
   <h2>Changes to This Policy</h2>
-  <p>If we ever update this privacy policy, the revised version will be posted at this URL with an updated effective date. Since the app collects no data, we do not anticipate any changes.</p>
+  <p>If we update this privacy policy, the revised version will be posted at this URL with an updated effective date.</p>
 
   <h2>Contact</h2>
   <p>If you have questions about this privacy policy, you may contact us at: <a href="mailto:juan.macias.marquez@opeast.org">juan.macias.marquez@opeast.org</a></p>
