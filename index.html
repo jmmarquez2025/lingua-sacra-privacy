@@ -739,7 +739,7 @@ body.is-desktop .smart-cta-device-desktop{display:block}
 .theme-toggle{position:fixed;bottom:5.5rem;left:1rem;z-index:1001;background:rgba(14,30,62,0.6);border:1px solid rgba(212,168,67,0.15);border-radius:20px;padding:.35rem .6rem;cursor:pointer;display:flex;align-items:center;gap:.3rem;transition:all .3s;backdrop-filter:blur(8px)}
 .theme-toggle:hover{border-color:var(--gold)}
 .theme-toggle svg{width:16px;height:16px;fill:var(--gold);transition:transform .3s}
-body.light-mode{--ink:#F5F0E8;--navy:#E8DFD0;--navy-mid:#DDD4C5;--navy-light:#D5CCBD;--parchment:#1A1408;--stone:#6B5D4A;--gold:#A07820;--gold-light:#8B6A18;--gold-dim:rgba(160,120,32,0.15);--gold-faint:rgba(160,120,32,0.06);--green:#2A8050}
+body.light-mode{--ink:#F5F0E8;--navy:#E8DFD0;--navy-mid:#DDD4C5;--navy-light:#D5CCBD;--parchment:#1A1408;--parchment-mid:#5A4E3C;--stone:#6B5D4A;--gold:#A07820;--gold-light:#8B6A18;--gold-dim:rgba(160,120,32,0.15);--gold-faint:rgba(160,120,32,0.06);--green:#2A8050;--red:#B03030}
 body.light-mode{background:#F5F0E8;color:#1A1408}
 body.light-mode .nav-logo,body.light-mode .hero h1,body.light-mode .section-title{color:var(--parchment)}
 body.light-mode nav{background:rgba(245,240,232,0.95)}
@@ -760,6 +760,64 @@ body.light-mode .faq-answer-inner{color:#6B5D4A}
 body.light-mode .potw-latin{color:#1A1408}
 body.light-mode .mass-card-latin{color:#1A1408}
 body.light-mode .mass-card-english{color:#6B5D4A}
+/* ── LIGHT MODE: scroll-synced features ── */
+body.light-mode .scroll-feat-item h3{color:#1A1408}
+body.light-mode .scroll-feat-item p{color:#5A4E3C}
+/* ── LIGHT MODE: social proof / "Built For" ticker ── */
+body.light-mode .social-proof-item{opacity:.8}
+body.light-mode .social-proof-text{color:#5A4E3C}
+body.light-mode .social-proof-label{color:#6B5D4A;opacity:.8}
+/* ── LIGHT MODE: daily phrase ── */
+body.light-mode .dp-latin-text{color:#8B6A18}
+body.light-mode .dp-english-text{color:#5A4E3C}
+/* ── LIGHT MODE: word-of-the-day ticker ── */
+body.light-mode .hwt-latin{color:#8B6A18}
+body.light-mode .hwt-en{color:#5A4E3C}
+/* ── LIGHT MODE: before/after comparison ── */
+body.light-mode .compare-latin{color:#3A3028}
+body.light-mode .compare-table td:first-child{color:#5A4E3C}
+/* ── LIGHT MODE: curriculum tier cards ── */
+body.light-mode .ct-name{color:#1A1408}
+body.light-mode .ct-desc{color:#5A4E3C}
+body.light-mode .ct-desc em{color:#3A3028}
+/* ── LIGHT MODE: carousel captions ── */
+body.light-mode .carousel-caption{color:#1A1408}
+/* ── LIGHT MODE: CTA section ── */
+body.light-mode .cta-title{color:#1A1408}
+body.light-mode .cta-sub{color:#5A4E3C}
+/* ── LIGHT MODE: store buttons ── */
+body.light-mode .store-btn{background:rgba(26,20,8,0.06);border-color:rgba(160,120,32,0.3);color:#1A1408}
+body.light-mode .store-btn:hover{background:rgba(160,120,32,0.12);border-color:var(--gold)}
+body.light-mode .store-btn small{color:#6B5D4A}
+/* ── LIGHT MODE: try-it flashcards ── */
+body.light-mode .try-card-front,body.light-mode .try-card-back{background:linear-gradient(145deg,rgba(90,78,60,0.08),rgba(26,20,8,0.06));border-color:rgba(160,120,32,0.2)}
+body.light-mode .try-card-latin{color:#8B6A18}
+body.light-mode .try-card-english{color:#1A1408}
+body.light-mode .try-card-pron{color:#6B5D4A}
+body.light-mode .try-card-grammar{color:#6B5D4A}
+body.light-mode .try-card-example{color:#8B6A18}
+body.light-mode .try-hint{color:#6B5D4A;opacity:.8}
+/* ── LIGHT MODE: sticky CTA bar ── */
+body.light-mode .sticky-cta{background:rgba(245,240,232,0.95);border-top-color:rgba(160,120,32,0.2)}
+body.light-mode .sticky-cta-text{color:#1A1408}
+body.light-mode .sticky-cta-price{color:#8B6A18}
+/* ── LIGHT MODE: email card ── */
+body.light-mode .email-card{background:rgba(26,20,8,0.06);border-color:rgba(160,120,32,0.2)}
+body.light-mode .email-card h3{color:#1A1408}
+body.light-mode .email-card p{color:#5A4E3C}
+body.light-mode .email-input{background:rgba(26,20,8,0.06);color:#1A1408;border-color:rgba(26,20,8,0.2)}
+body.light-mode .email-input::placeholder{color:#6B5D4A;opacity:.6}
+/* ── LIGHT MODE: float popup (Try a Word) ── */
+body.light-mode .float-popup{background:linear-gradient(145deg,#F5F0E8,#E8DFD0);border-color:rgba(160,120,32,0.25);box-shadow:0 20px 60px rgba(0,0,0,0.12)}
+body.light-mode .fp-latin{color:#8B6A18}
+body.light-mode .fp-pron{color:#6B5D4A}
+body.light-mode .float-popup-close{color:#6B5D4A}
+/* ── LIGHT MODE: cinematic heading ── */
+body.light-mode .cinematic-word{color:#1A1408}
+/* ── LIGHT MODE: ambient decorative Latin ── */
+body.light-mode .ambient-latin span{color:#8B6A18;opacity:0.07}
+/* ── LIGHT MODE: carousel subtitle ── */
+body.light-mode .carousel-caption + p,body.light-mode .carousel-sub{color:#5A4E3C}
 @media(max-width:768px){.theme-toggle{top:auto;bottom:1rem;left:1rem;right:auto}}
 
 
