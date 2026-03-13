@@ -453,6 +453,57 @@ footer a:hover{opacity:.7}
 }
 @media(min-width:769px){.sticky-cta{display:block}}
 
+/* ── COMPREHENSIVE MOBILE OVERRIDES ─────────────────────────────── */
+@media(max-width:768px){
+  /* reduce heavy section padding */
+  .features{padding:4rem 1.5rem}
+  .carousel-section{padding:3.5rem 1.5rem}
+  .flashcard-section{padding:4rem 1.5rem}
+  .prayer-section{padding:4rem 1.5rem}
+  .quote-section{padding:3.5rem 1.5rem}
+  .cta-section{padding:4rem 1.5rem}
+  .daily-phrase-section{padding:4rem 1.5rem}
+  .tier-section{padding:4rem 1.5rem}
+  .compare-section{padding:4rem 1.5rem}
+  .faq-section{padding:4rem 1.5rem}
+  .curriculum-section{padding:4rem 1.5rem}
+  .pedagogy-section{padding:4rem 1.5rem}
+  .how-section{padding:3.5rem 1.5rem}
+  .compare-table-section{padding:4rem 1rem}
+  .dev-section{padding:4rem 1.5rem}
+  .feedback-section{padding:3.5rem 1.5rem}
+  .try-section{padding:4rem 1.5rem}
+  .quiz-section{padding:3.5rem 1.5rem}
+  .email-section{padding:3rem 1.5rem}
+  .scroll-demo-header{padding:3.5rem 1.5rem 1.5rem}
+  .potw-section{padding:3.5rem 1.5rem}
+  .video-section{padding:3.5rem 1.5rem}
+  .mass-section{padding:3.5rem 1.5rem}
+
+  /* tighten section desc spacing */
+  .section-desc{margin-bottom:2rem}
+
+  /* float button: avoid overlapping sticky CTA (56px tall) */
+  .float-btn{padding:.6rem 1rem;font-size:.85rem;bottom:5rem;right:1rem}
+
+  /* hamburger menu */
+  .nav-hamburger{display:flex}
+  .nav-links{position:fixed;top:0;right:-100%;width:72vw;max-width:300px;height:100vh;background:rgba(8,13,28,0.98);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);flex-direction:column;padding:5rem 2rem 2rem;gap:0;transition:right .35s cubic-bezier(.4,0,.2,1);z-index:1100;border-left:1px solid rgba(212,168,67,0.12)}
+  .nav-links.nav-open{right:0}
+  .nav-links a:not(.nav-cta){display:block;padding:.9rem 0;font-size:1.1rem;border-bottom:1px solid rgba(212,168,67,0.08)}
+  .nav-links .nav-cta{margin-top:1.5rem;text-align:center}
+  .nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:1050}
+  .nav-overlay.nav-open{display:block}
+}
+/* hamburger icon – hidden on desktop */
+.nav-hamburger{display:none;align-items:center;justify-content:center;background:none;border:none;cursor:pointer;z-index:1200;padding:.3rem;margin-left:auto}
+.nav-hamburger span{display:block;width:22px;height:2px;background:var(--gold);border-radius:2px;position:relative;transition:all .3s}
+.nav-hamburger span::before,.nav-hamburger span::after{content:'';position:absolute;left:0;width:22px;height:2px;background:var(--gold);border-radius:2px;transition:all .3s}
+.nav-hamburger span::before{top:-7px}
+.nav-hamburger span::after{top:7px}
+.nav-hamburger.active span{background:transparent}
+.nav-hamburger.active span::before{top:0;transform:rotate(45deg)}
+.nav-hamburger.active span::after{top:0;transform:rotate(-45deg)}
 
 /* FEEDBACK SECTION */
 .feedback-section{padding:6rem 2rem;position:relative;text-align:center}
@@ -818,6 +869,10 @@ body.light-mode .cinematic-word{color:#1A1408}
 body.light-mode .ambient-latin span{color:#8B6A18;opacity:0.07}
 /* ── LIGHT MODE: carousel subtitle ── */
 body.light-mode .carousel-caption + p,body.light-mode .carousel-sub{color:#5A4E3C}
+/* ── LIGHT MODE: hamburger menu ── */
+body.light-mode .nav-hamburger span,body.light-mode .nav-hamburger span::before,body.light-mode .nav-hamburger span::after{background:#1A1408}
+body.light-mode .nav-links{background:rgba(245,240,232,0.98)}
+body.light-mode .nav-links a:not(.nav-cta){color:#1A1408;border-bottom-color:rgba(26,20,8,0.08)}
 @media(max-width:768px){.theme-toggle{top:auto;bottom:1rem;left:1rem;right:auto}}
 
 
@@ -874,7 +929,9 @@ body.light-mode .carousel-caption + p,body.light-mode .carousel-sub{color:#5A4E3
 <div class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark mode"><svg id="themeIcon" viewBox="0 0 24 24"><path d="M12 3a9 9 0 109 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 01-4.4 2.26 5.403 5.403 0 01-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"/></svg></div>
 <nav id="nav">
   <a href="#" class="nav-logo" onclick="window.scrollTo({top:0,behavior:'smooth'});return false">Lingua Sacra</a>
-  <div class="nav-links">
+  <button class="nav-hamburger" id="navHamburger" aria-label="Open menu"><span></span></button>
+  <div id="navOverlay" class="nav-overlay"></div>
+  <div class="nav-links" id="navLinks">
     <a href="#features">Features</a>
     <a href="#curriculum">Curriculum</a>
     <a href="vocabulary.html">Vocabulary</a>
@@ -1670,6 +1727,27 @@ document.querySelectorAll('.reveal').forEach(e=>obs.observe(e));
 
 /* ── NAV SCROLL ── */
 window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',window.scrollY>60)});
+
+/* ── HAMBURGER MENU ── */
+(function(){
+  var ham=document.getElementById('navHamburger');
+  var links=document.getElementById('navLinks');
+  var overlay=document.getElementById('navOverlay');
+  if(!ham||!links)return;
+  function toggle(){
+    ham.classList.toggle('active');
+    links.classList.toggle('nav-open');
+    if(overlay)overlay.classList.toggle('nav-open');
+  }
+  function close(){
+    ham.classList.remove('active');
+    links.classList.remove('nav-open');
+    if(overlay)overlay.classList.remove('nav-open');
+  }
+  ham.addEventListener('click',toggle);
+  if(overlay)overlay.addEventListener('click',close);
+  links.querySelectorAll('a').forEach(function(a){a.addEventListener('click',close)});
+})();
 
 /* ── COUNTER ANIMATION ── */
 const co=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting){const t=e.target,n=+t.dataset.count;let c=0;const s=Math.max(1,Math.floor(n/50)),i=setInterval(()=>{c+=s;c>=n?(t.textContent=n+'+',clearInterval(i)):t.textContent=c},30);co.unobserve(t)}})},{threshold:.5});
