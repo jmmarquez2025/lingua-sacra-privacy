@@ -1585,7 +1585,7 @@ body.light-mode .mass-card-english{color:#6B5D4A}
 
 <!-- EMAIL CAPTURE -->
 <section class="email-section">
-  <div class="email-card reveal">
+  <div class="email-card">
     <h3>Stay in the loop</h3>
     <p>Get Latin tips, new feature announcements, and app updates</p>
     <form class="email-form" action="https://applinguasacra.us6.list-manage.com/subscribe/post?u=9a06dc6e3ffbd1efebebb115b&amp;id=ae83265683&amp;f_id=0076c2e1f0" method="post" target="_blank">
@@ -1594,8 +1594,7 @@ body.light-mode .mass-card-english{color:#6B5D4A}
       <button type="submit" class="email-submit">Subscribe</button>
     </form>
     <div class="email-note">No spam. Unsubscribe anytime.</div>
-    <div class="email-success" id="emailSuccess"><p>&#10003; Deo gratias! Check your inbox to confirm.</p></div>
-    <div style="margin-top:.8rem;font-size:.82rem;color:var(--stone);opacity:.5">You&rsquo;ll be redirected to confirm your subscription.</div>
+    <div class="email-success" id="emailSuccess"><p>&#10003; Deo gratias! You&rsquo;re subscribed.</p></div>
   </div>
 </section>
 
@@ -2251,24 +2250,62 @@ function flipTryCard(card) {
 (function(){
   var form = document.querySelector('.email-form');
   if(!form) return;
+  var btn = form.querySelector('button[type="submit"]');
+  var successEl = document.getElementById('emailSuccess');
+
   form.addEventListener('submit', function(e){
     e.preventDefault();
     var email = form.querySelector('input[name="EMAIL"]').value;
     if(!email) return;
+
+    // Disable button while submitting
+    if(btn){ btn.disabled = true; btn.textContent = 'Subscribing\u2026'; }
+
     var url = form.action.replace('/post?', '/post-json?') + '&EMAIL=' + encodeURIComponent(email) + '&c=emailCB';
     var s = document.createElement('script');
+    var done = false;
+
+    window.emailCB = function(resp){
+      if(done) return;
+      done = true;
+      try{ document.body.removeChild(s); }catch(ex){}
+
+      if(resp && resp.result === 'success'){
+        form.classList.add('ef-hidden');
+        successEl.classList.add('es-show');
+      } else if(resp && resp.result === 'error'){
+        var msg = (resp.msg || 'Something went wrong. Please try again.').replace(/<[^>]*>/g,'');
+        if(msg.toLowerCase().indexOf('already subscribed') !== -1){
+          form.classList.add('ef-hidden');
+          successEl.querySelector('p').innerHTML = '&#10003; You\u2019re already subscribed!';
+          successEl.classList.add('es-show');
+        } else {
+          alert(msg);
+          if(btn){ btn.disabled = false; btn.textContent = 'Subscribe'; }
+        }
+      } else {
+        form.classList.add('ef-hidden');
+        successEl.classList.add('es-show');
+      }
+    };
+
+    s.onerror = function(){
+      if(done) return;
+      done = true;
+      alert('Network error \u2014 please check your connection and try again.');
+      if(btn){ btn.disabled = false; btn.textContent = 'Subscribe'; }
+    };
+
     s.src = url;
     document.body.appendChild(s);
-    window.emailCB = function(resp){
-      form.classList.add('ef-hidden');
-      document.getElementById('emailSuccess').classList.add('es-show');
-      document.body.removeChild(s);
-    };
-    // Fallback: if JSONP fails, show success anyway (form already submitted)
+
     setTimeout(function(){
-      form.classList.add('ef-hidden');
-      document.getElementById('emailSuccess').classList.add('es-show');
-    }, 3000);
+      if(done) return;
+      done = true;
+      try{ document.body.removeChild(s); }catch(ex){}
+      alert('Request timed out. Please try again.');
+      if(btn){ btn.disabled = false; btn.textContent = 'Subscribe'; }
+    }, 10000);
   });
 })();
 </script><script>
