@@ -885,6 +885,7 @@ body.light-mode .nav-links a:not(.nav-cta){color:#1A1408;border-bottom-color:rgb
 <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
 
 <!-- Open Graph -->
+<meta property="og:locale" content="en_US">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://applinguasacra.com/">
 <meta property="og:title" content="Lingua Sacra — Learn Ecclesiastical Latin">
@@ -2458,7 +2459,7 @@ function submitFeedback(e){
     email:document.getElementById("fbEmail").value};
   fetch("https://formspree.io/f/mvzwayoo",{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(d)})
     .then(function(r){if(r.ok){document.getElementById("fbFormWrap").style.display="none";document.getElementById("fbSuccess").classList.add("show")}})
-    .catch(function(){document.getElementById("fbFormWrap").style.display="none";document.getElementById("fbSuccess").classList.add("show")});
+    .catch(function(){alert("Network error \u2014 please check your connection and try again.")});
 }
 </script>
 <script>
