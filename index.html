@@ -694,9 +694,12 @@ body.is-desktop .smart-cta-device-desktop{display:block}
 .fb-textarea{min-height:90px}
 .fb-textarea:focus,.fb-input:focus{border-color:var(--gold);box-shadow:0 0 0 2px rgba(212,168,67,0.1)}
 .fb-textarea::placeholder,.fb-input::placeholder{color:var(--stone);opacity:.5}
-.fb-stars{display:flex;gap:.4rem;margin-bottom:.3rem}
-.fb-star{font-size:1.8rem;cursor:pointer;color:rgba(212,168,67,0.25);transition:color .2s,transform .15s;background:none;border:none;padding:0;line-height:1}
-.fb-star:hover,.fb-star.active{color:var(--gold);transform:scale(1.15)}
+.fb-stars{display:flex;gap:.4rem;margin-bottom:.3rem;align-items:center}
+.fb-star{font-size:2rem;cursor:pointer;color:rgba(160,140,100,0.3);transition:color .2s,transform .15s,text-shadow .2s;background:none;border:none;padding:2px;line-height:1}
+.fb-star:hover{color:rgba(212,168,67,0.6);transform:scale(1.2)}
+.fb-star.active{color:#D4A843;transform:scale(1.15);text-shadow:0 0 12px rgba(212,168,67,0.5),0 0 24px rgba(212,168,67,0.2)}
+.fb-rating-label{color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;margin-left:.7rem;min-width:2rem;opacity:0;transition:opacity .3s}
+.fb-rating-label.visible{opacity:1}
 .fb-checks{display:flex;flex-wrap:wrap;gap:.6rem}
 .fb-check{display:flex;align-items:center;gap:.5rem;cursor:pointer;color:var(--stone);font-size:.95rem;transition:color .2s}
 .fb-check input{appearance:none;-webkit-appearance:none;width:18px;height:18px;border:1.5px solid rgba(212,168,67,0.3);border-radius:5px;background:rgba(240,221,184,0.04);cursor:pointer;position:relative;transition:all .2s;flex-shrink:0}
@@ -798,7 +801,8 @@ body.light-mode .nav-cta{background:var(--gold);color:#fff}
 body.light-mode .iphone-frame{background:linear-gradient(145deg,#ddd,#eee)}
 body.light-mode .fb-textarea,body.light-mode .fb-input{background:rgba(26,20,8,0.06);color:var(--parchment);border-color:rgba(26,20,8,0.2)}
 body.light-mode .fb-label{color:#1A1408}
-body.light-mode .fb-star{color:var(--gold)}
+body.light-mode .fb-star{color:rgba(160,140,100,0.25)}
+body.light-mode .fb-star.active{color:#B8922C;text-shadow:0 0 8px rgba(160,120,32,0.3)}
 body.light-mode .fb-checks label{color:#1A1408}
 body.light-mode .mass-card,body.light-mode .quiz-card,body.light-mode .potw-card,body.light-mode .feedback-card{background:rgba(245,240,232,0.85);border-color:rgba(160,120,32,0.18);color:#1A1408}
 body.light-mode .section-desc,body.light-mode .hero-sub,body.light-mode .feature-card p{color:#6B5D4A}
@@ -869,6 +873,94 @@ body.light-mode .cinematic-word{color:#1A1408}
 body.light-mode .ambient-latin span{color:#8B6A18;opacity:0.07}
 /* ── LIGHT MODE: carousel subtitle ── */
 body.light-mode .carousel-caption + p,body.light-mode .carousel-sub{color:#5A4E3C}
+/* ── LIGHT MODE: comprehensive fixes for readability ── */
+/* Nav */
+body.light-mode nav.scrolled{background:rgba(245,240,232,0.96);box-shadow:0 1px 0 rgba(160,120,32,0.2)}
+body.light-mode .nav-links a{color:#5A4E3C}
+body.light-mode .nav-links a:hover{color:#8B6A18}
+body.light-mode .nav-logo{color:#8B6A18}
+/* Hero */
+body.light-mode .hero::before{background:radial-gradient(ellipse at 50% 40%,rgba(160,120,32,0.06) 0%,transparent 60%),radial-gradient(ellipse at 30% 70%,rgba(139,32,48,0.04) 0%,transparent 50%)}
+body.light-mode .hero h1{color:#1A1408}
+body.light-mode .hero-sub{color:#5A4E3C}
+body.light-mode .hero-listen{background:rgba(160,120,32,0.08);border-color:rgba(160,120,32,0.25);color:#8B6A18}
+/* Section labels */
+body.light-mode .section-label{color:#8B6A18}
+/* Tier / Journey section */
+body.light-mode .tier-section::before{background:radial-gradient(ellipse at 30% 50%,rgba(160,120,32,0.05) 0%,transparent 60%)}
+body.light-mode .tier-dot{background:#E8DFD0;border-color:rgba(160,120,32,0.3)}
+body.light-mode .tier-node.unlocked .tier-dot{background:#A07820;border-color:#A07820;box-shadow:0 0 10px rgba(160,120,32,0.25)}
+body.light-mode .tier-name{color:#1A1408}
+body.light-mode .tier-node.locked .tier-name{color:#8A7E6A;opacity:.6}
+body.light-mode .tier-meta{color:#6B5D4A}
+body.light-mode .tier-line{background:linear-gradient(180deg,#A07820,rgba(160,120,32,0.15),rgba(160,120,32,0.05))}
+body.light-mode .tier-lesson-tag{background:rgba(160,120,32,0.08);color:#8B6A18;border-color:rgba(160,120,32,0.15)}
+body.light-mode .tier-node.unlocked .tier-badge{background:rgba(42,128,80,0.1);color:#2A8050;border-color:rgba(42,128,80,0.2)}
+body.light-mode .tier-node.locked .tier-badge{background:rgba(138,126,106,0.08);color:#8A7E6A;border-color:rgba(138,126,106,0.12)}
+/* Vocabulary before/after comparison */
+body.light-mode .compare-wrap{background:rgba(245,240,232,0.9)}
+body.light-mode .compare-label{color:#1A1408}
+body.light-mode .compare-tab{color:#5A4E3C;border-color:rgba(26,20,8,0.15)}
+body.light-mode .compare-tab.active{color:#8B6A18;border-color:#A07820;background:rgba(160,120,32,0.06)}
+/* Quiz section */
+body.light-mode .quiz-q{color:#1A1408}
+body.light-mode .quiz-latin{color:#8B6A18}
+body.light-mode .quiz-pip{background:rgba(160,120,32,0.15)}
+body.light-mode .quiz-pip.done{background:#A07820}
+body.light-mode .quiz-pip.current{background:#A07820;box-shadow:0 0 6px rgba(160,120,32,0.3)}
+body.light-mode .quiz-result{color:#1A1408}
+/* Footer */
+body.light-mode footer{border-top-color:rgba(160,120,32,0.15)}
+body.light-mode footer p{color:#6B5D4A}
+body.light-mode footer a{color:#8B6A18}
+body.light-mode footer .footer-tagline{color:#8A7E6A}
+/* Theme toggle */
+body.light-mode .theme-toggle{background:rgba(245,240,232,0.8);border-color:rgba(160,120,32,0.2)}
+body.light-mode .theme-toggle svg{fill:#8B6A18}
+/* Offline badge */
+body.light-mode .offline-badge{color:#5A4E3C;border-color:rgba(160,120,32,0.2);background:rgba(160,120,32,0.04)}
+/* CTA section background */
+body.light-mode .cta-section::before{opacity:0.03}
+/* Feature card icons */
+body.light-mode .feature-card .feature-icon{opacity:.85}
+/* Feedback submit button */
+body.light-mode .fb-submit{background:rgba(160,120,32,0.08);color:#8B6A18;border-color:rgba(160,120,32,0.25)}
+body.light-mode .fb-submit:hover{background:rgba(160,120,32,0.15);border-color:#A07820}
+/* Mass companion cards */
+body.light-mode .mass-card{background:rgba(245,240,232,0.85)!important;border-color:rgba(160,120,32,0.18)}
+body.light-mode .mass-card-header{color:#1A1408}
+/* Daily phrase box */
+body.light-mode .dp-box{background:rgba(245,240,232,0.85);border-color:rgba(160,120,32,0.18)}
+/* FAQ section */
+body.light-mode .faq-question{background:rgba(26,20,8,0.03);border-color:rgba(26,20,8,0.1)}
+body.light-mode .faq-question:hover{background:rgba(160,120,32,0.04)}
+/* Scroll features section */
+body.light-mode .scroll-feat-mockup{opacity:.9}
+/* Prayer of the week */
+body.light-mode .potw-card{background:rgba(245,240,232,0.85)!important}
+body.light-mode .potw-english{color:#5A4E3C}
+/* Vocabulary Before/After comparison — switch dark bg to light */
+body.light-mode .compare-container{background:linear-gradient(135deg,rgba(245,240,232,0.98),rgba(232,223,208,0.98));box-shadow:0 8px 40px rgba(0,0,0,0.08)}
+body.light-mode .compare-after{background:linear-gradient(135deg,rgba(245,240,232,1),rgba(232,223,208,1))}
+body.light-mode .compare-before .compare-latin{color:#5A4E3C}
+body.light-mode .compare-after .compare-latin .noun{color:#2B6CB0}
+body.light-mode .compare-after .compare-latin .verb{color:#8B6A18}
+body.light-mode .compare-after .compare-latin .adj{color:#9B59B6}
+body.light-mode .compare-after .compare-latin .prep{color:#2A8050}
+body.light-mode .compare-after .compare-latin .gloss{color:#6B5D4A}
+body.light-mode .compare-handle{background:linear-gradient(to bottom,transparent 0%,#A07820 12%,#A07820 88%,transparent 100%)}
+body.light-mode .compare-handle::before{background:radial-gradient(circle at 38% 38%,#D4A843,#A07820)}
+body.light-mode .compare-handle::after{color:#F5F0E8}
+body.light-mode .compare-legend-item{color:#6B5D4A}
+/* Daily phrase card — switch dark bg to light */
+body.light-mode .daily-phrase-card{background:linear-gradient(145deg,rgba(245,240,232,0.9),rgba(232,223,208,0.95))!important;border-color:rgba(160,120,32,0.18)}
+body.light-mode .daily-phrase-card::before{background:linear-gradient(90deg,transparent,rgba(160,120,32,0.4),transparent)}
+body.light-mode .daily-phrase-card::after{background:linear-gradient(90deg,transparent,rgba(160,120,32,0.15),transparent)}
+body.light-mode .daily-phrase-section::before{background:radial-gradient(ellipse at 50% 40%,rgba(160,120,32,0.04) 0%,transparent 60%)}
+body.light-mode .dp-pron{color:#6B5D4A}
+/* CTA store buttons — make visible */
+body.light-mode .store-btn svg{fill:#1A1408}
+body.light-mode .offline-badge{color:#6B5D4A}
 /* ── LIGHT MODE: hamburger menu ── */
 body.light-mode .nav-hamburger span,body.light-mode .nav-hamburger span::before,body.light-mode .nav-hamburger span::after{background:#1A1408}
 body.light-mode .nav-links{background:rgba(245,240,232,0.98)}
@@ -1126,7 +1218,7 @@ body.light-mode .nav-links a:not(.nav-cta){color:#1A1408;border-bottom-color:rgb
       <div class="iphone-frame">
         <div class="iphone-notch"></div>
         <div class="iphone-screen">
-          <img src="img/01_lessons_6.7inch.png" alt="Structured Lessons" loading="lazy">
+          <img src="img/final_01_lessons_home.png" alt="Structured Lessons" loading="lazy">
         </div>
         <div class="iphone-home-bar"></div>
       </div>
@@ -1135,7 +1227,7 @@ body.light-mode .nav-links a:not(.nav-cta){color:#1A1408;border-bottom-color:rgb
       <div class="iphone-frame">
         <div class="iphone-notch"></div>
         <div class="iphone-screen">
-          <img src="img/02_flashcards_6.7inch.png" alt="Beautiful Flashcards" loading="lazy">
+          <img src="img/final_02_practice.png" alt="Practice Hub" loading="lazy">
         </div>
         <div class="iphone-home-bar"></div>
       </div>
@@ -1144,7 +1236,7 @@ body.light-mode .nav-links a:not(.nav-cta){color:#1A1408;border-bottom-color:rgb
       <div class="iphone-frame">
         <div class="iphone-notch"></div>
         <div class="iphone-screen">
-          <img src="img/03_quiz_6.7inch.png" alt="Adaptive Quizzes" loading="lazy">
+          <img src="img/final_03_library.png" alt="Library" loading="lazy">
         </div>
         <div class="iphone-home-bar"></div>
       </div>
@@ -1153,7 +1245,7 @@ body.light-mode .nav-links a:not(.nav-cta){color:#1A1408;border-bottom-color:rgb
       <div class="iphone-frame">
         <div class="iphone-notch"></div>
         <div class="iphone-screen">
-          <img src="img/04_prayer_library_6.7inch.png" alt="Prayer Library" loading="lazy">
+          <img src="img/final_04_profile.png" alt="Profile & Stats" loading="lazy">
         </div>
         <div class="iphone-home-bar"></div>
       </div>
@@ -1162,7 +1254,7 @@ body.light-mode .nav-links a:not(.nav-cta){color:#1A1408;border-bottom-color:rgb
       <div class="iphone-frame">
         <div class="iphone-notch"></div>
         <div class="iphone-screen">
-          <img src="img/05_daily_phrase_6.7inch.png" alt="Daily Latin Phrases" loading="lazy">
+          <img src="img/final_05_flashcard.png" alt="Flashcard" loading="lazy">
         </div>
         <div class="iphone-home-bar"></div>
       </div>
@@ -1171,7 +1263,7 @@ body.light-mode .nav-links a:not(.nav-cta){color:#1A1408;border-bottom-color:rgb
       <div class="iphone-frame">
         <div class="iphone-notch"></div>
         <div class="iphone-screen">
-          <img src="img/06_progress_6.7inch.png" alt="Track Your Progress" loading="lazy">
+          <img src="img/final_06_prayer_grammar.png" alt="Ave Maria Grammar" loading="lazy">
         </div>
         <div class="iphone-home-bar"></div>
       </div>
@@ -1180,7 +1272,34 @@ body.light-mode .nav-links a:not(.nav-cta){color:#1A1408;border-bottom-color:rgb
       <div class="iphone-frame">
         <div class="iphone-notch"></div>
         <div class="iphone-screen">
-          <img src="img/07_practice_hub_6.7inch.png" alt="Practice & Review" loading="lazy">
+          <img src="img/final_07_vulgate_reader.png" alt="Vulgate Reader" loading="lazy">
+        </div>
+        <div class="iphone-home-bar"></div>
+      </div>
+    </div>
+    <div class="iphone-slide iphone-hidden" data-index="7" onclick="iphoneClick(7)">
+      <div class="iphone-frame">
+        <div class="iphone-notch"></div>
+        <div class="iphone-screen">
+          <img src="img/final_08_settings.png" alt="Settings" loading="lazy">
+        </div>
+        <div class="iphone-home-bar"></div>
+      </div>
+    </div>
+    <div class="iphone-slide iphone-hidden" data-index="8" onclick="iphoneClick(8)">
+      <div class="iphone-frame">
+        <div class="iphone-notch"></div>
+        <div class="iphone-screen">
+          <img src="img/final_09_vocab_bank.png" alt="Vocab Bank" loading="lazy">
+        </div>
+        <div class="iphone-home-bar"></div>
+      </div>
+    </div>
+    <div class="iphone-slide iphone-hidden" data-index="9" onclick="iphoneClick(9)">
+      <div class="iphone-frame">
+        <div class="iphone-notch"></div>
+        <div class="iphone-screen">
+          <img src="img/final_10_pater_noster.png" alt="Pater Noster Grammar" loading="lazy">
         </div>
         <div class="iphone-home-bar"></div>
       </div>
@@ -1190,7 +1309,7 @@ body.light-mode .nav-links a:not(.nav-cta){color:#1A1408;border-bottom-color:rgb
   </div>
   <div class="iphone-caption" id="iphoneCaption">Structured Lessons</div>
   <div class="iphone-caption-desc" id="iphoneCaptionDesc">97 lessons across 10 tiers, from first prayers to seminary-level Latin</div>
-  <div class="iphone-dots"><button class="iphone-dot active" onclick="iphoneGoTo(0)" aria-label="Structured Lessons"></button><button class="iphone-dot" onclick="iphoneGoTo(1)" aria-label="Beautiful Flashcards"></button><button class="iphone-dot" onclick="iphoneGoTo(2)" aria-label="Adaptive Quizzes"></button><button class="iphone-dot" onclick="iphoneGoTo(3)" aria-label="Prayer Library"></button><button class="iphone-dot" onclick="iphoneGoTo(4)" aria-label="Daily Latin Phrases"></button><button class="iphone-dot" onclick="iphoneGoTo(5)" aria-label="Track Your Progress"></button><button class="iphone-dot" onclick="iphoneGoTo(6)" aria-label="Practice & Review"></button></div>
+  <div class="iphone-dots"><button class="iphone-dot active" onclick="iphoneGoTo(0)" aria-label="Structured Lessons"></button><button class="iphone-dot" onclick="iphoneGoTo(1)" aria-label="Practice Hub"></button><button class="iphone-dot" onclick="iphoneGoTo(2)" aria-label="Library"></button><button class="iphone-dot" onclick="iphoneGoTo(3)" aria-label="Profile & Stats"></button><button class="iphone-dot" onclick="iphoneGoTo(4)" aria-label="Flashcard"></button><button class="iphone-dot" onclick="iphoneGoTo(5)" aria-label="Ave Maria Grammar"></button><button class="iphone-dot" onclick="iphoneGoTo(6)" aria-label="Vulgate Reader"></button><button class="iphone-dot" onclick="iphoneGoTo(7)" aria-label="Settings"></button><button class="iphone-dot" onclick="iphoneGoTo(8)" aria-label="Vocab Bank"></button><button class="iphone-dot" onclick="iphoneGoTo(9)" aria-label="Pater Noster"></button></div>
 </section>
 
 <div class="divider"></div>
@@ -1645,11 +1764,12 @@ body.light-mode .nav-links a:not(.nav-cta){color:#1A1408;border-bottom-color:rgb
         <div class="fb-group">
           <label class="fb-label">How would you rate Lingua Sacra?</label>
           <div class="fb-stars" id="fbStars">
-            <button type="button" class="fb-star" data-val="1" onclick="setStars(1)">&#9733;</button>
-            <button type="button" class="fb-star" data-val="2" onclick="setStars(2)">&#9733;</button>
-            <button type="button" class="fb-star" data-val="3" onclick="setStars(3)">&#9733;</button>
-            <button type="button" class="fb-star" data-val="4" onclick="setStars(4)">&#9733;</button>
-            <button type="button" class="fb-star" data-val="5" onclick="setStars(5)">&#9733;</button>
+            <button type="button" class="fb-star" data-val="1" onclick="setStars(1)">&#9734;</button>
+            <button type="button" class="fb-star" data-val="2" onclick="setStars(2)">&#9734;</button>
+            <button type="button" class="fb-star" data-val="3" onclick="setStars(3)">&#9734;</button>
+            <button type="button" class="fb-star" data-val="4" onclick="setStars(4)">&#9734;</button>
+            <button type="button" class="fb-star" data-val="5" onclick="setStars(5)">&#9734;</button>
+            <span class="fb-rating-label" id="fbRatingLabel"></span>
           </div>
         </div>
         <div class="fb-group">
@@ -1875,13 +1995,15 @@ function toggleTier(node){
 (function(){
 var slides=[
   {caption:'Structured Lessons',desc:'97 lessons across 10 tiers, from first prayers to seminary-level Latin'},
-  {caption:'Beautiful Flashcards',desc:'Every word with audio, pronunciation guide, and grammatical analysis'},
-  {caption:'Adaptive Quizzes',desc:'Spaced repetition that learns what you need to review'},
-  {caption:'Prayer Library',desc:'24 classic prayers with full Latin text and word-by-word grammar'},
-  {caption:'Daily Latin Phrases',desc:'A new phrase each day drawn from the Mass and sacred tradition'},
-  {caption:'Track Your Progress',desc:'See your streak, mastery, and lesson history at a glance'},
-  {caption:'Community & Cloud Sync',desc:'Join study groups, compete on leaderboards, and sync your progress across devices'},
-  {caption:'Practice & Review',desc:'Your SRS queue, grammar drills, and graded stories in one place'}
+  {caption:'Practice Hub',desc:'SRS review, grammar drills, paradigm tables, translation exercises, and sentence building'},
+  {caption:'Library',desc:'Prayers, Mass Companion, Chant Guide, Vulgate Reader, and more'},
+  {caption:'Profile & Stats',desc:'Track your level, XP, streak, lessons completed, badges, and mastery'},
+  {caption:'Flashcard Learning',desc:'Audio-enabled flashcards with speaker icon, progress tracking, and group navigation'},
+  {caption:'Ave Maria — Grammar',desc:'Every word of the Hail Mary parsed with color-coded grammatical analysis'},
+  {caption:'Vulgate Reader',desc:'Read Scripture in Latin — Genesis, Psalms, John, the Beatitudes, and more'},
+  {caption:'Settings',desc:'Choose difficulty, pronunciation style, typography, and auto-play preferences'},
+  {caption:'Vocab Bank',desc:'369 words searchable by lesson, alphabet, or SRS status with grammar tags'},
+  {caption:'Pater Noster — Grammar',desc:'The Lord\u0027s Prayer with verse-by-verse grammatical breakdown'}
 ];
 var current=1;
 function getClass(i){
@@ -2452,7 +2574,13 @@ function flipTryCard(card) {
 var fbRating=0;
 function setStars(n){
   fbRating=n;
-  document.querySelectorAll('.fb-star').forEach(function(s,i){s.classList.toggle('active',i<n)});
+  document.querySelectorAll('.fb-star').forEach(function(s,i){
+    var isActive=i<n;
+    s.classList.toggle('active',isActive);
+    s.innerHTML=isActive?'\u2605':'\u2606';
+  });
+  var label=document.getElementById('fbRatingLabel');
+  if(label){label.textContent=n+'/5';label.classList.add('visible');}
 }
 function submitFeedback(e){
   e.preventDefault();
@@ -2513,12 +2641,32 @@ function answerQuiz(i,btn){
 }
 renderQuiz();
 
-/* PRAYER OF THE WEEK */
+/* PRAYER OF THE WEEK — 24 prayers, rotates every week */
 var prayers=[
   {title:'Salve Regina',latin:'Salve, Regina, Mater misericordiae, vita, dulcedo, et spes nostra, salve. Ad te clamamus exsules filii Hevae. Ad te suspiramus, gementes et flentes in hac lacrimarum valle.',english:'Hail, holy Queen, Mother of mercy, our life, our sweetness, and our hope. To you we cry, poor banished children of Eve. To you we send up our sighs, mourning and weeping in this valley of tears.',audio:'audio/salve-regina.mp3'},
   {title:'Sub Tuum Praesidium',latin:'Sub tuum praesidium confugimus, Sancta Dei Genetrix. Nostras deprecationes ne despicias in necessitatibus, sed a periculis cunctis libera nos semper, Virgo gloriosa et benedicta.',english:'We fly to thy protection, O Holy Mother of God. Do not despise our petitions in our necessities, but deliver us always from all dangers, O glorious and blessed Virgin.',audio:'audio/sub-tuum-praesidium.mp3'},
   {title:'Anima Christi',latin:'Anima Christi, sanctifica me. Corpus Christi, salva me. Sanguis Christi, inebria me. Aqua lateris Christi, lava me. Passio Christi, conforta me.',english:'Soul of Christ, sanctify me. Body of Christ, save me. Blood of Christ, inebriate me. Water from the side of Christ, wash me. Passion of Christ, strengthen me.',audio:'audio/anima-christi.mp3'},
-  {title:'Gloria Patri',latin:'Gloria Patri, et Filio, et Spiritui Sancto. Sicut erat in principio, et nunc, et semper, et in saecula saeculorum. Amen.',english:'Glory be to the Father, and to the Son, and to the Holy Spirit. As it was in the beginning, is now, and ever shall be, world without end. Amen.',audio:'audio/gloria-patri.mp3'}
+  {title:'Gloria Patri',latin:'Gloria Patri, et Filio, et Spiritui Sancto. Sicut erat in principio, et nunc, et semper, et in saecula saeculorum. Amen.',english:'Glory be to the Father, and to the Son, and to the Holy Spirit. As it was in the beginning, is now, and ever shall be, world without end. Amen.',audio:'audio/gloria-patri.mp3'},
+  {title:'Pater Noster',latin:'Pater noster, qui es in caelis, sanctificetur nomen tuum. Adveniat regnum tuum. Fiat voluntas tua, sicut in caelo et in terra. Panem nostrum quotidianum da nobis hodie.',english:'Our Father, who art in heaven, hallowed be thy name. Thy kingdom come. Thy will be done, on earth as it is in heaven. Give us this day our daily bread.',audio:'audio/pater-noster.mp3'},
+  {title:'Ave Maria',latin:'Ave Maria, gratia plena, Dominus tecum. Benedicta tu in mulieribus, et benedictus fructus ventris tui, Iesus. Sancta Maria, Mater Dei, ora pro nobis peccatoribus, nunc et in hora mortis nostrae. Amen.',english:'Hail Mary, full of grace, the Lord is with thee. Blessed art thou among women, and blessed is the fruit of thy womb, Jesus. Holy Mary, Mother of God, pray for us sinners, now and at the hour of our death. Amen.',audio:'audio/ave-maria.mp3'},
+  {title:'Memorare',latin:'Memorare, O piissima Virgo Maria, non esse auditum a saeculo, quemquam ad tua currentem praesidia, tua implorantem auxilia, tua petentem suffragia, esse derelictum.',english:'Remember, O most gracious Virgin Mary, that never was it known that anyone who fled to thy protection, implored thy help, or sought thy intercession was left unaided.',audio:'audio/memorare.mp3'},
+  {title:'Angelus',latin:'V. Angelus Domini nuntiavit Mariae. R. Et concepit de Spiritu Sancto. Ave Maria... V. Ecce ancilla Domini. R. Fiat mihi secundum verbum tuum.',english:'V. The Angel of the Lord declared unto Mary. R. And she conceived of the Holy Spirit. Hail Mary... V. Behold the handmaid of the Lord. R. Be it done unto me according to thy word.',audio:'audio/angelus.mp3'},
+  {title:'Confiteor',latin:'Confiteor Deo omnipotenti, beatae Mariae semper Virgini, beato Michaeli Archangelo, beato Ioanni Baptistae, sanctis Apostolis Petro et Paulo, omnibus Sanctis, quia peccavi nimis cogitatione, verbo et opere: mea culpa, mea culpa, mea maxima culpa.',english:'I confess to almighty God, to blessed Mary ever Virgin, to blessed Michael the Archangel, to blessed John the Baptist, to the holy Apostles Peter and Paul, to all the Saints, that I have sinned exceedingly in thought, word, and deed: through my fault, through my fault, through my most grievous fault.',audio:'audio/confiteor.mp3'},
+  {title:'Apostles\u2019 Creed',latin:'Credo in Deum Patrem omnipotentem, Creatorem caeli et terrae, et in Iesum Christum, Filium eius unicum, Dominum nostrum, qui conceptus est de Spiritu Sancto, natus ex Maria Virgine.',english:'I believe in God, the Father almighty, Creator of heaven and earth, and in Jesus Christ, his only Son, our Lord, who was conceived by the Holy Spirit, born of the Virgin Mary.',audio:'audio/apostles-creed.mp3'},
+  {title:'Prayer to St. Michael',latin:'Sancte Michael Archangele, defende nos in proelio; contra nequitiam et insidias diaboli esto praesidium. Imperet illi Deus, supplices deprecamur.',english:'Saint Michael the Archangel, defend us in battle; be our protection against the wickedness and snares of the devil. May God rebuke him, we humbly pray.',audio:'audio/prayer-to-st-michael.mp3'},
+  {title:'Act of Contrition',latin:'Deus meus, ex toto corde poenitet me omnium meorum peccatorum, eaque detestor, quia peccando non solum poenas a te iuste statutas promeritus sum, sed praesertim quia offendi te, summum bonum.',english:'My God, I am sorry with all my heart for all my sins, and I detest them, because by sinning I have deserved not only the punishments justly established by you, but above all because I have offended you, the supreme good.',audio:'audio/act-of-contrition.mp3'},
+  {title:'Divine Mercy Chaplet',latin:'Pater Aeterne, offero tibi Corpus et Sanguinem, Animam et Divinitatem dilectissimi Filii tui, Domini nostri Iesu Christi, in propitiationem pro peccatis nostris et totius mundi.',english:'Eternal Father, I offer you the Body and Blood, Soul and Divinity of your dearly beloved Son, our Lord Jesus Christ, in atonement for our sins and those of the whole world.',audio:'audio/divine-mercy-chaplet.mp3'},
+  {title:'Come, Holy Spirit',latin:'Veni, Sancte Spiritus, reple tuorum corda fidelium, et tui amoris in eis ignem accende. Emitte Spiritum tuum et creabuntur. Et renovabis faciem terrae.',english:'Come, Holy Spirit, fill the hearts of your faithful, and kindle in them the fire of your love. Send forth your Spirit and they shall be created. And you shall renew the face of the earth.',audio:'audio/come-holy-spirit.mp3'},
+  {title:'The Suscipe',latin:'Suscipe, Domine, universam meam libertatem. Accipe memoriam, intellectum atque voluntatem omnem. Quidquid habeo vel possideo, mihi largitus es; id tibi totum restituo.',english:'Take, Lord, and receive all my liberty, my memory, my understanding, and my entire will. All that I have and possess you have given to me; I return it all to you.',audio:'audio/the-suscipe.mp3'},
+  {title:'Tantum Ergo',latin:'Tantum ergo Sacramentum veneremur cernui: et antiquum documentum novo cedat ritui: praestet fides supplementum sensuum defectui.',english:'Down in adoration falling, lo! the sacred Host we hail; lo! o\u2019er ancient forms departing newer rites of grace prevail; faith for all defects supplying where the feeble senses fail.',audio:'audio/tantum-ergo.mp3'},
+  {title:'O Salutaris Hostia',latin:'O salutaris Hostia, quae caeli pandis ostium: bella premunt hostilia, da robur, fer auxilium. Uni trinoque Domino sit sempiterna gloria.',english:'O saving Victim, opening wide the gate of heaven to us below! Our foes press on from every side; your aid supply, your strength bestow. To your great name be endless praise.',audio:'audio/o-salutaris-hostia.mp3'},
+  {title:'Stabat Mater',latin:'Stabat Mater dolorosa iuxta crucem lacrimosa, dum pendebat Filius. Cuius animam gementem, contristatam et dolentem pertransivit gladius.',english:'At the Cross her station keeping, stood the mournful Mother weeping, close to Jesus to the last. Through her heart, his sorrow sharing, all his bitter anguish bearing, now at length the sword has passed.',audio:'audio/stabat-mater.mp3'},
+  {title:'Te Deum',latin:'Te Deum laudamus: te Dominum confitemur. Te aeternum Patrem omnis terra veneratur. Tibi omnes Angeli, tibi Caeli et universae Potestates.',english:'We praise you, O God; we acknowledge you to be the Lord. All the earth worships you, the Father everlasting. To you all Angels, to you the Heavens and all the Powers.',audio:'audio/te-deum.mp3'},
+  {title:'Adoro Te Devote',latin:'Adoro te devote, latens Deitas, quae sub his figuris vere latitas: tibi se cor meum totum subiicit, quia te contemplans totum deficit.',english:'I devoutly adore you, O hidden Deity, truly hidden beneath these appearances. My whole heart submits to you, and in contemplating you, it wholly fails.',audio:'audio/adoro-te-devote.mp3'},
+  {title:'Alma Redemptoris Mater',latin:'Alma Redemptoris Mater, quae pervia caeli porta manes, et stella maris, succurre cadenti, surgere qui curat populo.',english:'Loving Mother of the Redeemer, who remains the accessible gate of heaven and star of the sea, assist your people who have fallen yet strive to rise again.',audio:'audio/alma-redemptoris-mater.mp3'},
+  {title:'Regina Caeli',latin:'Regina caeli, laetare, alleluia: quia quem meruisti portare, alleluia, resurrexit sicut dixit, alleluia. Ora pro nobis Deum, alleluia.',english:'Queen of Heaven, rejoice, alleluia: for he whom you merited to bear, alleluia, has risen as he said, alleluia. Pray for us to God, alleluia.',audio:'audio/regina-caeli.mp3'},
+  {title:'In Nomine Patris',latin:'In nomine Patris, et Filii, et Spiritus Sancti. Amen.',english:'In the name of the Father, and of the Son, and of the Holy Spirit. Amen.',audio:'audio/in-nomine-patris.mp3'},
+  {title:'Sanctus',latin:'Sanctus, Sanctus, Sanctus Dominus Deus Sabaoth. Pleni sunt caeli et terra gloria tua. Hosanna in excelsis.',english:'Holy, Holy, Holy Lord God of Hosts. Heaven and earth are full of your glory. Hosanna in the highest.',audio:'audio/sanctus-sanctus-sanctus.mp3'}
 ];
 var weekNum=Math.floor((Date.now()-new Date(2026,0,1))/(7*24*60*60*1000))%prayers.length;
 var pw=prayers[weekNum];
