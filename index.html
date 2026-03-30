@@ -1740,10 +1740,6 @@ body.light-mode .nav-links a:not(.nav-cta){color:#1A1408;border-bottom-color:rgb
 </section>
 
 <div class="divider"></div>
-
-
-
-<div class="divider"></div>
 <!-- PRAYER OF THE WEEK -->
 <section class="potw-section" id="prayer-week">
   <div class="section-label reveal">Pray in Latin</div>
@@ -2001,7 +1997,7 @@ function updateDailyPhrase(animate){
 function setDailyContent(shouldPlay){
   const p=dailyPhrases[dpIdx];
   document.getElementById('dpLatin').textContent=p.latin;
-  document.getElementById('dpPronunciation').textContent=p.pron;  if(shouldPlay && p.slug && p.slug.indexOf(''-'')!==-1) playLatin(p.slug);
+  document.getElementById('dpPronunciation').textContent=p.pron;  if(shouldPlay && p.slug && p.slug.indexOf('-')!==-1) playLatin(p.slug);
   document.getElementById('dpEnglish').textContent=p.english;
   document.getElementById('dpSource').textContent=p.source;
   document.getElementById('dpCounter').textContent='Phrase '+(dpIdx+1)+' of '+dailyPhrases.length;
@@ -2457,12 +2453,26 @@ function nextFloatWord(){
 
 <!-- LATIN AUDIO PLAYER -->
 <script>
-var latinAudio = null;
+/* Global audio manager — only one audio plays at a time */
+var _currentAudio = null;
+var _currentBtn = null;
+function stopAllAudio(){
+  if(_currentAudio && !_currentAudio.paused){
+    _currentAudio.pause();
+    _currentAudio.currentTime = 0;
+  }
+  if(_currentBtn){
+    _currentBtn.classList.remove('playing');
+    if(_currentBtn.dataset.resetHtml) _currentBtn.innerHTML = _currentBtn.dataset.resetHtml;
+  }
+  _currentAudio = null;
+  _currentBtn = null;
+}
 function playLatin(slug) {
-  if (latinAudio) { latinAudio.pause(); latinAudio.currentTime = 0; }
-  latinAudio = new Audio('audio/' + slug + '.mp3');
-  latinAudio.volume = 0.85;
-  latinAudio.play().catch(function(){});
+  stopAllAudio();
+  _currentAudio = new Audio('audio/' + slug + '.mp3');
+  _currentAudio.volume = 0.85;
+  _currentAudio.play().catch(function(){});
 }
 </script>
 <script>
@@ -2630,13 +2640,16 @@ function submitFeedback(e){
 </script>
 <script>
 /* HERO AUDIO */
-var heroAudio=null;
 function playHeroAudio(btn){
-  if(heroAudio&&!heroAudio.paused){heroAudio.pause();heroAudio.currentTime=0;btn.classList.remove('playing');btn.querySelector('span').innerHTML='Hear it: <em>In nomine Patris</em>';return}
-  heroAudio=new Audio('audio/in-nomine-patris.mp3');
+  var resetHtml='<svg viewBox="0 0 24 24"><polygon points="6,4 20,12 6,20"/></svg><span>Hear it: <em>In nomine Patris</em></span>';
+  if(_currentAudio&&!_currentAudio.paused&&_currentBtn===btn){stopAllAudio();btn.querySelector('span').innerHTML='Hear it: <em>In nomine Patris</em>';return}
+  stopAllAudio();
+  _currentAudio=new Audio('audio/in-nomine-patris.mp3');
+  _currentBtn=btn;
+  btn.dataset.resetHtml=btn.innerHTML;
   btn.classList.add('playing');btn.querySelector('span').innerHTML='Playing...';
-  heroAudio.play().catch(function(){});
-  heroAudio.onended=function(){btn.classList.remove('playing');btn.querySelector('span').innerHTML='Hear it: <em>In nomine Patris</em>'};
+  _currentAudio.play().catch(function(){});
+  _currentAudio.onended=function(){btn.classList.remove('playing');btn.querySelector('span').innerHTML='Hear it: <em>In nomine Patris</em>';_currentAudio=null;_currentBtn=null};
 }
 
 /* LATIN QUIZ */
@@ -2709,22 +2722,27 @@ var potwT=document.getElementById('potwTitle');
 var potwL=document.getElementById('potwLatin');
 var potwE=document.getElementById('potwEnglish');
 if(potwT){potwT.textContent=pw.title;potwL.textContent=pw.latin;potwE.textContent=pw.english}
-var potwAudio=null;
 function playPotwAudio(btn){
-  if(potwAudio&&!potwAudio.paused){potwAudio.pause();potwAudio.currentTime=0;btn.innerHTML='<svg viewBox="0 0 24 24"><polygon points="6,4 20,12 6,20"/></svg> Listen';return}
-  potwAudio=new Audio(pw.audio);btn.innerHTML='<svg viewBox="0 0 24 24"><polygon points="6,4 20,12 6,20"/></svg> Playing...';
-  potwAudio.play().catch(function(){});
-  potwAudio.onended=function(){btn.innerHTML='<svg viewBox="0 0 24 24"><polygon points="6,4 20,12 6,20"/></svg> Listen'};
+  var listenHtml='<svg viewBox="0 0 24 24"><polygon points="6,4 20,12 6,20"/></svg> Listen';
+  if(_currentAudio&&!_currentAudio.paused&&_currentBtn===btn){stopAllAudio();btn.innerHTML=listenHtml;return}
+  stopAllAudio();
+  _currentAudio=new Audio(pw.audio);_currentBtn=btn;
+  btn.dataset.resetHtml=listenHtml;
+  btn.innerHTML='<svg viewBox="0 0 24 24"><polygon points="6,4 20,12 6,20"/></svg> Playing...';
+  _currentAudio.play().catch(function(){});
+  _currentAudio.onended=function(){btn.innerHTML=listenHtml;_currentAudio=null;_currentBtn=null};
 }
 
 /* LATIN AT MASS AUDIO */
-var massAud=null;
 function playMassAudio(src,btn){
-  if(massAud&&!massAud.paused){massAud.pause();massAud.currentTime=0}
-  massAud=new Audio(src);
+  var listenHtml='<svg viewBox="0 0 24 24"><polygon points="6,4 20,12 6,20"/></svg> Listen';
+  if(_currentAudio&&!_currentAudio.paused&&_currentBtn===btn){stopAllAudio();btn.innerHTML=listenHtml;return}
+  stopAllAudio();
+  _currentAudio=new Audio(src);_currentBtn=btn;
+  btn.dataset.resetHtml=listenHtml;
   btn.innerHTML='<svg viewBox="0 0 24 24"><polygon points="6,4 20,12 6,20"/></svg> Playing...';
-  massAud.play().catch(function(){});
-  massAud.onended=function(){btn.innerHTML='<svg viewBox="0 0 24 24"><polygon points="6,4 20,12 6,20"/></svg> Listen'};
+  _currentAudio.play().catch(function(){});
+  _currentAudio.onended=function(){btn.innerHTML=listenHtml;_currentAudio=null;_currentBtn=null};
 }
 
 /* THEME TOGGLE */
