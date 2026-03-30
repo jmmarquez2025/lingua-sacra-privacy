@@ -51,7 +51,7 @@ nav.scrolled{background:rgba(8,13,28,0.94);backdrop-filter:blur(20px);-webkit-ba
 .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:6rem 2rem 4rem;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(ellipse at 50% 40%,rgba(26,50,96,0.35) 0%,transparent 60%),radial-gradient(ellipse at 30% 70%,rgba(139,32,48,0.08) 0%,transparent 50%);animation:heroGlow 12s ease-in-out infinite alternate}
 @keyframes heroGlow{0%{transform:translate(0,0) scale(1)}100%{transform:translate(2%,-3%) scale(1.05)}}
-.hero-cross{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);opacity:.04;pointer-events:none;font-size:320px;color:var(--gold)}
+.hero-cross{display:none}
 .hero-badge{display:inline-flex;align-items:center;gap:.5rem;padding:.4rem 1.2rem;border:1px solid var(--gold-dim);border-radius:100px;font-size:.85rem;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;margin-bottom:2rem;position:relative;z-index:2}
 .hero-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pulse 2s ease-in-out infinite}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.8)}}
