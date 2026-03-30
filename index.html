@@ -2295,8 +2295,7 @@ function nextFloatWord(){
   resize();
   window.addEventListener('resize', resize);
 
-  // Create particles — mix of tiny dots and small Latin glyphs
-  var glyphs = ['✝','✠','☩','†','✦','·','∙'];
+  // Create particles — tiny dots and small drawn crosses
   for(var i=0; i<55; i++){
     particles.push({
       x: Math.random()*1,
@@ -2305,8 +2304,8 @@ function nextFloatWord(){
       speedX: (Math.random()-0.5)*0.00018,
       speedY: (Math.random()-0.5)*0.00018 - 0.00006,
       opacity: Math.random()*0.35 + 0.05,
-      glyph: Math.random() > 0.82 ? glyphs[Math.floor(Math.random()*glyphs.length)] : null,
-      glyphSize: Math.random()*10 + 7,
+      isCross: Math.random() > 0.82,
+      crossSize: Math.random()*4 + 3,
       twinkle: Math.random()*Math.PI*2,
       twinkleSpeed: Math.random()*0.012 + 0.004
     });
@@ -2345,10 +2344,14 @@ function nextFloatWord(){
       var px = p.x * W, py = p.y * H;
       var alpha = p.opacity * twink;
 
-      if(p.glyph){
-        ctx.font = p.glyphSize + 'px serif';
-        ctx.fillStyle = 'rgba(212,168,67,' + alpha*0.5 + ')';
-        ctx.fillText(p.glyph, px, py);
+      if(p.isCross){
+        var cs = p.crossSize;
+        ctx.strokeStyle = 'rgba(212,168,67,' + alpha*0.5 + ')';
+        ctx.lineWidth = 0.8;
+        ctx.beginPath();
+        ctx.moveTo(px, py - cs); ctx.lineTo(px, py + cs);
+        ctx.moveTo(px - cs*0.7, py - cs*0.2); ctx.lineTo(px + cs*0.7, py - cs*0.2);
+        ctx.stroke();
       } else {
         ctx.beginPath();
         ctx.arc(px, py, p.size, 0, Math.PI*2);
