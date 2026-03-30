@@ -1,0 +1,8 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.linguasacra.app",
+    "sha256_cert_fingerprints": ["A2:01:76:ED:51:28:C4:FC:30:F4:37:64:65:19:0C:9E:72:D9:0B:3E:29:F7:65:C7:17:7C:EF:9D:89:0F:80:6A"]
+  }
+}]

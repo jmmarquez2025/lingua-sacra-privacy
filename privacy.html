@@ -4,90 +4,140 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Privacy Policy — Lingua Sacra</title>
+  <meta name="description" content="Privacy policy for Lingua Sacra, the Ecclesiastical Latin learning app. Offline-first with minimal data collection.">
+  <link rel="canonical" href="https://applinguasacra.com/privacy.html">
+  <meta property="og:title" content="Privacy Policy — Lingua Sacra">
+  <meta property="og:description" content="Privacy policy for Lingua Sacra. Offline-first with minimal data collection.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://applinguasacra.com/privacy.html">
+  <link rel="icon" href="./favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Cormorant+Garamond:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --ink: #1a1a2e;
-      --gold: #c9a84c;
-      --parchment: #f5f0e8;
-      --text: #2c2c2c;
+      --navy: #080D1C;
+      --navy-mid: #0E1E3E;
+      --gold: #D4A843;
+      --gold-light: #ECC060;
+      --gold-dim: rgba(212,168,67,0.4);
+      --parchment: #F0DDB8;
+      --stone: #8A7E6A;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: Georgia, 'Times New Roman', serif;
-      background: var(--parchment);
-      color: var(--text);
+      font-family: 'EB Garamond', Georgia, serif;
+      background: var(--navy);
+      color: var(--parchment);
       line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
     }
     .container {
-      max-width: 680px;
+      max-width: 720px;
       margin: 0 auto;
       padding: 48px 24px;
     }
+    nav {
+      padding: 1.2rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(212,168,67,0.1);
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: var(--gold);
+      letter-spacing: .08em;
+      text-decoration: none;
+    }
+    .nav-back {
+      font-size: .95rem;
+      color: var(--stone);
+      text-decoration: none;
+      transition: color .3s;
+    }
+    .nav-back:hover { color: var(--gold); }
     .header {
       text-align: center;
       margin-bottom: 40px;
       padding-bottom: 24px;
-      border-bottom: 2px solid var(--gold);
+      border-bottom: 1px solid rgba(212,168,67,0.15);
     }
     .header h1 {
-      font-size: 28px;
-      color: var(--ink);
-      letter-spacing: 2px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.4rem;
+      font-weight: 400;
+      color: var(--gold);
+      letter-spacing: .08em;
       margin-bottom: 8px;
     }
-    .header .app-name {
-      font-size: 14px;
-      color: var(--gold);
-      text-transform: uppercase;
-      letter-spacing: 4px;
-    }
     .header .effective {
-      font-size: 13px;
-      color: #888;
-      margin-top: 12px;
+      font-size: .9rem;
+      color: var(--stone);
+      margin-top: 8px;
     }
     .badge {
-      display: inline-block;
-      background: var(--ink);
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: rgba(212,168,67,0.08);
+      border: 1px solid rgba(212,168,67,0.2);
       color: var(--gold);
       padding: 6px 16px;
-      border-radius: 20px;
-      font-size: 13px;
+      border-radius: 100px;
+      font-size: .85rem;
       margin-top: 16px;
-      letter-spacing: 1px;
+      letter-spacing: .08em;
+    }
+    .badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #3DAF78;
+      box-shadow: 0 0 8px rgba(61,175,120,0.4);
     }
     h2 {
-      font-size: 20px;
-      color: var(--ink);
-      margin-top: 32px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--parchment);
+      margin-top: 36px;
       margin-bottom: 12px;
     }
     p {
       margin-bottom: 16px;
-      font-size: 16px;
+      font-size: 1.05rem;
+      color: var(--stone);
+      line-height: 1.7;
     }
-    strong { color: var(--ink); }
-    a { color: var(--gold); }
+    strong { color: var(--parchment); }
+    a { color: var(--gold); text-decoration: none; transition: opacity .3s; }
+    a:hover { opacity: .7; }
     ul {
       margin: 0 0 16px 24px;
-      font-size: 16px;
+      font-size: 1.05rem;
+      color: var(--stone);
     }
-    li { margin-bottom: 6px; }
+    li { margin-bottom: 8px; line-height: 1.7; }
     .footer {
       text-align: center;
       margin-top: 48px;
       padding-top: 24px;
-      border-top: 2px solid var(--gold);
-      font-size: 13px;
-      color: #888;
-      letter-spacing: 2px;
+      border-top: 1px solid rgba(212,168,67,0.08);
+      font-size: .9rem;
+      color: var(--stone);
     }
+    .footer a { color: var(--gold); }
   </style>
 </head>
 <body>
+<nav>
+  <a href="/" class="nav-logo">Lingua Sacra</a>
+  <a href="/" class="nav-back">&larr; Back to home</a>
+</nav>
 <div class="container">
   <div class="header">
-    <div class="app-name">Lingua Sacra</div>
     <h1>Privacy Policy</h1>
     <div class="effective">Effective Date: March 12, 2026</div>
     <div class="badge">Offline-First &middot; Minimal Data</div>
@@ -116,16 +166,20 @@
   <h2>Crash Reporting</h2>
   <p>Lingua Sacra uses <strong>Sentry</strong> for anonymous crash and error reporting in production builds. Sentry collects technical information about errors (such as stack traces, device model, and operating system version) to help us fix bugs. Sentry does <strong>not</strong> collect your name, email address, IP address, or any personally identifiable information.</p>
 
+  <h2>Analytics</h2>
+  <p>Lingua Sacra uses <strong>PostHog</strong> for anonymous product analytics in production builds. PostHog collects aggregated usage data (such as which screens are visited and which features are used) to help us improve the app. PostHog does <strong>not</strong> collect your name, email address, or any personally identifiable information. You can learn more at <a href="https://posthog.com/privacy">PostHog's Privacy Policy</a>.</p>
+
   <h2>Third-Party Services</h2>
   <p>Lingua Sacra uses the following third-party services:</p>
   <ul>
     <li><strong>Supabase</strong> (optional, only if you create an account) — authentication and data storage. <a href="https://supabase.com/privacy">Supabase Privacy Policy</a></li>
     <li><strong>Sentry</strong> (production builds only) — anonymous crash reporting. <a href="https://sentry.io/privacy/">Sentry Privacy Policy</a></li>
+    <li><strong>PostHog</strong> (production builds only) — anonymous product analytics. <a href="https://posthog.com/privacy">PostHog Privacy Policy</a></li>
   </ul>
-  <p>Lingua Sacra does not integrate any advertising, social media tracking, or analytics services.</p>
+  <p>Lingua Sacra does not integrate any advertising or social media tracking services.</p>
 
   <h2>Children's Privacy</h2>
-  <p>Lingua Sacra is suitable for users of all ages. The app does not knowingly collect personal information from children under 13. If a child creates an account, only an email address and optional display name are collected — the same minimal data collected from all users. Parents or guardians may contact us to request deletion of a child's account.</p>
+  <p>Lingua Sacra is suitable for users of all ages and is designed to work fully offline without any data collection. The app does not knowingly collect personal information from children under 13. Account creation is optional and requires only an email address and optional display name. If you believe a child under 13 has created an account without parental consent, please contact us at the address below and we will promptly delete the account and associated data.</p>
 
   <h2>Data Deletion</h2>
   <p>You may delete your account and all associated cloud data at any time from within the app. Local data stored on your device can be removed by uninstalling the app. To request data deletion by email, contact us at the address below.</p>
@@ -137,7 +191,7 @@
   <p>If you have questions about this privacy policy, you may contact us at: <a href="mailto:juan.macias.marquez@opeast.org">juan.macias.marquez@opeast.org</a></p>
 
   <div class="footer">
-    <p>Lingua Sacra — Learn the Language of the Church</p>
+    <p>Lingua Sacra &copy; 2026 &middot; <a href="privacy.html">Privacy</a> &middot; <a href="terms.html">Terms</a> &middot; <a href="/">Home</a></p>
   </div>
 </div>
 </body>
