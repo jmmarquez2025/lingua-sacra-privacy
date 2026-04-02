@@ -1,0 +1,124 @@
+name: Sync App Stats
+
+on:
+  schedule:
+    # Every 2 days at 6 AM UTC
+    - cron: '0 6 */2 * *'
+  workflow_dispatch: # Manual trigger from GitHub UI or `gh workflow run sync-stats`
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout website repo
+        uses: actions/checkout@v4
+
+      - name: Checkout app repo
+        uses: actions/checkout@v4
+        with:
+          repository: jmmarquez2025/lingua-sacra
+          path: app-source
+          sparse-checkout: |
+            src/data/lessons-raw.json
+            src/data/audioRequireMap.ts
+            src/screens
+          sparse-checkout-cone-mode: false
+
+      - name: Extract stats from app
+        id: stats
+        run: |
+          # Lesson count
+          LESSONS=$(jq 'length' app-source/src/data/lessons-raw.json)
+          echo "lessons=$LESSONS" >> "$GITHUB_OUTPUT"
+
+          # Unique vocabulary words (count all vocab entries across lessons)
+          VOCAB=$(jq '[.[].vocab // [] | length] | add // 0' app-source/src/data/lessons-raw.json)
+          echo "vocab=$VOCAB" >> "$GITHUB_OUTPUT"
+
+          # Screen count (number of screen files)
+          SCREENS=$(find app-source/src/screens -name '*Screen.tsx' -o -name '*Screen.ts' | wc -l | tr -d ' ')
+          echo "screens=$SCREENS" >> "$GITHUB_OUTPUT"
+
+          # Audio count (count require() lines in audioRequireMap.ts)
+          AUDIO=$(grep -c "require(" app-source/src/data/audioRequireMap.ts || echo "0")
+          echo "audio=$AUDIO" >> "$GITHUB_OUTPUT"
+
+          # Rounded vocab for marketing text (nearest 10, with +)
+          VOCAB_ROUND=$(( (VOCAB / 10) * 10 ))
+          echo "vocab_round=${VOCAB_ROUND}+" >> "$GITHUB_OUTPUT"
+
+          # Rounded screens for marketing text
+          SCREENS_ROUND=$(( (SCREENS / 10) * 10 ))
+          echo "screens_round=${SCREENS_ROUND}+" >> "$GITHUB_OUTPUT"
+
+          echo "::notice::Stats: $LESSONS lessons, $VOCAB vocab, $SCREENS screens, $AUDIO audio"
+
+      - name: Update index.html
+        env:
+          LESSONS: ${{ steps.stats.outputs.lessons }}
+          VOCAB: ${{ steps.stats.outputs.vocab }}
+          VOCAB_ROUND: ${{ steps.stats.outputs.vocab_round }}
+          SCREENS: ${{ steps.stats.outputs.screens }}
+          SCREENS_ROUND: ${{ steps.stats.outputs.screens_round }}
+          AUDIO: ${{ steps.stats.outputs.audio }}
+        run: |
+          FILE="index.html"
+
+          # Update data-count attributes (the animated counter targets)
+          # Match by the stat-label text on the next line to target the right counter
+
+          # Vocabulary Words counter
+          sed -i -E "s/(data-count=\")[0-9]+(\".*Vocabulary Words)/\1${VOCAB}\2/" "$FILE"
+
+          # Structured Lessons counter
+          sed -i -E "s/(data-count=\")[0-9]+(\".*Structured Lessons)/\1${LESSONS}\2/" "$FILE"
+
+          # Learning Screens counter
+          sed -i -E "s/(data-count=\")[0-9]+(\".*Learning Screens)/\1${SCREENS}\2/" "$FILE"
+
+          # Audio Recordings counter
+          sed -i -E "s/(data-count=\")[0-9]+(\".*Audio Recordings)/\1${AUDIO}\2/" "$FILE"
+
+          # Update meta description
+          sed -i -E "s/[0-9]+ lessons/${LESSONS} lessons/g" "$FILE"
+          sed -i -E "s/[0-9]+\+ words/${VOCAB_ROUND} words/g" "$FILE"
+          sed -i -E "s/[0-9]+\+ (learning )?tools/${SCREENS_ROUND} \1tools/g" "$FILE"
+
+          # Update body text references
+          sed -i -E "s/Over [0-9]+ vocabulary words/Over ${VOCAB_ROUND} vocabulary words/g" "$FILE"
+
+          # Update sitemap lastmod to today
+          TODAY=$(date +%Y-%m-%d)
+          sed -i -E "s/<lastmod>[0-9]{4}-[0-9]{2}-[0-9]{2}</<lastmod>${TODAY}</" sitemap.xml
+
+          echo "Updated: $LESSONS lessons, $VOCAB vocab, $SCREENS screens, $AUDIO audio"
+
+      - name: Check for changes
+        id: diff
+        run: |
+          if git diff --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::No stat changes detected — skipping commit"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            git diff --stat
+          fi
+
+      - name: Commit and push
+        if: steps.diff.outputs.changed == 'true'
+        env:
+          LESSONS: ${{ steps.stats.outputs.lessons }}
+          VOCAB: ${{ steps.stats.outputs.vocab }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "chore: sync app stats ($VOCAB words, $LESSONS lessons)"
+          git push
+
+      - name: Cleanup
+        if: always()
+        run: rm -rf app-source
