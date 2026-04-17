@@ -2543,9 +2543,10 @@ function flipTryCard(card) {
       } else if(isAndroid){
         btn.textContent = 'Get it on Google Play';
         btn.setAttribute('data-store','android');
+        if(btn.tagName==='BUTTON'){btn.onclick=function(){window.location.href='https://play.google.com/store/apps/details?id=com.linguasacra.app'}}
       } else {
-        // Desktop: link to App Store
-        if(btn.tagName==='BUTTON'){btn.onclick=function(){window.location.href='https://apps.apple.com/us/app/lingua-sacra/id6760307277'}}
+        // Desktop: scroll to download section where both store buttons are shown
+        if(btn.tagName==='BUTTON'){btn.onclick=function(){document.getElementById('download').scrollIntoView({behavior:'smooth'})}}
       }
     }
   });
