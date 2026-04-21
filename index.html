@@ -514,6 +514,11 @@ footer a:hover{opacity:.7}
 .feedback-card{background:linear-gradient(135deg,rgba(14,30,62,0.4),rgba(8,13,28,0.6));border:1px solid rgba(212,168,67,0.12);border-radius:20px;padding:2.5rem 2rem;position:relative;overflow:hidden}
 .feedback-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
 .feedback-card p{color:var(--stone);font-size:1rem;margin-bottom:1.5rem;line-height:1.6}
+.fb-contact{font-size:.95rem;padding:.9rem 1rem;background:rgba(212,168,67,0.06);border:1px solid rgba(212,168,67,0.18);border-radius:10px;color:var(--parchment) !important;margin-bottom:1.75rem !important}
+.fb-contact a{color:var(--gold);font-weight:600;text-decoration:none;border-bottom:1px solid rgba(212,168,67,0.4)}
+.fb-contact a:hover{border-bottom-color:var(--gold)}
+body.light-mode .fb-contact{background:rgba(139,106,24,0.08);border-color:rgba(139,106,24,0.25);color:#1A1408 !important}
+body.light-mode .fb-contact a{color:#8B6A18;border-bottom-color:rgba(139,106,24,0.4)}
 .feedback-card iframe{border-radius:12px;width:100%;border:none}
 .feedback-btn{display:inline-flex;align-items:center;gap:.5rem;background:rgba(212,168,67,0.08);border:1.5px solid rgba(212,168,67,0.2);color:var(--gold);padding:.8rem 1.8rem;border-radius:10px;font-family:'EB Garamond',serif;font-size:1.05rem;font-weight:600;cursor:pointer;transition:all .3s;text-decoration:none}
 .feedback-btn:hover{background:rgba(212,168,67,0.15);border-color:var(--gold);transform:translateY(-2px)}
@@ -1830,6 +1835,7 @@ body.light-mode .nav-links a:not(.nav-cta){color:#1A1408;border-bottom-color:rgb
   <div class="feedback-layout">
     <div class="feedback-card reveal reveal-delay-2">
       <p>Your feedback shapes the future of the app. Whether it&rsquo;s a feature request, a bug report, or just telling us what you love &mdash; we read every response.</p>
+      <p class="fb-contact">Prefer email? Write to us directly at <a href="mailto:applinguasacra@gmail.com?subject=Lingua%20Sacra%20Support">applinguasacra@gmail.com</a>. We reply within 1&ndash;3 days.</p>
       <div id="fbFormWrap">
       <form class="fb-form" id="fbForm" onsubmit="submitFeedback(event)">
         <div class="fb-group">
@@ -1908,7 +1914,7 @@ body.light-mode .nav-links a:not(.nav-cta){color:#1A1408;border-bottom-color:rgb
 <!-- FOOTER -->
 </main>
 <footer>
-  <p>Lingua Sacra &copy; 2026 &middot; <a href="blog/">Blog</a> &middot; <a href="privacy.html">Privacy Policy</a> &middot; <a href="terms.html">Terms of Service</a> &middot; <a href="#feedback">Feedback</a></p>
+  <p>Lingua Sacra &copy; 2026 &middot; <a href="blog/">Blog</a> &middot; <a href="privacy.html">Privacy Policy</a> &middot; <a href="terms.html">Terms of Service</a> &middot; <a href="#feedback">Feedback</a> &middot; <a href="mailto:applinguasacra@gmail.com">Contact</a></p>
   <p style="margin-top:.5rem;font-style:italic;opacity:.5;font-size:.85rem">Disce Latinam. Ad maiorem Dei gloriam.</p>
 </footer>
 
