@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Returning to Lingua Sacra…</title>
+  <meta name="robots" content="noindex,nofollow">
+  <style>
+    :root { color-scheme: light dark; }
+    html, body { margin: 0; padding: 0; height: 100%; font-family: 'EB Garamond', Georgia, serif; }
+    body {
+      display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(180deg, #0E1E3E 0%, #080D1C 100%);
+      color: #F0DDB8;
+      text-align: center;
+    }
+    .card {
+      max-width: 420px; padding: 2.5rem 2rem;
+      background: rgba(14, 30, 62, 0.4);
+      border: 1px solid rgba(212, 168, 67, 0.2);
+      border-radius: 14px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+    }
+    h1 { color: #D4A843; font-weight: 700; font-size: 1.4rem; margin: 0 0 0.5rem; letter-spacing: 0.5px; }
+    p { color: #D4BF98; font-size: 1rem; line-height: 1.5; margin: 0.5rem 0; }
+    a.btn {
+      display: inline-block; margin-top: 1.5rem; padding: 0.75rem 1.5rem;
+      background: #D4A843; color: #080D1C;
+      border-radius: 8px; text-decoration: none; font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+    .note { font-size: 0.85rem; color: rgba(240,221,184,0.55); margin-top: 1.25rem; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Returning to Lingua Sacra</h1>
+    <p id="status">Completing your sign-in…</p>
+    <a id="openBtn" class="btn" href="#" style="display:none">Open Lingua Sacra</a>
+    <p class="note" id="manualNote" style="display:none">
+      If nothing happens, tap the button above. If you don't have the app
+      installed, get it from your store.
+    </p>
+  </div>
+  <script>
+    // Android App Links with autoVerify=true should intercept this URL and
+    // launch the app directly — this page usually never loads. If it does
+    // load (App Links verification failed, user opened the link on desktop,
+    // or app isn't installed), bounce to the custom scheme as a fallback.
+    (function () {
+      var search = window.location.search || '';
+      var hash   = window.location.hash   || '';
+      var appUrl = 'linguasacra://auth-callback' + search + hash;
+
+      // Try the custom scheme immediately.
+      window.location.replace(appUrl);
+
+      // After a short delay, show a manual button in case the bounce failed.
+      setTimeout(function () {
+        document.getElementById('status').textContent =
+          "If the app didn't open automatically, tap the button below.";
+        var btn = document.getElementById('openBtn');
+        btn.href = appUrl;
+        btn.style.display = 'inline-block';
+        document.getElementById('manualNote').style.display = 'block';
+      }, 1500);
+    })();
+  </script>
+</body>
+</html>
