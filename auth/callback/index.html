@@ -24,10 +24,14 @@
     h1 { color: #D4A843; font-weight: 700; font-size: 1.4rem; margin: 0 0 0.5rem; letter-spacing: 0.5px; }
     p { color: #D4BF98; font-size: 1rem; line-height: 1.5; margin: 0.5rem 0; }
     a.btn {
-      display: inline-block; margin-top: 1.5rem; padding: 0.75rem 1.5rem;
+      display: inline-block; margin-top: 1rem; padding: 0.75rem 1.5rem;
       background: #D4A843; color: #080D1C;
       border-radius: 8px; text-decoration: none; font-weight: 700;
       letter-spacing: 0.5px;
+    }
+    a.btn-secondary {
+      background: transparent; color: #D4A843;
+      border: 1px solid rgba(212, 168, 67, 0.3);
     }
     .note { font-size: 0.85rem; color: rgba(240,221,184,0.55); margin-top: 1.25rem; }
   </style>
@@ -36,32 +40,47 @@
   <div class="card">
     <h1>Returning to Lingua Sacra</h1>
     <p id="status">Completing your sign-in…</p>
-    <a id="openBtn" class="btn" href="#" style="display:none">Open Lingua Sacra</a>
+    <a id="openBtn" class="btn" href="#" style="display:none">Open the app</a>
+    <a id="webBtn" class="btn btn-secondary" href="#" style="display:none">Continue on the web</a>
     <p class="note" id="manualNote" style="display:none">
-      If nothing happens, tap the button above. If you don't have the app
-      installed, get it from your store.
+      If nothing happens automatically, use a button above.
     </p>
   </div>
   <script>
-    // Android App Links with autoVerify=true should intercept this URL and
-    // launch the app directly — this page usually never loads. If it does
-    // load (App Links verification failed, user opened the link on desktop,
-    // or app isn't installed), bounce to the custom scheme as a fallback.
+    // This page handles three cases:
+    //  1. Desktop browser — redirect straight to the web app's callback,
+    //     preserving the OAuth hash fragment so supabase-js can consume it.
+    //  2. iOS/Android with the app installed — App Links / Universal Links
+    //     should intercept before this page even loads. If they didn't, we
+    //     bounce to the custom linguasacra:// scheme as a fallback.
+    //  3. Mobile without the app — the linguasacra:// bounce will no-op;
+    //     we offer both a "Continue on the web" button and a manual retry.
     (function () {
       var search = window.location.search || '';
       var hash   = window.location.hash   || '';
+      var ua = navigator.userAgent || '';
+      var isMobile = /iPhone|iPad|iPod|Android/.test(ua);
+      var webUrl = 'https://app.applinguasacra.com/auth/callback' + search + hash;
       var appUrl = 'linguasacra://auth-callback' + search + hash;
 
-      // Try the custom scheme immediately.
+      if (!isMobile) {
+        // Desktop: redirect straight to the web app.
+        window.location.replace(webUrl);
+        return;
+      }
+
+      // Mobile: try the native scheme first.
       window.location.replace(appUrl);
 
-      // After a short delay, show a manual button in case the bounce failed.
       setTimeout(function () {
         document.getElementById('status').textContent =
-          "If the app didn't open automatically, tap the button below.";
+          "Didn't open automatically? Choose where to continue:";
         var btn = document.getElementById('openBtn');
         btn.href = appUrl;
         btn.style.display = 'inline-block';
+        var web = document.getElementById('webBtn');
+        web.href = webUrl;
+        web.style.display = 'inline-block';
         document.getElementById('manualNote').style.display = 'block';
       }, 1500);
     })();

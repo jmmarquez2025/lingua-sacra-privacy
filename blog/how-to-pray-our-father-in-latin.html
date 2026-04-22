@@ -42,7 +42,11 @@ article .word-table td:nth-child(2){font-style:italic;color:var(--stone);font-si
 .cta-box{background:linear-gradient(135deg,rgba(14,30,62,0.6),rgba(8,13,28,0.8));border:1px solid rgba(212,168,67,0.15);border-radius:12px;padding:2rem;text-align:center;margin:2.5rem 0}
 .cta-box h3{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--gold);margin-bottom:.5rem}
 .cta-box p{color:var(--stone);font-size:.95rem;margin-bottom:1rem}
-.cta-box a.btn{display:inline-block;background:var(--gold);color:var(--ink);font-weight:700;padding:.7rem 1.5rem;border-radius:8px;font-size:.95rem}
+.cta-box .cta-buttons{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap}
+.cta-box a.btn{display:inline-block;background:var(--gold);color:var(--ink);font-weight:700;padding:.7rem 1.5rem;border-radius:8px;font-size:.95rem;transition:transform .2s,box-shadow .3s;text-decoration:none}
+.cta-box a.btn:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(212,168,67,0.3)}
+.cta-box a.btn-outline{background:transparent;color:var(--gold);border:1.5px solid rgba(212,168,67,0.4)}
+.cta-box a.btn-outline:hover{border-color:var(--gold);background:rgba(212,168,67,0.06)}
 .article-footer{max-width:660px;margin:0 auto;padding:2rem;text-align:center;border-top:1px solid rgba(212,168,67,0.08);color:var(--stone);font-size:.85rem}
 </style>
 </head>
@@ -104,9 +108,12 @@ article .word-table td:nth-child(2){font-style:italic;color:var(--stone);font-si
   <p>Don't worry about mastering all the grammar right away. The most important thing is to begin praying the words and letting their meaning sink in over time.</p>
 
   <div class="cta-box">
-    <h3>Learn the Pater Noster word by word</h3>
-    <p>Lingua Sacra teaches this prayer and 24 others with interactive flashcards, audio pronunciation, and grammar annotations.</p>
-    <a href="/" class="btn">Learn more about the app</a>
+    <h3>Pray the Pater Noster in Latin, word by word</h3>
+    <p>Lingua Sacra teaches this prayer with line-by-line audio, grammar annotations, and spaced-repetition vocabulary. The Pater Noster is free on every device &mdash; no install needed to try.</p>
+    <div class="cta-buttons">
+      <a href="https://app.applinguasacra.com/prayers" class="btn">Pray along in your browser</a>
+      <a href="/#download" class="btn btn-outline">Get the app</a>
+    </div>
   </div>
 </article>
 <footer class="article-footer">

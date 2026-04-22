@@ -41,7 +41,11 @@ article .rule-box strong{color:var(--gold)}
 .cta-box{background:linear-gradient(135deg,rgba(14,30,62,0.6),rgba(8,13,28,0.8));border:1px solid rgba(212,168,67,0.15);border-radius:12px;padding:2rem;text-align:center;margin:2.5rem 0}
 .cta-box h3{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--gold);margin-bottom:.5rem}
 .cta-box p{color:var(--stone);font-size:.95rem;margin-bottom:1rem}
-.cta-box a.btn{display:inline-block;background:var(--gold);color:var(--ink);font-weight:700;padding:.7rem 1.5rem;border-radius:8px;font-size:.95rem}
+.cta-box .cta-buttons{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap}
+.cta-box a.btn{display:inline-block;background:var(--gold);color:var(--ink);font-weight:700;padding:.7rem 1.5rem;border-radius:8px;font-size:.95rem;transition:transform .2s,box-shadow .3s;text-decoration:none}
+.cta-box a.btn:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(212,168,67,0.3)}
+.cta-box a.btn-outline{background:transparent;color:var(--gold);border:1.5px solid rgba(212,168,67,0.4)}
+.cta-box a.btn-outline:hover{border-color:var(--gold);background:rgba(212,168,67,0.06)}
 .article-footer{max-width:660px;margin:0 auto;padding:2rem;text-align:center;border-top:1px solid rgba(212,168,67,0.08);color:var(--stone);font-size:.85rem}
 </style>
 </head>
@@ -94,9 +98,12 @@ article .rule-box strong{color:var(--gold)}
   <p>Absolutely. The grammar and vocabulary are identical. Once you've learned Latin with one pronunciation, switching to the other is a matter of adjusting a handful of sound rules. Start with the one that serves your primary goal, and you can always expand later.</p>
 
   <div class="cta-box">
-    <h3>Learn Latin with Ecclesiastical pronunciation</h3>
-    <p>Every word in Lingua Sacra features authentic Church Latin audio &mdash; the pronunciation used in the Vatican and in Catholic worship worldwide.</p>
-    <a href="/" class="btn">Explore the app</a>
+    <h3>Hear Ecclesiastical Latin in your browser</h3>
+    <p>Every word in Lingua Sacra has authentic Church Latin audio &mdash; the pronunciation used in the Vatican and in Catholic worship worldwide. Start the first five lessons free, no install required.</p>
+    <div class="cta-buttons">
+      <a href="https://app.applinguasacra.com" class="btn">Try free in your browser</a>
+      <a href="/#download" class="btn btn-outline">Get the app</a>
+    </div>
   </div>
 </article>
 <footer class="article-footer">
