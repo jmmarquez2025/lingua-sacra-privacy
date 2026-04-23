@@ -1058,6 +1058,12 @@ body.light-mode .nav-links a:not(.nav-cta){color:#1A1408;border-bottom-color:rgb
   }
 }
 </script>
+<!-- Analytics. Fill data-posthog-key with the PostHog project key at deploy time;
+     the snippet is a no-op when the key is empty or on localhost. -->
+<script src="/assets/analytics.js"
+        data-posthog-key=""
+        data-posthog-host="https://us.i.posthog.com"
+        defer></script>
 </head>
 <body>
 <div id="scrollProgress"></div>
@@ -1210,13 +1216,13 @@ body.light-mode .nav-links a:not(.nav-cta){color:#1A1408;border-bottom-color:rgb
       <div class="scroll-phone-frame">
         <div class="scroll-phone-notch"></div>
         <div class="scroll-phone-screen" id="scrollPhoneScreen">
-          <img src="img/01_lessons_6.7inch.png" alt="Lessons" class="sps-active" data-idx="0">
-          <img src="img/02_flashcards_6.7inch.png" alt="Flashcards" data-idx="1">
-          <img src="img/03_practice_6.7inch.png" alt="Practice" data-idx="2">
-          <img src="img/04_library_6.7inch.png" alt="Library" data-idx="3">
-          <img src="img/05_prayer_library_6.7inch.png" alt="Prayer Library" data-idx="4">
-          <img src="img/06_prayer_detail_6.7inch.png" alt="Prayer Detail" data-idx="5">
-          <img src="img/07_profile_6.7inch.png" alt="Profile" data-idx="6">
+          <img src="img/01_lessons_6.7inch.webp" alt="Lessons" class="sps-active" data-idx="0">
+          <img src="img/02_flashcards_6.7inch.webp" alt="Flashcards" data-idx="1">
+          <img src="img/03_practice_6.7inch.webp" alt="Practice" data-idx="2">
+          <img src="img/04_library_6.7inch.webp" alt="Library" data-idx="3">
+          <img src="img/05_prayer_library_6.7inch.webp" alt="Prayer Library" data-idx="4">
+          <img src="img/06_prayer_detail_6.7inch.webp" alt="Prayer Detail" data-idx="5">
+          <img src="img/07_profile_6.7inch.webp" alt="Profile" data-idx="6">
         </div>
         <div class="scroll-phone-bar"></div>
       </div>
@@ -1275,7 +1281,7 @@ body.light-mode .nav-links a:not(.nav-cta){color:#1A1408;border-bottom-color:rgb
       <div class="iphone-frame">
         <div class="iphone-notch"></div>
         <div class="iphone-screen">
-          <img src="img/final_01_lessons_home.png" alt="Structured Lessons" loading="lazy">
+          <img src="img/final_01_lessons_home.webp" alt="Structured Lessons" loading="lazy">
         </div>
         <div class="iphone-home-bar"></div>
       </div>
@@ -1284,7 +1290,7 @@ body.light-mode .nav-links a:not(.nav-cta){color:#1A1408;border-bottom-color:rgb
       <div class="iphone-frame">
         <div class="iphone-notch"></div>
         <div class="iphone-screen">
-          <img src="img/final_02_practice.png" alt="Practice Hub" loading="lazy">
+          <img src="img/final_02_practice.webp" alt="Practice Hub" loading="lazy">
         </div>
         <div class="iphone-home-bar"></div>
       </div>
@@ -1293,7 +1299,7 @@ body.light-mode .nav-links a:not(.nav-cta){color:#1A1408;border-bottom-color:rgb
       <div class="iphone-frame">
         <div class="iphone-notch"></div>
         <div class="iphone-screen">
-          <img src="img/final_03_library.png" alt="Library" loading="lazy">
+          <img src="img/final_03_library.webp" alt="Library" loading="lazy">
         </div>
         <div class="iphone-home-bar"></div>
       </div>
@@ -1302,7 +1308,7 @@ body.light-mode .nav-links a:not(.nav-cta){color:#1A1408;border-bottom-color:rgb
       <div class="iphone-frame">
         <div class="iphone-notch"></div>
         <div class="iphone-screen">
-          <img src="img/final_04_profile.png" alt="Profile & Stats" loading="lazy">
+          <img src="img/final_04_profile.webp" alt="Profile & Stats" loading="lazy">
         </div>
         <div class="iphone-home-bar"></div>
       </div>
@@ -1311,7 +1317,7 @@ body.light-mode .nav-links a:not(.nav-cta){color:#1A1408;border-bottom-color:rgb
       <div class="iphone-frame">
         <div class="iphone-notch"></div>
         <div class="iphone-screen">
-          <img src="img/final_05_flashcard.png" alt="Flashcard" loading="lazy">
+          <img src="img/final_05_flashcard.webp" alt="Flashcard" loading="lazy">
         </div>
         <div class="iphone-home-bar"></div>
       </div>
@@ -1320,7 +1326,7 @@ body.light-mode .nav-links a:not(.nav-cta){color:#1A1408;border-bottom-color:rgb
       <div class="iphone-frame">
         <div class="iphone-notch"></div>
         <div class="iphone-screen">
-          <img src="img/final_06_prayer_grammar.png" alt="Ave Maria Grammar" loading="lazy">
+          <img src="img/final_06_prayer_grammar.webp" alt="Ave Maria Grammar" loading="lazy">
         </div>
         <div class="iphone-home-bar"></div>
       </div>
@@ -1329,7 +1335,7 @@ body.light-mode .nav-links a:not(.nav-cta){color:#1A1408;border-bottom-color:rgb
       <div class="iphone-frame">
         <div class="iphone-notch"></div>
         <div class="iphone-screen">
-          <img src="img/final_07_vulgate_reader.png" alt="Vulgate Reader" loading="lazy">
+          <img src="img/final_07_vulgate_reader.webp" alt="Vulgate Reader" loading="lazy">
         </div>
         <div class="iphone-home-bar"></div>
       </div>
@@ -1338,7 +1344,7 @@ body.light-mode .nav-links a:not(.nav-cta){color:#1A1408;border-bottom-color:rgb
       <div class="iphone-frame">
         <div class="iphone-notch"></div>
         <div class="iphone-screen">
-          <img src="img/final_08_settings.png" alt="Settings" loading="lazy">
+          <img src="img/final_08_settings.webp" alt="Settings" loading="lazy">
         </div>
         <div class="iphone-home-bar"></div>
       </div>
@@ -1347,7 +1353,7 @@ body.light-mode .nav-links a:not(.nav-cta){color:#1A1408;border-bottom-color:rgb
       <div class="iphone-frame">
         <div class="iphone-notch"></div>
         <div class="iphone-screen">
-          <img src="img/final_09_vocab_bank.png" alt="Vocab Bank" loading="lazy">
+          <img src="img/final_09_vocab_bank.webp" alt="Vocab Bank" loading="lazy">
         </div>
         <div class="iphone-home-bar"></div>
       </div>
@@ -1356,7 +1362,7 @@ body.light-mode .nav-links a:not(.nav-cta){color:#1A1408;border-bottom-color:rgb
       <div class="iphone-frame">
         <div class="iphone-notch"></div>
         <div class="iphone-screen">
-          <img src="img/final_10_pater_noster.png" alt="Pater Noster Grammar" loading="lazy">
+          <img src="img/final_10_pater_noster.webp" alt="Pater Noster Grammar" loading="lazy">
         </div>
         <div class="iphone-home-bar"></div>
       </div>
