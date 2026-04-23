@@ -6,5 +6,9 @@
   ],
   "webAlwaysCurrent": true,
   "pronunciation": "ecclesiastical",
-  "freeToUse": true
+  "freeToUse": true,
+  "taglines": {
+    "sync": "Progress syncs across every device you sign in on.",
+    "offline": "Works offline on iOS & Android · Always current on the web"
+  }
 }
